@@ -1,0 +1,10 @@
+Stud.IP - Mobile
+
+A plugin which serves as a mobile view for the Stud.IP-LMS.
+
+Install Notes:
+- for Dropbox use
+	- PHP Pear HTTP:OAuth should be installed
+	- PHP Pear Dropbox shoud be installed
+
+

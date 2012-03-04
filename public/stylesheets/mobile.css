@@ -1,0 +1,263 @@
+/* 
+    Document   : mobile.css
+    Created on : 26.09.2011, 11:32:38
+    Author     : nbussman
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* CSS Document */
+
+html  {
+      overflow: hidden;
+}
+
+img.icon {
+  width: 55px;
+  height: 55px;
+}
+
+.grid { 
+  height: 80px;
+  text-align: center;
+  text-shadow: 1px 1px 1px #28436B;
+}
+
+.grid a {
+  text-decoration: none;
+}
+
+.scndrow {
+  margin-top: 40px;
+}
+
+.notification {
+  display:inline-block;
+  font-size:14px;
+  font-weight:bold;
+  font-family:Helvetica, Verdana, Geneva, sans-serif;
+  height:18px;
+  background:#F00;
+  color:#FFF;
+  border-radius:16px;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  border:solid 3px #FFF;
+  line-height:18px;
+  text-align:center;
+  padding:0 5px;
+  background-clip: padding-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  -moz-box-shadow: 0px 2px 2px #666;
+  -webkit-box-shadow: 0px 2px 2px #666;
+  box-shadow: 0px 2px 2px #666;
+  position: absolute;
+  top: 67px;
+  right: 16px;
+}
+
+.bookmark {
+  display: none;
+  background-color:#EDEDED;
+  border:2px solid #666666;
+  font-size:25px;
+  margin:0px 20px;
+  padding:10px;
+  position: absolute;
+  bottom: 70px;
+  text-align:center;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  -moz-box-shadow:0 0 5px #888888;
+  -webkit-box-shadow:0 0 5px #888888;
+  z-index: 999;
+}
+.chat-bubble-arrow-border {
+  border-color: #666666 transparent transparent transparent;
+  border-style: solid;
+  border-width: 26px;
+  height:0;
+  width:0;
+  position:absolute;
+  bottom:-52px;
+  left: 50%;
+  margin-left: -26px;
+}
+.chat-bubble-arrow {
+  border-color: #EDEDED transparent transparent transparent;
+  border-style: solid;
+  border-width: 22px;
+  height:0;
+  width:0;
+  position:absolute;
+  bottom:-44px;
+  left: 50%;
+  margin-left: -22px;
+}
+
+.ticker {
+  width: 94%;
+  height: 160px;
+  background: url("../images/quickdial/ticker-bg.png");
+  margin: 30px 10px 10px;  
+  border: 1px solid #3D69AA;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+  bottom: 5px;
+}
+
+.tickerhead {    
+  color: #ffffff;  
+  padding: 5px 10px;
+  background: url("../images/quickdial/ticker-bg.png");
+  border-bottom: 1px solid #26477A; 
+  text-align: center;
+  text-shadow: none;
+}
+
+.tickerhead img {
+  width: 11px;
+  height: 11px;
+}
+
+.tickercontent {
+  color: #ffffff;
+  padding: 10px;
+  line-height: 30px;
+  text-align: center; 
+  text-shadow: none;
+}
+
+.ticker-r2 {
+  left: 600px;
+}
+
+.ticker-r1 {
+  left: 300px;
+}
+
+.ticker-l1 {
+  left: -300px;
+}
+
+/* ######## Profil ######## */
+
+img.contact {
+  width: 150px;
+}
+
+/* ######## Veranstaltungen ######## */
+
+.veranstaltungsinfo {
+  margin: 10px -15px 0px;
+  padding: 5px 10px;
+	-moz-box-shadow: 0px 0px 6px #cccccc inset;
+	-webkit-box-shadow: 0px 0px 6px #cccccc inset;
+	box-shadow: 0px 0px 6px #cccccc inset;
+	text-align: left;
+	border-radius: 0 0 0.5em 0.5em;
+	-moz-border-radius: 0 0 0.5em 0.5em;
+	-webkit-border-radius: 0 0 0.5em 0.5em;
+}
+
+.block {
+  text-align: left;
+}
+
+.seminar-head {
+  white-space: normal;
+  text-align: left;
+  margin: 0px -15px;
+}
+
+.seminar-icon {
+  width: 15px;
+  height: 15px;
+  float: left;
+  padding-right: 5px;
+  margin-top: 1px;
+}
+
+.seminar-icon img {
+  width: 15px;
+  height: 15px;
+}
+
+.person { 
+  white-space: normal;
+  font-weight: normal;
+  text-align: left;
+}
+
+
+.ui-icon-studip-activities {
+    background-image: url('../../../../../assets/images/icons/32/lightblue/billboard.png');
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+    top: 0;
+
+}
+
+.ui-icon-studip-courses {
+    background-image: url('../../../../../assets/images/icons/32/lightblue/seminar.png');
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+    top: 0;
+
+}
+
+.ui-icon-studip-dates {
+    background-image: url('../../../../../assets/images/icons/32/lightblue/schedule.png');
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+    top: 0;
+}
+
+.ui-icon-studip-mail {
+    background-image: url('../images/icons/standard/mailclosed18.png');
+    background-color: transparent;
+    height: 18px;
+    width: 18px;
+    top: 0;
+    
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+
+}
+.ui-icon-studip-inbox {
+    background-image: url('../images/icons/glyfish/40-inbox.png');
+    background-color: transparent;
+    height: 24px;
+    width: 24px;
+    top: 0;
+
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+.ui-icon-studip-shoebox {
+    background-image: url('../images/icons/glyfish/44-shoebox.png');
+    background-color: transparent;
+    height: 22px;
+    width: 24px;
+    top: 0;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+
+.ui-icon-studip-envelope {
+    background-image: url('../images/icons/glyfish/18-envelope.png');
+    background-color: transparent;
+    height: 16px;
+    width: 24px;
+    top: 0;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+

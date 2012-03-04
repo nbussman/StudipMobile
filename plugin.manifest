@@ -1,0 +1,5 @@
+pluginname=StudipMobile
+pluginclassname=StudipMobile
+origin=elan-ev
+version=1.0
+studipMinVersion=2.0

@@ -1,0 +1,6 @@
+Maps
+	die Adressen finden sich unter der Tabelle: resources_objects_properties
+	resources_properties joinen on property_id Where name = 'Adresse'
+	ort aus Instituten nehmen
+	
+icons https://github.com/teambox/Free-file-icons
