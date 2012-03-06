@@ -5,7 +5,8 @@
         	<a href=""data-theme="c">Bearbeiten</a>
 	</div><!-- /header -->
       <div data-role="content">
-        <ul id="messages" data-role="listview" data-filter="true" data-inset="false" data-divider-theme="d">
+ <? //<ul id="messages" data-role="listview" data-filter="true" data-inset="false" data-divider-theme="d"> ?>
+ <ul id="swipeMe" data-role="listview" data-filter="true" data-inset="false" data-divider-theme="d">
 <?
 //laden der nachrichten in subpages
 foreach ($inbox as $mail)
@@ -21,7 +22,7 @@ foreach ($inbox as $mail)
         $time = date("H:i",$mail['mkdate']);
 ?>
 
-        <li data-theme="c">
+        <li data-theme="c" data-swipeurl="swiped.html?1">
                 <a href="#<?= htmlReady($mail['id']) ?>" data-transition="slideup">
                 <?
                 if ($mail['readed'] == 0)

@@ -6,7 +6,7 @@ class Helper {
         {
                 $weekday = date("N",$timestamp);
                 $date    = date(j.m.Y);
-                retrun $date;
+                return $date;
         }
         function get_weekday( $day )
         {
