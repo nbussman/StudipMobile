@@ -33,5 +33,17 @@ class MailsController extends StudipMobileController
         {
                     $this->mail = Mail::findMsgById($this->currentUser()->id, $id);
         }
+        function delete_action($id = null, $location ="inbox")
+        {
+                    if ( $location=="inbox" )
+                    {
+                            $this->inbox  = Mail::findAllByUser($this->currentUser()->id,true);
+                    }
+                    else
+                    {
+                            $this->outbox = Mail::findAllByUser($this->currentUser()->id, false);
+                    }
+                    Mail::deleteMessage( $id, $this->currentUser()->id);
+        }
 }
 

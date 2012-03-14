@@ -12,6 +12,15 @@ class Mail {
         {
                 return self::get_mail($user_id, $msg_id);
         }
+        static function deleteMessage( $id, $user_id )
+        {
+                $db    = \DBManager::get();
+                $query = "UPDATE `message_user` 
+                          SET message_user.deleted=1 
+                          WHERE message_user.user_id='$id' 
+                                AND message_user.message_id='$user_id'";
+                $result = $db->query($query);
+        }
         private function get_mail($user_id, $msg_id)
         {
                 if ($msg_id == null)
