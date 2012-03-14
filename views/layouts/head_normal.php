@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stud.IP Mobile</title>
-    
+    <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/custom_mobile_theme.min.css" />
     <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.0rc1.min.css" />
     <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/mobile.css" />
     <link rel="stylesheet"  href="<?= $plugin_path ?>/public/stylesheets/jquery.swipeButton.css" />
@@ -28,7 +28,7 @@
     
     		// attach the plugin to an element
     		$('#swipeMe li').swipeDelete({
-    			btnTheme: 'e',
+    			btnTheme: 'f',
     			click: function(e){
     				e.preventDefault();
     				var url = $(e.target).attr('href');

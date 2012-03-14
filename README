@@ -1,13 +1,49 @@
 Stud.IP - Mobile
+================
 
-Still in process - not ready!!
+
+Still in process - not ready to use!!
 
 
 A plugin which serves as a mobile view for the Stud.IP-LMS.
 
 Install Notes:
+––––––––––––––
 - for Dropbox use
 	- PHP Pear HTTP:OAuth should be installed
 	- PHP Pear Dropbox shoud be installed
+
+
+To Do!
+––––––
+- Message
+	- delete message
+	- write message
+	- response message
+	- show action fix
+	
+- Veranstaltungen
+	- Karten
+	- dropbox upload
+	- Forum
+	- News
+
+- Profil
+	- response to empty fields
+	- user rights
+	
+- Planer
+	- implement timetable
+	
+- Community
+	- implement forms
+	
+- Search
+	- implement searchs	
+- News 
+	- Good
+	
+	
+	
 
 
