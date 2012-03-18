@@ -16,18 +16,19 @@ class Mail {
         {
                 $db    = \DBManager::get();
                 $query = "UPDATE `message_user` 
-                          SET message_user.deleted=1 
-                          WHERE message_user.user_id='$id' 
-                                AND message_user.message_id='$user_id'";
+                          SET deleted = '1' 
+                          WHERE     message_user.user_id    ='$user_id' 
+                                AND message_user.message_id ='$id'";
                 $result = $db->query($query);
         }
-        private function get_mail($user_id, $msg_id)
+        private function get_mail($user_id, $msg_id, $mark=0)
         {
                 if ($msg_id == null)
                 {
                         return null;
                 }
                 
+                // Nachricht auslesen
                 $items = array();
                 $db = \DBManager::get();
                 
@@ -47,8 +48,9 @@ class Mail {
                                 FROM message
                                 JOIN auth_user_md5 ON message.autor_id =auth_user_md5.user_id 
                                 JOIN message_user USING (message_id)
-                                WHERE           message.message_id =  '$msg_id'
+                                WHERE           message.message_id   =  '$msg_id'
                                         AND     message_user.user_id <> message.autor_id
+                                        AND     message_user.deleted =  '0'
                                 LIMIT 0,1";
                 
                 $result = $db->query($query);
@@ -78,7 +80,23 @@ class Mail {
                                 //         $items[0]['receiver'] = $row['vorname'] . ' ' . $row['nachname'];
                                 // }
                                 // 
-                
+                // als gelesen/ungelesen markieren
+                if ($mark == 1)
+                {
+                    echo "test ..... !";
+                    $query2 = "UPDATE `message_user` 
+                              SET readed = '0' 
+                              WHERE     message_user.user_id    ='$user_id' 
+                                    AND message_user.message_id ='$msg_id'";
+                }
+                else
+                {
+                    $query2 = "UPDATE `message_user` 
+                              SET readed = '1' 
+                              WHERE     message_user.user_id    ='$user_id' 
+                                    AND message_user.message_id ='$msg_id'";
+                }
+                $db->query($query2);
                 return $items;
         }
         private function get_mails($user_id, $inbox = true)
@@ -105,7 +123,9 @@ class Mail {
                                         FROM message_user
                                         JOIN message       ON message_user.message_id = message.message_id
                                         JOIN auth_user_md5 ON message.autor_id =auth_user_md5.user_id 
-                                        WHERE message_user.user_id =  '$user_id' AND message_user.snd_rec = 'rec'
+                                        WHERE message_user.user_id =  '$user_id' 
+                                          AND message_user.snd_rec = 'rec'
+                                          AND message_user.deleted =  '0'
                                         ORDER BY message.mkdate DESC
                                         LIMIT 0,30";
                 }
@@ -116,7 +136,9 @@ class Mail {
                                         FROM message
                                         JOIN message_user       ON message.message_id = message_user.message_id
                                         JOIN auth_user_md5      ON message_user.user_id = auth_user_md5.user_id
-                                        WHERE message.autor_id =  '$user_id' AND message_user.snd_rec = 'snd'
+                                        WHERE message.autor_id =  '$user_id' 
+                                          AND message_user.snd_rec = 'snd'
+                                          AND message_user.deleted =  '0'
                                         ORDER BY message.mkdate DESC
                                         LIMIT 0,30";
                 }         

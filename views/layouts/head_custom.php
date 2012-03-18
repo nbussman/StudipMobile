@@ -78,23 +78,22 @@
         }
       });   
     });
-  </script>
-  <script>
-  	$(document).ready(function() {
-  
-  		// attach the plugin to an element
-  		$('#swipeMe li').swipeDelete({
-  			btnTheme: 'f',
-  			click: function(e){
-  				e.preventDefault();
-  				var url = $(e.target).attr('href');
-  				$(this).parents('li').remove();
-  				$.post(url, function(data) {
-  					console.log(data);
-  				});
-  			}
-  		});
-  
-  	});
-  </script>
+ 
+    $(document).ready(function() {
+
+      		// attach the plugin to an element
+      		$('#swipeMe li').swipeDelete({
+      			btnTheme: 'f',
+      			click: function(e){
+      				e.preventDefault();
+      				var url = $(e.target).attr('href');
+      				$(this).parents('li').remove();
+      				$.post(url, function(data) {
+      					console.log(data);
+      				});
+      			}
+      		});
+
+    });
+    </script>
 </head>

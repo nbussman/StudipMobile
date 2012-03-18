@@ -17,33 +17,36 @@ class MailsController extends StudipMobileController
                 $this->requireUser();
         }
         
-        function index_action()
+        function index_action( $delId=null )
         {
+                    if ( $delId != null )
+                    {
+                            Mail::deleteMessage( $delId, $this->currentUser()->id);
+                    }
                     $this->inbox = Mail::findAllByUser($this->currentUser()->id,true);
         }
-        function list_inbox_action()
+        
+        function list_inbox_action( $delId=null )
         {
+                    if ( $delId != null )
+                    {
+                             Mail::deleteMessage( $delId, $this->currentUser()->id);
+                    }
                     $this->inbox = Mail::findAllByUser($this->currentUser()->id,true);
         }
-        function list_outbox_action()
+        
+        function list_outbox_action( $delId=null )
         {
+                    if ( $delId != null )
+                    {
+                             Mail::deleteMessage( $delId, $this->currentUser()->id);
+                    }
                     $this->outbox = Mail::findAllByUser($this->currentUser()->id, false);
         }
-        function show_msg_action($id = null)
+        
+        function show_msg_action($id = null, $mark=0)
         {
-                    $this->mail = Mail::findMsgById($this->currentUser()->id, $id);
-        }
-        function delete_action($id = null, $location ="inbox")
-        {
-                    if ( $location=="inbox" )
-                    {
-                            $this->inbox  = Mail::findAllByUser($this->currentUser()->id,true);
-                    }
-                    else
-                    {
-                            $this->outbox = Mail::findAllByUser($this->currentUser()->id, false);
-                    }
-                    Mail::deleteMessage( $id, $this->currentUser()->id);
+                    $this->mail = Mail::findMsgById($this->currentUser()->id, $id, $mark);
         }
 }
 

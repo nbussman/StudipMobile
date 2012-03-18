@@ -1,3 +1,4 @@
+<div data-role="content"  style="padding:15px 3px 0px;">
 <?
 
 $this->set_layout("layouts/single_msg");
@@ -35,3 +36,15 @@ else
         <?
 }
 ?>
+</div><!-- /content -->
+
+
+<div data-role="footer" data-id="footer" data-position="fixed" data-theme="c">
+    <div data-role="navbar" data-iconspos="top">
+        <ul class="ui-grid-b">
+            <li class="ui-block-a"><a href="<?= $controller->url_for("mails/show_msg",htmlReady($mail[0]['id']), htmlReady(true)) ?>" data-theme="c" data-icon="star" data-transition="flip">Markieren</a></li>
+            <li class="ui-block-b"><a href="<?= $controller->url_for("mails/list_outbox") ?>" data-theme="c" data-icon="back"  data-transition="flip">Weiterleiten</a></li>
+            <li class="ui-block-c"><a href="<?= $controller->url_for("mails/show_msg") ?>" data-theme="c" data-icon="check" data-transition="slideup">Antworten</a></li>
+        </ul>
+    </div>
+</div>
