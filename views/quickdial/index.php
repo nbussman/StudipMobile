@@ -20,7 +20,7 @@ $page_title = _("Uni Osnabrück");
             </a>
           </div>
           <div class="ui-block-c grid">
-            <a href="<?= $controller->url_for("mails") ?>/">
+            <a href="<?= $controller->url_for("mails") ?>/" rel="external">
 	      <?
 	      	if ($number_unread_mails > 0)
 		{ 

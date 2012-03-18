@@ -59,14 +59,8 @@ else
 
 ?>
 </div>
-  <div data-role="footer" data-id="footer" data-position="fixed">
-    <div data-role="navbar" data-iconspos="top">
-                   <ul class="ui-grid-b">
-                           <li class="ui-block-a"><a href="<?= $controller->url_for("mails/index") ?>" data-theme="c" data-icon="studip-inbox" data-transition="flip">Eingang</a></li>
-                           <li class="ui-block-b"><a href="<?= $controller->url_for("mails/list_outbox") ?>" data-theme="c" data-icon="studip-shoebox"  data-transition="flip">Ausgang</a></li>
-                           <li class="ui-block-c"><a href="<?= $controller->url_for("mails/show_msg") ?>" data-theme="c" data-icon="studip-envelope" data-transition="slideup">Neu Nachricht</a></li>
-                   </ul>
-    </div>
-  </div>
-
+<?
+    //print footer
+    echo $this->render_partial('mails/footer.php');
+?>
 </div>
