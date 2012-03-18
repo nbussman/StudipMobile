@@ -20,7 +20,7 @@ $page_id = "mail-outbox";
 if ( empty($outbox) )
 {
     ?>
-        <li data-theme="e" data-role="list-divider"><center>Keine Nachrichten vorhanden</center></li>
+        <li data-theme="e" data-role="list-divider" data-swipeurl=""><center>Keine Nachrichten vorhanden</center></li>
     <?
 }
 else
@@ -39,7 +39,7 @@ else
             $time = date("H:i",$mail['mkdate']);
             ?>
 
-            <li data-theme="c" data-swipeurl="<?= $controller->url_for("mails/list_outbox", htmlReady($mail['id'])) ?>>
+            <li data-theme="c" data-swipeurl="<?= $controller->url_for("mails/list_outbox", htmlReady($mail['id'])) ?>">
                     <a href="<?= $controller->url_for("mails/show_msg", htmlReady($mail['id'])) ?>"  data-transition="slideup">
                         <img src="<?= $plugin_path ?>/public/images/icons/invisible_dot.png" class="ui-li-icon uis-corner-none ui-li-thumb">
                         <h3><?= htmlReady($mail['author']) ?></h3>

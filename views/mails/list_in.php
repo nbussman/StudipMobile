@@ -14,7 +14,7 @@
 if ( empty($inbox) )
 {
     ?>
-        <li data-theme="e" data-role="list-divider"><center>Keine Nachrichten vorhanden</center></li>
+        <li data-theme="e" data-role="list-divider" data-swipeurl=""><center>Keine Nachrichten vorhanden</center></li>
     <?
 }
 else
@@ -55,7 +55,7 @@ else
     <?php
     }
 ?>
-	<li data-theme="e" data-role="list-divider"><a href=""><center>weitere Nachrichten</center></a></li>	
+	<li data-theme="e" data-role="list-divider" data-swipeurl=""><a href=""><center>weitere Nachrichten</center></a></li>	
 <?
 }
 ?>
