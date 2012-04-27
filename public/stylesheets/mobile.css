@@ -260,4 +260,15 @@ img.contact {
     border-radius: 0px;
 }
 
+.little_space
+{
+    width:1px;
+    height:7px;
+}
+
+.little_text.li
+{
+    font-size:8pt;
+}
+
 

@@ -17,31 +17,34 @@ class MailsController extends StudipMobileController
                 $this->requireUser();
         }
         
-        function index_action( $delId=null )
+        function index_action($intervall=0, $delId=null )
         {
+                    $this->intervall = $intervall;
                     if ( $delId != null )
                     {
                             Mail::deleteMessage( $delId, $this->currentUser()->id);
                     }
-                    $this->inbox = Mail::findAllByUser($this->currentUser()->id,true);
+                    $this->inbox = Mail::findAllByUser($this->currentUser()->id, $intervall, true);
         }
         
-        function list_inbox_action( $delId=null )
+        function list_inbox_action($intervall=0, $delId=null )
         {
+                    $this->intervall = $intervall;
                     if ( $delId != null )
                     {
                              Mail::deleteMessage( $delId, $this->currentUser()->id);
                     }
-                    $this->inbox = Mail::findAllByUser($this->currentUser()->id,true);
+                    $this->inbox = Mail::findAllByUser($this->currentUser()->id, $intervall, true);
         }
         
-        function list_outbox_action( $delId=null )
+        function list_outbox_action($intervall=0, $delId=null )
         {
+                    $this->intervall = $intervall;
                     if ( $delId != null )
                     {
                              Mail::deleteMessage( $delId, $this->currentUser()->id);
                     }
-                    $this->outbox = Mail::findAllByUser($this->currentUser()->id, false);
+                    $this->outbox = Mail::findAllByUser($this->currentUser()->id, $intervall, false);
         }
         
         function show_msg_action($id = null, $mark=0)

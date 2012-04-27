@@ -18,7 +18,7 @@ if ($course->metadate)
 {
         //termine
         ?>
-        <div data-role="collapsible" data-theme="c" data-content-theme="d">
+        <div data-role="collapsible" data-theme="c" data-content-theme="d" class="small_text">
            <h3>Termine</h3>
         <?
         
@@ -28,21 +28,28 @@ if ($course->metadate)
                 ?>
                         <div class="ui-grid-a" data-theme="c">
                         	<div class="ui-block-a"><strong>Beginn:</strong></div>
-                        	<div class="ui-block-b"><?=htmlReady($course->metadate->seminarStartTime) ?></div>
+                        	<div class="ui-block-b"><?= Helper::stamp_to_dat(htmlReady($course->metadate->seminarStartTime)) ?></div>
                         </div><!-- /grid-a -->
+                        <div class='little_space'></div>
                 <? 
         }
         // print cycledates
         if ($course->metadate->cycles)
         {
+                $single_cycledate= true;
                 foreach ($course->metadate->cycles AS $cycle_date)
                 {
                         ?>
                                 <div class="ui-grid-a" data-theme="c">
                                 	<div class="ui-block-a"><strong><?= htmlReady($cycle_date->description) ?></strong></div>
-                                	<div class="ui-block-b"><?=$cycle_date->weekday ?><br> von <?=htmlReady(substr($cycle_date->start_time, 0,5)) ?> Uhr<br>bis <?=htmlReady(substr($cycle_date->end_time, 0,5)) ?> Uhr</div>
+                                	<div class="ui-block-b"><?=Helper::get_weekday($cycle_date->weekday) ?><br> von <?=htmlReady(substr($cycle_date->start_time, 0,5)) ?> Uhr<br>bis <?=htmlReady(substr($cycle_date->end_time, 0,5)) ?> Uhr</div>
                                 </div><!-- /grid-a -->
                         <?
+                        if ($single_cycledate)
+                        {
+                            echo "<div class='little_space'></div>";
+                            $single_cycledate = false;
+                        }
                 }
         }
         ?>

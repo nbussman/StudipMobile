@@ -3,14 +3,14 @@ namespace Studip\Mobile;
 
 class Mail {
 
-        static function findAllByUser($user_id,$inbox = true)
+        static function findAllByUser($user_id, $intervall, $inbox = true)
         {
-                return self::get_mails($user_id, $inbox);
+                return self::get_mails($user_id, $intervall, $inbox);
         }
         
-        static function findMsgById($user_id, $msg_id)
+        static function findMsgById($user_id, $msg_id, $mark=0)
         {
-                return self::get_mail($user_id, $msg_id);
+                return self::get_mail($user_id, $msg_id, $mark);
         }
         static function deleteMessage( $id, $user_id )
         {
@@ -99,7 +99,7 @@ class Mail {
                 $db->query($query2);
                 return $items;
         }
-        private function get_mails($user_id, $inbox = true)
+        private function get_mails($user_id, $intervall, $inbox = true)
         {
                 $items = array();
                 $db = \DBManager::get();

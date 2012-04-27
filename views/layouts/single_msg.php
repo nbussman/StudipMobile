@@ -32,9 +32,9 @@
     <div data-role="page" id="<?= $page_id ?: '' ?>" >
 
       <div data-role="header" data-theme="<?=TOOLBAR_THEME ?>">
-        <a href="<?= $controller->url_for("quickdial") ?>" data-rel="external" data-icon="grid"  data-theme="<?=TOOLBAR_BUTTONS ?>"><?=_("Menu")?></a>
+        <a href="<?= $controller->url_for("quickdial") ?>" rel="external" data-icon="grid"  data-theme="<?=TOOLBAR_BUTTONS ?>"><?=_("Menu")?></a>
         <h1><?= $page_title ?: 'Stud.IP' ?></h1>
-        <a href="javascript:history.back();" data-icon="check" data-transition="slidedown" data-theme="<?=TOOLBAR_ABORT ?>" rel="external">Fertig</a>
+        <a href="javascript:history.back();" rel="external" data-icon="check" data-transition="slidedown" data-theme="<?=TOOLBAR_ABORT ?>" rel="external">Fertig</a>
       </div><!-- /header -->
 
         <?= $content_for_layout ?>
