@@ -33,16 +33,16 @@ else
             $time = date("H:i",$mail['mkdate']);
     ?>
 
-            <li data-theme="c" data-swipeurl="<?= $controller->url_for("mails/index", htmlReady($mail['id'])) ?>">
+            <li data-theme="c" data-swipeurl="<?= $controller->url_for("mails/index", $intervall ,htmlReady($mail['id'])) ?>">
                     <a href="<?= $controller->url_for("mails/show_msg", htmlReady($mail['id'])) ?>" data-transition="slideup">
                     <?
                     if ($mail['readed'] == 0)
                     {
-                            ?> <img src="<?= $plugin_path ?>/public/images/icons/blue_dot.png" class="ui-li-icon uis-corner-none ui-li-thumb"> <?php
+                            Helper::getColorball("#1B4EA9",10);
                     }
                     else
                     {
-                            ?> <img src="<?= $plugin_path ?>/public/images/icons/invisible_dot.png" class="ui-li-icon uis-corner-none ui-li-thumb"> <?php
+                            Helper::getColorball("#000000",10,true);
                     }
                     ?>
                     <h3><?= htmlReady($mail['author']) ?></h3>

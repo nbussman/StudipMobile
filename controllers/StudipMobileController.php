@@ -1,4 +1,5 @@
 <?php
+
 require_once $this->trails_root .'/models/helper.php';
 class StudipMobileController extends Trails_Controller
 {

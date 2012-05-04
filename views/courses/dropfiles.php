@@ -1,5 +1,6 @@
 <?php
-
+include 'Dropbox/autoload.php';
+fopen("http://localhost/~nils/studip/public/sendfile.php?force_download=0&type=0&file_id=aa164a04d7fa4f69535ec3d7d99f57a5&file_name=Auto_Plan.xls", "r");
 $this->set_layout("layouts/single_page_normal");
 $page_title      = "Dateien droppen";
 $page_id         = "courses-dropfiles";
@@ -8,6 +9,7 @@ $page_id         = "courses-dropfiles";
 $consumerKey     = '5wty9mf06gcuco0';
 $consumerSecret  = 'hveok3hllw48hji';
 $call_back_link  = "http://localhost/~nils/studip/public/plugins.php/studipmobile/courses/dropfiles/" . $seminar_id;
+$new_token       = true;
 
 // is set if the user is logged in
 $connection_good = false;
@@ -16,26 +18,26 @@ $connection_good = false;
 if (1==1)
 {
 
-	require 'Dropbox/autoload.php';
+	//require 'Dropbox/autoload.php';
 
-	$oauth = new Dropbox_OAuth_PEAR($consumerKey, $consumerSecret);
-	$dropbox = new Dropbox_API($oauth,Dropbox_API::ROOT_SANDBOX);
+	$oauth   = new Dropbox_OAuth_PEAR ($consumerKey, $consumerSecret);
+	$dropbox = new Dropbox_API        ($oauth, Dropbox_API::ROOT_SANDBOX);
 
 	// For convenience, definitely not required
-	header('Content-Type: text/plain');
+	//header('Content-Type: text/plain');
 
 	// We need to start a session
 	session_start();
 
-	// check if tokens are already stored
-	if ( isset( $db_tokens[0]['token'], $db_tokens[0]['token_secret'] ) )
-	{
-		// user already got dropbox linked
-		$_SESSION['state']         = 3;
-		$_SESSION['oauth_tokens']  = array( "token" => $db_tokens[0]['token'], 
-						    "token_secret" =>  $db_tokens[0]['token_secret'] );
+    //check if tokens are already stored
+    if ( isset( $db_tokens[0]['token'], $db_tokens[0]['token_secret'] ) )
+    {
+     // user already got dropbox linked
+     $_SESSION['state']         = 3;
+     $_SESSION['oauth_tokens']  = array( "token" => $db_tokens[0]['token'], 
+                         "token_secret" =>  $db_tokens[0]['token_secret'] );
+    }
 
-	}
 
 	// There are multiple steps in this workflow, we keep a 'state number' here
 	if (isset($_SESSION['state'])) {
@@ -94,7 +96,9 @@ if (1==1)
                                 }
                                 catch(Exception $e)
                                 {
-                                        echo "gespeichrter key falsch";
+                                        echo "gespeicherter key falsch";
+                                        $_SESSION['state'] = 1;
+                                        $new_token = false;
                                 }
                                 
                                 break;
@@ -115,13 +119,42 @@ else
 
 if ( $connection_good == true )
 {
-	echo"Uploading files";
+    print_r($tokens);
+    // save key in database
+    $db    = \DBManager::get();
+            $query = "INSERT INTO `dropbox_tokens` 
+                      (user_id, token, token_secret)
+                      VALUES ('$this->user_id', '$token['token']', '$token['token_secret']')";
+            $result = $db->query($query);
+
+    $accInfo= $dropbox->getAccountInfo();
+    ?>
+    <ul data-role="listview" data-inset="true" data-theme="e">
+        <li>
+            <h1>Verbundener Dropbox Account</h1>
+            <fieldset class="ui-grid-a">
+            	<div class="ui-block-a" style="font-size:10pt;font-weight:normal;">Name:<br>Mail:</div> 
+            	<div class="ui-block-b" style="font-size:10pt;font-weight:normal;"><?=$accInfo["display_name"] ?> <br><?=$accInfo["email"] ?> </div>	   
+            </fieldset>
+        </li>
+    </ul>
+    <?
+	//Uploading files
 	?>
 	<script>
-	        uploadFileDropbox("tuna.pdf","Ordner/files/veranstaltung");
+	        uploadFileDropbox("http://localhost/~nils/studip/public/sendfile.php?force_download=1&type=0&file_id=aa164a04d7fa4f69535ec3d7d99f57a5&file_name=Auto_Plan.xls","Ordner/files/veranstaltung","Auto_Plan.xls", "<?= $controller->url_for("courses/upload") ?>"); 
+	        
+	        <?
+	        foreach($files AS $file)
+            {
+	            ?>
+	                uploadFileDropbox("<?=$file["link"] ?>","Ordner/files/veranstaltung", "<?=$file["name"] ?>", "<?= $controller->url_for("courses/upload") ?>");
+	            <?
+	        }
+	        ?>
 	</script>
-	<ul id="uploadList" data-role="listview" data-inset="true" data-theme="e">
-		<li>Abgleich beginnt</li>
+	<ul id="uploadList" data-role="listview" data-inset="true" data-theme="b" data-divider-theme="a">
+		<li data-role="list-divider">Abgleich beginnt</li>
 	</ul>
 	<?
 }

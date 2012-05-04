@@ -2,8 +2,6 @@
 
 require "StudipMobileController.php";
 require dirname(__FILE__) . "/../models/profile.php";
-// !!! BITE ZU DYNAMSICHEN PATH ÄNDERN
-//require_once('../../../../../lib/user_visible.inc.php');
 
 use Studip\Mobile\Activity;
 

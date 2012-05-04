@@ -10,13 +10,14 @@
  * @param  filename should be the path to the local file 
  * @param  folder the folder in the dropbox
  *
- * @return fail:filename    if something went wrong
- * 	   success:filename if all went right
- *         exists:filename  if the file already exists
+ * @return  fail:   filename    if something went wrong
+ * 	        success:filename if all went right
+ *          exists: filename  if the file already exists
  */
 
-$file     = $_GET["filename"];
-$filename = basename($file);
+$file     = $_GET["file"];
+$filename = $_GET["filename"];
+//$filename = basename($file);
 $folder   = $_GET["folder"];
 /* session shu be started, user sshould logged in*/
 /* Please supply your own consumer key and consumer secret */
@@ -74,7 +75,7 @@ try{
 	//Upload the file if nessasery
 	if ( $found == false )
 	{
-		if( $dropbox->putFile( $folder . "/". basename( $file ), $file ) ) 
+		if( $dropbox->putFile( $folder . "/". $filename, $file ) ) 
 		{
 			echo "success:" . $filename;
 		} 

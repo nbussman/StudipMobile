@@ -150,7 +150,7 @@ if ($course->metadate)
 
 <fieldset class="ui-grid-a">
   <div class="ui-block-a">
-    <a href="#" data-role="button" data-iconpos="right" data-icon="star" data-theme="b">News</a>
+    <a href="<?= $controller->url_for("activities/index", htmlReady($course->id)) ?>" data-role="button" data-iconpos="right" data-icon="star" data-theme="b">News</a>
   </div>
   <div class="ui-block-b">
     <a href="#" data-role="button" data-iconpos="right" data-icon="star" data-theme="b">Forum</a>

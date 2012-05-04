@@ -16,8 +16,8 @@ class ActivitiesController extends StudipMobileController
         $this->requireUser();
     }
 
-    function index_action()
+    function index_action($seminar_cur=0)
     {
-        $this->activities = Activity::findAllByUser($this->currentUser()->id);
+        $this->activities = Activity::findAllByUser($this->currentUser()->id, $seminar_cur);
     }
 }

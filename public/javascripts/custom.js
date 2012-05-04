@@ -20,14 +20,14 @@ var dropbox_fail    = false;
  * @param folder folder in the users dropbox to put the file
  * @return creates li elements in the div width the status message
  */
-function uploadFileDropbox(filename, folder)
+function uploadFileDropbox(file, folder, filename, url_to_upload_script)
 {
 	dropbox_counter++;
 	$.ajax(
 	{
-	  	type: "GET",
-	  	url: "upload.php",
-		data: "filename=" + filename + "&folder=" + folder,
+	  	type:  "GET",
+	  	url:   url_to_upload_script,
+	  	data:  { file: file, folder: folder, filename: filename },
 		success: function( data )
 		{
 			dropbox_counter--;
@@ -46,12 +46,14 @@ function uploadFileDropbox(filename, folder)
 				dropbox_fail = true;
 			}
 			var newLI           = document.createElement("li");
+			newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
 			newLI.innerHTML =  data;
 			document.getElementById("uploadList").appendChild(newLI);
 			if (( dropbox_fail == false ) && ( dropbox_counter == 0 ))
 			{
-				newLI           = document.createElement("li");
-				newLI.innerHTML =  "Alle Dateien aktualisiert";
+				newLI                   = document.createElement("li");
+				newLI.innerHTML         = "Alle Dateien aktualisiert";
+				newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
 				document.getElementById("uploadList").appendChild(newLI);
 			}
 		},
