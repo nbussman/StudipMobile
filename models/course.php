@@ -46,9 +46,7 @@ class Course {
 
     static function find_files( $id = null )
     {
-	$db = \DBManager::get();
-        $files = array();
-
+	    $db = \DBManager::get();
         $query ="       SELECT *
                         FROM Dokumente
                         WHERE           Dokumente.seminar_id =  '$id'
@@ -57,6 +55,7 @@ class Course {
 			";
         
         $result = $db->query($query);
+        $files = array();
         foreach ($result as $row) 
         {
 	    // getLink
@@ -128,5 +127,139 @@ class Course {
     function isAuthorized($user_id)
     {
         return true;
+    }
+    
+    function DropboxUpload($fileid)
+    {
+        /*
+         * This script shoud upload a file to a 
+         * special folder in the users dropbox.
+         * The session should bestarted and the
+         * user should be logged in already.
+         *
+         * @author Nils Bussmann <nbussman@uos.de>
+         * @date   05.02.2011
+         * @param  filename should be the path to the local file 
+         * @param  folder the folder in the dropbox
+         *
+         * @return  fail:   filename    if something went wrong
+         * 	        success:filename if all went right
+         *          exists: filename  if the file already exists
+         */
+        if (isset($fileid))
+        {
+            session_start();
+            require 'Dropbox/autoload.php';
+            
+            $ausgabe ="";
+            
+            /* session shoud be started, user should logged in*/
+            /* Please supply your own consumer key and consumer secret */
+            $consumerKey = '5wty9mf06gcuco0';
+            $consumerSecret = 'hveok3hllw48hji';
+
+            //generate filename, filepath, intended_path
+            //get filename from database
+            $db = \DBManager::get();
+            $query ="   SELECT dokument_id, range_id, filename, seminar_id
+                        FROM    dokumente
+                        WHERE   dokumente.dokument_id =  '$fileid' ";
+            $file_result = $db->query($query)->fetchAll();
+            //get folder from database
+            $seminar_id = $file_result[0]["seminar_id"];
+            $range_id   = $file_result[0]["range_id"];
+            
+            $query ="   SELECT  folder.folder_id, folder.name as folder_name, seminare.Seminar_id, seminare.name as seminar_name
+                        FROM    folder
+                        JOIN    seminare ON seminare.Seminar_id  =  '$seminar_id' 
+                        WHERE   folder.folder_id =  '$range_id' ";
+            $folder_result = $db->query($query)->fetchAll();
+            
+            // repart the important strings
+            $filename       = $file_result[0]["filename"];
+            $file           = $GLOBALS['UPLOAD_PATH']."/".substr($fileid,0,1)."/".$fileid;
+            $intended_path  = $folder_result[0]["seminar_name"] ."/".  $folder_result[0]["folder_name"] ;
+            
+            //start interaction width dropbox
+            try{
+                if(class_exists(Dropbox_OAuth_PEAR))
+                {
+                    echo"Dropbox_OAuth_PEAR ist vorhanden";
+                }
+            	$oauth   = new Dropbox_OAuth_PEAR( $consumerKey, $consumerSecret );
+            	$dropbox = new Dropbox_API( $oauth,Dropbox_API::ROOT_SANDBOX );
+
+            	$oauth->setToken( $_SESSION['oauth_tokens'] );
+
+
+            	//Check if the directories are created and
+            	//single subfolders in $folders
+            	$folders = explode( "/", $folder );
+            	$checked_path = "/";
+            	foreach ( $folders AS $subfolder )
+            	{
+            		$found_folder = false;	
+            		$info = $dropbox->getMetaData( $checked_path );
+            		foreach( $info["contents"] AS $meta_info )
+            		{
+            			if ( $meta_info["is_dir"] == 1 )
+            			{
+            				$found_folder = true;
+            				break;
+            			}
+            		}
+            		if ( !$found_folder )
+            		{
+            			$dropbox->createFolder( $checked_path . "/" . $subfolder ,'sandbox');
+            		}
+            		if ( $checked_path == "/" )
+            			$checked_path .= $subfolder;
+            		else
+            			$checked_path .= "/" .$subfolder;
+            	} // benötigte Ornder sind nicht vorhanden
+
+            	//check if file already exisits
+            	$found = false;
+            	$info  = $dropbox->getMetaData( $folder );
+            	foreach ( $info["contents"] AS $array_files)
+            	{
+            		if ( strpos( $array_files["path"], $filename ) != false)
+            		{
+            			$ausgabe+= "exists:" . $filename;
+            			$found = true;
+            		}
+            	} // $found gibt an ob die Datei bereits existiert
+
+            	//Upload the file if nessasery
+            	if ( $found == false )
+            	{
+            		if( $dropbox->putFile( $folder . "/". $filename, $file ) ) 
+            		{
+            			$ausgabe+= "success:" . $filename;
+            		} 
+            		else 
+            		{
+            			$ausgabe+= "fail:" . $filename;
+            		}
+            	}
+            }
+            catch(Dropbox_Exception $e)
+            {
+            	// something went wrong, not specified
+            	// to specify the error there are other exeptions to catch
+            	$ausgabe+= "fail:" . $filename;
+            }
+            catch(HTTP_OAuth_Exception $e)
+            {
+            	$ausgabe+= "fail:" . $filename;
+            }
+        }
+        else
+        {
+            $ausgabe+= "fail:" . $filename;
+        }
+
+
+        return $ausgabe;
     }
 }

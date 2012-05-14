@@ -20,14 +20,14 @@ var dropbox_fail    = false;
  * @param folder folder in the users dropbox to put the file
  * @return creates li elements in the div width the status message
  */
-function uploadFileDropbox(file, folder, filename, url_to_upload_script)
+function uploadFileDropbox(upload_url, fileid)
 {
 	dropbox_counter++;
 	$.ajax(
 	{
 	  	type:  "GET",
-	  	url:   url_to_upload_script,
-	  	data:  { file: file, folder: folder, filename: filename },
+	  	url:   upload_url,
+	  	data:  { fileid },
 		success: function( data )
 		{
 			dropbox_counter--;

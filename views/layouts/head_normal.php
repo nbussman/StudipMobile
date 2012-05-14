@@ -12,7 +12,7 @@
      <script src="http://code.jquery.com/jquery-1.6.4.js"></script>    <script src="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.0rc1.min.js"></script>
     <!-- CUSTOM -->
 
-
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
     <script src="<?= $plugin_path ?>/public/javascripts/custom.js"></script>
     <!-- CUSTOM END -->
     <script src="<?= $plugin_path ?>/public/vendor/mustache/jquery.mustache.js"></script>

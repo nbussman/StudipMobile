@@ -8,9 +8,9 @@ if ( $course->visible == 1 )
 // print title and subtitle
 ?>
 
-<h2><?= htmlReady($course->name) ?></h2>
+<h2 class="insetText"><?= htmlReady($course->name) ?></h2>
 <? if ($course->subtitle) { ?>
-    <h4><?= htmlReady($course->subtitle) ?></h4>
+    <h4 style="position:relative;top:-15px;"><?= htmlReady($course->subtitle) ?></h4>
 <? } 
         
 
@@ -26,7 +26,7 @@ if ($course->metadate)
         if ($course->metadate->seminarStartTime)
         {
                 ?>
-                        <div class="ui-grid-a" data-theme="c">
+                        <div class="ui-grid-b a_bit_smaller_text" data-theme="c" style="font-size:10pt;">
                         	<div class="ui-block-a"><strong>Beginn:</strong></div>
                         	<div class="ui-block-b"><?= Helper::stamp_to_dat(htmlReady($course->metadate->seminarStartTime)) ?></div>
                         </div><!-- /grid-a -->
@@ -40,10 +40,18 @@ if ($course->metadate)
                 foreach ($course->metadate->cycles AS $cycle_date)
                 {
                         ?>
-                                <div class="ui-grid-a" data-theme="c">
+                                <div class="ui-grid-b a_bit_smaller_text" data-theme="c">
                                 	<div class="ui-block-a"><strong><?= htmlReady($cycle_date->description) ?></strong></div>
                                 	<div class="ui-block-b"><?=Helper::get_weekday($cycle_date->weekday) ?><br> von <?=htmlReady(substr($cycle_date->start_time, 0,5)) ?> Uhr<br>bis <?=htmlReady(substr($cycle_date->end_time, 0,5)) ?> Uhr</div>
-                                </div><!-- /grid-a -->
+                                	<? 
+                                	if(isset($cycle_date->location))
+                                	{
+                                	    ?>
+                                	    <div class="ui-block-c">Ort:<?= htmlReady($cycle_date->location) ?></div>
+                                	    <?
+                            	    }
+                            	    ?>
+                                </div><!-- /grid-b -->
                         <?
                         if ($single_cycledate)
                         {
@@ -63,7 +71,7 @@ if ($course->metadate)
                 // Nummer
                 if ($course->seminar_number){
                 ?>
-                <div class="ui-grid-a">
+                <div class="ui-grid-a a_bit_smaller_text">
                 	<div class="ui-block-a"><strong>Nummer:</strong></div>
                 	<div class="ui-block-b"><?=htmlReady($course->seminar_number) ?></div>
                 </div><!-- /grid-a -->
@@ -72,7 +80,7 @@ if ($course->metadate)
                 // teilnehmer
                 if ($course->participants){
                 ?>
-                <div class="ui-grid-a">
+                <div class="ui-grid-a a_bit_smaller_text">
                 	<div class="ui-block-a"><strong>Teilnehmer:</strong></div>
                 	<div class="ui-block-b"><?=htmlReady($course->participants) ?></div>
                 </div><!-- /grid-a -->
@@ -81,7 +89,7 @@ if ($course->metadate)
                 // Voraussetzungen
                 if ($course->requirements){
                 ?>
-                <div class="ui-grid-a">
+                <div class="ui-grid-a a_bit_smaller_text">
                 	<div class="ui-block-a"><strong>Voraussetzungen:</strong></div>
                 	<div class="ui-block-b"><?=htmlReady($course->requirements) ?></div>
                 </div><!-- /grid-a -->
@@ -90,7 +98,7 @@ if ($course->metadate)
                 //Leistungsnachweis
                 if ($course->leistungsnachweis){
                 ?>
-                <div class="ui-grid-a">
+                <div class="ui-grid-a a_bit_smaller_text">
                 	<div class="ui-block-a"><strong>L. Nachweis:</strong></div>
                 	<div class="ui-block-b"><?=htmlReady($course->leistungsnachweis) ?></div>
                 </div><!-- /grid-a -->
@@ -99,7 +107,7 @@ if ($course->metadate)
                 // ects
                 if ($course->ects){
                 ?>
-                <div class="ui-grid-a">
+                <div class="ui-grid-a a_bit_smaller_text">
                 	<div class="ui-block-a"><strong>ECTS-Punkte:</strong></div>
                 	<div class="ui-block-b"><?=htmlReady($course->ects) ?> LP</div>
                 </div><!-- /grid-a -->
@@ -108,25 +116,16 @@ if ($course->metadate)
                 // Lernorganisation
                 if ($course->orga){
                 ?>
-                <div class="ui-grid-a">
+                <div class="ui-grid-a a_bit_smaller_text">
                 	<div class="ui-block-a"><strong>Lernorganisation:</strong></div>
                 	<div class="ui-block-b"><?=htmlReady($course->orga) ?></div>
                 </div><!-- /grid-a -->
                 <?
                 }
-                // Ort
-                if ($course->Ort){
-                ?>
-                <div class="ui-grid-a">
-                	<div class="ui-block-a"><strong>Ort:</strong></div>
-                	<div class="ui-block-b"><?=htmlReady($course->Ort) ?></div>
-                </div><!-- /grid-a -->
-                <?
-                }
                 // Sonstiges
                 if ($course->Sonstiges){
-                ?>
-                <div class="ui-grid-a">
+                ?> 
+                <div class="ui-grid-a a_bit_smaller_text">
                 	<div class="ui-block-a"><strong>Sonstiges:</strong></div>
                 	<div class="ui-block-b"><?=htmlReady($course->Sonstiges) ?></div>
                 </div><!-- /grid-a -->

@@ -28,6 +28,3 @@ arsort($groups);
         <? } ?>
     <? } ?>
 </ul>
-<p><?
-print_r($groups);
-?>
