@@ -16,8 +16,10 @@ Install Notes:
 
 To Do!
 ––––––
+- Generell
+	- navigation items "backwards" etc
 - Message
-	- delete message
+	- "bearbeiten Button" -> show delete buttons
 	- write message
 	- response message
 	- show action fix
@@ -26,7 +28,6 @@ To Do!
 	- Karten
 	- dropbox upload
 	- Forum
-	- News
 
 - Profil
 	- response to empty fields
