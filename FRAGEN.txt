@@ -1,2 +1,0 @@
-
-- Wie komme ich an den ganzen path runter bis public?
