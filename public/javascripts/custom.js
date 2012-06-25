@@ -1,9 +1,40 @@
 
 // global counter of the 
-var dropbox_counter = 0;
+var DROPBOX_COUNTER = 0;
 // global indicator for upload or login errors
-var dropbox_fail    = false;
+var DROPBBOX_FAIL    = false;
+// 
+var CREATED_FOLDERS = false;
 
+function create_folders(link, sem_id)
+{
+    //folders need to created first
+    jQuery.ajaxSetup({async:false});
+    $.ajax(
+	{
+	  	type:  "GET",
+	  	url:   link,
+	  	data:  { },
+		success: function( data )
+		{
+		    DROPBOX_COUNTER = 0;
+			var newLI           = document.createElement("li");
+			newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
+			newLI.innerHTML =  "Ordnerstruktur angelegt";
+			document.getElementById("uploadList").appendChild(newLI);
+		},
+		error: function()
+		{
+			var newLI           = document.createElement("li");
+			newLI.innerHTML =  "Anlegen Ordnerstruktur fehlgeschlagen";
+			newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
+			document.getElementById("uploadList").appendChild(newLI);
+		}
+		
+	});
+    //free road for async upload
+    jQuery.ajaxSetup({async:true});
+}
 
 /*
  * You use this function to upload a specified 
@@ -22,15 +53,16 @@ var dropbox_fail    = false;
  */
 function uploadFileDropbox(upload_url, fileid)
 {
-	dropbox_counter++;
+	DROPBOX_COUNTER++;
+	link = upload_url + "/" + fileid;
 	$.ajax(
 	{
 	  	type:  "GET",
-	  	url:   upload_url,
-	  	data:  { fileid },
+	  	url:   link,
+	  	data:  { },
 		success: function( data )
 		{
-			dropbox_counter--;
+			DROPBOX_COUNTER--;
 			
 			if( data.substring(0,7) == "success" )
 			{
@@ -43,13 +75,13 @@ function uploadFileDropbox(upload_url, fileid)
 			else if ( data.substring(0,4) == "fail" )
 			{
 				data = "Fehler: " + data.substring(5,data.length);
-				dropbox_fail = true;
+				DROPBBOX_FAIL = true;
 			}
 			var newLI           = document.createElement("li");
 			newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
 			newLI.innerHTML =  data;
 			document.getElementById("uploadList").appendChild(newLI);
-			if (( dropbox_fail == false ) && ( dropbox_counter == 0 ))
+			if (( DROPBBOX_FAIL == false ) && ( DROPBOX_COUNTER == 0 ))
 			{
 				newLI                   = document.createElement("li");
 				newLI.innerHTML         = "Alle Dateien aktualisiert";
@@ -60,7 +92,8 @@ function uploadFileDropbox(upload_url, fileid)
 		error: function()
 		{
 			var newLI           = document.createElement("li");
-			newLI.innerHTML =  "Fehler: " + filename;
+			newLI.innerHTML =  "Fehler aufgestreten ";
+			newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
 			document.getElementById("uploadList").appendChild(newLI);
 		}
 		

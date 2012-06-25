@@ -1,5 +1,5 @@
 <?php
-include 'Dropbox/autoload.php';
+require_once 'Dropbox/autoload.php';
 //fopen("http://localhost/~nils/studip/public/sendfile.php?force_download=0&type=0&file_id=aa164a04d7fa4f69535ec3d7d99f57a5&file_name=Auto_Plan.xls", "r");
 $this->set_layout("layouts/single_page_normal");
 $page_title      = "Dateien droppen";
@@ -147,11 +147,13 @@ if (class_exists("Dropbox_OAuth_PEAR") && class_exists("Dropbox_API") )
                             //Uploading files
                             ?>
                             <script>
+                                create_folders("asdasdsd");
                                  <?
+                                 list($upload_link) = explode( "?cid=",$controller->url_for("courses/upload") );
                                  foreach($files AS $file)
                                     {
                                         ?>
-                                            uploadFileDropbox("<?= htmlReady($controller->url_for("courses/upload")) ?>","<?= $file['dokument_id'] ?>");
+                                            uploadFileDropbox("<?=htmlReady($upload_link) ?>","<?= $file['id'] ?>");
                                         <?
                                  }
                                  ?>

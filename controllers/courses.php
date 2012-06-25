@@ -31,6 +31,7 @@ class CoursesController extends StudipMobileController
     function show_action( $id = null )
     {
         $this->course     = Course::find($id);
+        Course::createDropboxFolders($id);
         if (!$this->course) {
             throw new Trails_Exception(404);
         }
@@ -63,5 +64,10 @@ class CoursesController extends StudipMobileController
     function upload_action( $fileid)
     {
 	    $this->upload_info = Course::DropboxUpload($fileid);
+    }
+    
+    function createDropboxFolder_action( $semId )
+    {
+        $this->createdFolderInfo = Course::createDropboxFolders( $semId );
     }
 }

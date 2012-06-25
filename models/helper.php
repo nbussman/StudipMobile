@@ -116,4 +116,51 @@ class Helper {
             }
         }
         
+        function filenameReplaceBadChars( $filename ) 
+        {
+             
+             $patterns = array( 
+               "/\\s/",  # Leerzeichen 
+               "/\\&/",  # Kaufmaennisches UND 
+               "/\\+/",  # Plus-Zeichen 
+               "/\\</",  # < Zeichen 
+               "/\\>/",  # > Zeichen 
+               "/\\?/",  # ? Zeichen 
+               "/\"/",   # " Zeichen 
+               "/\\:/",  # : Zeichen 
+               "/\\|/",  # | Zeichen 
+               "/\\\\/",   # \ Zeichen 
+               "/ä/",
+               "/ö/",
+               "/ü/",
+               "/\\*/"   # * Zeichen 
+             ); 
+              
+             $replacements = array( 
+               "_", 
+               "-", 
+               "-", 
+               "_", 
+               "_", 
+               "_", 
+               "_", 
+               "_", 
+               "_", 
+               "_", 
+               "ae",
+               "oe",
+               "ue",
+               "_", 
+               ); 
+               return preg_replace( $patterns, $replacements, $filename ); 
+        }
+        
+        
+        function endsWith($check, $endStr) {
+                if (!is_string($check) || !is_string($endStr) || strlen($check)<strlen($endStr)) {
+                    return false;
+                }
+
+                return (substr($check, strlen($check)-strlen($endStr), strlen($endStr)) === $endStr);
+            }
 }

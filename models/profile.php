@@ -33,14 +33,14 @@ class Profile {
 	//echo dirname(__FILE__);
 	$img_url = "../../pictures/user/".$user_id."_normal.png";
 	foreach ($result as $row) 
-        {
+    {
 		$items[] = array(
                         'id'            => $user_id,
                         'name'          => $row['vorname'] . ' ' . $row['nachname'],
-			'abschluss'	=> $row['abName'],
-			'stg'		=> $row['stgName'],
-			'mail'		=> $row['mail'],
-			'semester'	=> $row['semester']
+			            'abschluss'	    => $row['abName'],
+			            'stg'		    => $row['stgName'],
+			            'mail'		    => $row['mail'],
+			            'semester'	    => $row['semester']
                     );
 	}
 	return $items;
