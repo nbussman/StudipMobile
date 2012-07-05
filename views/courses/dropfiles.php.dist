@@ -1,0 +1,42 @@
+if ( $connection_good == true )
+{
+    // print_r($tokens);
+    //     // save key in database
+    //     $db    = \DBManager::get();
+    //             $query = "INSERT INTO `dropbox_tokens` 
+    //                       (user_id, token, token_secret)
+    //                       VALUES ('$this->user_id', '$token['token']', '$token['token_secret']')";
+    //             $result = $db->query($query);
+    
+    $accInfo= $dropbox->getAccountInfo();
+    ?>
+    <ul data-role="listview" data-inset="true" data-theme="e">
+        <li>
+            <h1>Verbundener Dropbox Account</h1>
+            <fieldset class="ui-grid-a">
+             <div class="ui-block-a" style="font-size:10pt;font-weight:normal;">Name:<br>Mail:</div> 
+             <div class="ui-block-b" style="font-size:10pt;font-weight:normal;"><?=$accInfo["display_name"] ?> <br><?=$accInfo["email"] ?> </div>       
+            </fieldset>
+        </li>
+    </ul>
+    <?
+ //Uploading files
+ ?>
+ <script>
+         uploadFileDropbox("http://localhost/~nils/studip/public/sendfile.php?force_download=1&type=0&file_id=aa164a04d7fa4f69535ec3d7d99f57a5&file_name=Auto_Plan.xls","Ordner/files/veranstaltung","Auto_Plan.xls", "<?= $controller->url_for("courses/upload") ?>"); 
+         
+         <?
+         foreach($files AS $file)
+            {
+             ?>
+                 uploadFileDropbox("<?=$file["link"] ?>","Ordner/files/veranstaltung", "<?=$file["name"] ?>", "<?= $controller->url_for("courses/upload") ?>");
+             <?
+         }
+         ?>
+ </script>
+ <ul id="uploadList" data-role="listview" data-inset="true" data-theme="b" data-divider-theme="a">
+     <li data-role="list-divider">Abgleich beginnt</li>
+ </ul>
+ <?
+}
+?>
