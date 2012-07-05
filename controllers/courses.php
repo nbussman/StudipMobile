@@ -24,14 +24,13 @@ class CoursesController extends StudipMobileController
 
     function list_files_action($id = null)
     {
-	$this->seminar_id = $id;
+	    $this->seminar_id = $id;
         $this->files = Course::find_files($id);
     }
  
     function show_action( $id = null )
     {
         $this->course     = Course::find($id);
-        Course::createDropboxFolders($id);
         if (!$this->course) {
             throw new Trails_Exception(404);
         }
@@ -66,8 +65,15 @@ class CoursesController extends StudipMobileController
 	    $this->upload_info = Course::DropboxUpload($fileid);
     }
     
-    function createDropboxFolder_action( $semId )
+    function createDropboxFolder_action( $semId = null )
     {
-        $this->createdFolderInfo = Course::createDropboxFolders( $semId );
+        if ($semId != null)
+        {
+            $this->createdFolderInfo = Course::createDropboxFolders( $semId );
+        }
+        else
+        {
+            $this->createdFolderInfo ="Failed:";
+        }
     }
 }

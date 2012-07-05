@@ -266,7 +266,7 @@ class Course {
     function createDropboxFolders($semId)
     {
         session_start();
-        
+        echo $semId;
         $folder_paths = self::get_folder_pathes($semId);
         $ausgabe = "Success";
         foreach ($folder_paths as $folder_path)
@@ -359,11 +359,7 @@ class Course {
             	// to specify the error there are other exeptions to catch
             	return false;
             }
-        }
-        else
-        {
-            return false;
-        }
+        
         return true;
     }
     
