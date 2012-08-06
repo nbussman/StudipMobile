@@ -33,7 +33,52 @@ class Course {
     {
         return new Course($id);
     }
+    
+    static function getResourses($course)
+    {
+    	$resources =array();
+    	//for cycleDates
+	    foreach ($course->metadate->cycles AS $cycle_date)
+	    {
+		    $metadate_id = $cycle_date->metadate_id;
+		    $firstTermin = (\CycleDataDB::getFirstDate($metadate_id));
+		    $firstTerminID = $firstTermin["termin_id"];
+		    //mappen der termin_id auf die assign_user_id von resources assign
+		    $query = "SELECT assign_user_id, resource_id FROM resources_assign WHERE assign_user_id = '$firstTerminID'";
+		    $stmt = \DBManager::get()->query($query);
+		    $result = $stmt->fetchAll();
+		    $resourceID = $result[0]["resource_id"];
+		    $resources[$metadate_id]["id"]   = $resourceID;
+		    $resources[$metadate_id]["name"] = Course::getResourceName($resourceID);
+		    $resources[$metadate_id]["longitude"] = Course::getResourceLongitude($resourceID);
+		    $resources[$metadate_id]["latitude"] = Course::getResourcelatitude($resourceID);
+	    }
+	    return $resources;
+    }
 
+    function getResourceName($resourceID)
+    {
+	    	$query = "SELECT name, resource_id FROM resources_objects WHERE resource_id = '$resourceID'";
+			$stmt = \DBManager::get()->query($query);
+		    $result = $stmt->fetchAll();
+		    if ($result == true) 	return $result[0]["name"];
+		    return false;
+    }
+    function getResourceLongitude($resourceID)
+    {
+	    	$query = "SELECT * FROM locations WHERE resource_id = '$resourceID'";
+			$stmt = \DBManager::get()->query($query);
+		    $result = $stmt->fetchAll();
+		    if ($result == true) 	return $result[0]["longitude"];
+		    return false;
+    }
+    function getResourcelatitude($resourceID)
+    {
+	    	$query = "SELECT * FROM locations WHERE resource_id = '$resourceID'";
+			$stmt = \DBManager::get()->query($query);
+		    $result = $stmt->fetchAll();
+		    return $result[0]["latitude"];    
+	}
     static function get_token( $user_id )
     {
         $query ="       SELECT *
@@ -266,7 +311,7 @@ class Course {
     function createDropboxFolders($semId)
     {
         session_start();
-        echo $semId;
+        
         $folder_paths = self::get_folder_pathes($semId);
         $ausgabe = "Success";
         foreach ($folder_paths as $folder_path)
@@ -317,6 +362,8 @@ class Course {
     function create_dropbox_folder($folderDumpPath)
     {
         //connection to dropbox should be valid
+        if (1==1)
+        {
             try{
             	$oauth   = new \Dropbox_OAuth_PEAR( $consumerKey, $consumerSecret );
             	$dropbox = new \Dropbox_API( $oauth,\Dropbox_API::ROOT_SANDBOX );
@@ -359,7 +406,11 @@ class Course {
             	// to specify the error there are other exeptions to catch
             	return false;
             }
-        
+        }
+        else
+        {
+            return false;
+        }
         return true;
     }
     

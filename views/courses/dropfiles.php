@@ -1,6 +1,6 @@
 <?php
 require_once 'Dropbox/autoload.php';
-
+//fopen("http://localhost/~nils/studip/public/sendfile.php?force_download=0&type=0&file_id=aa164a04d7fa4f69535ec3d7d99f57a5&file_name=Auto_Plan.xls", "r");
 $this->set_layout("layouts/single_page_normal");
 $page_title      = "Dateien droppen";
 $page_id         = "courses-dropfiles";
@@ -81,6 +81,7 @@ if (class_exists("Dropbox_OAuth_PEAR") && class_exists("Dropbox_API") )
                                     $state             = 3;
                                     $_SESSION['oauth_tokens'] = $tokens;
                                 }catch(Exception $e){
+                                    echo "bla";
                                     $_SESSION['state']        = 1;
                                     $state                    = 1;
                                     $_SESSION['oauth_tokens'] = NULL;
@@ -146,23 +147,9 @@ if (class_exists("Dropbox_OAuth_PEAR") && class_exists("Dropbox_API") )
                             //Uploading files
                             ?>
                             <script>
+                                create_folders("asdasdsd");
                                  <?
                                  list($upload_link) = explode( "?cid=",$controller->url_for("courses/upload") );
-                                 //ACHTUNG NUR LOCAL!!!!!
-                                  $upload_link = "localhost".$upload_link;
-                                 
-                                 
-                                 //create FOlder hirachi
-                                 list($createFolder_link) = explode( "?cid=",$controller->url_for("courses/createDropboxFolder") );
-                                 //ACHTUNG NUR LOCAL!!!!!
-                                  $createFolder_link = "localhost".$createFolder_link;
-                                 ?>
-                                            createFolder("<?=htmlReady($createFolder_link) ?>","<?= $seminar_id ?>");
-                                 <?
-                                 
-                                 
-                                 //upload files
-                                 
                                  foreach($files AS $file)
                                     {
                                         ?>

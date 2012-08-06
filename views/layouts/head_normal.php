@@ -12,6 +12,11 @@
      <script src="http://code.jquery.com/jquery-1.6.4.js"></script>    <script src="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.0rc1.min.js"></script>
     <!-- CUSTOM -->
 
+    <!-- MAP-->
+	<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+	<script src="<?= $plugin_path ?>/public/vendor/map/jquery.ui.map.full.min.js" type="text/javascript"></script>
+    <!-- END MAP-->
+
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
     <script src="<?= $plugin_path ?>/public/javascripts/custom.js"></script>
     <!-- CUSTOM END -->

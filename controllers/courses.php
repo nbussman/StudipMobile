@@ -24,13 +24,15 @@ class CoursesController extends StudipMobileController
 
     function list_files_action($id = null)
     {
-	    $this->seminar_id = $id;
+		$this->seminar_id = $id;
         $this->files = Course::find_files($id);
     }
  
     function show_action( $id = null )
     {
-        $this->course     = Course::find($id);
+        $this->course      = Course::find($id);
+        $this->resources   = Course::getResourses($this->course);
+        //Course::createDropboxFolders($id);
         if (!$this->course) {
             throw new Trails_Exception(404);
         }
@@ -40,13 +42,10 @@ class CoursesController extends StudipMobileController
         }
     }
 
-    function show_map_action()
+    function show_map_action($id)
     {
-	    $this->center  = "52.278889, 8.043056";
-    	$this->position = array(
-                    		'coordinate'  => ' 52.283654, 8.025483',
-    				'text'	      => '<h3>Verwaltungsgeb&auml;ude</h3> <small>Universit&auml;t Osnabr&uuml;ck</small>'
-    		            );
+	    $this->course      = Course::find($id);
+        $this->resources   = Course::getResourses($this->course);
     }
     /*
      * @brief Action for sync files width the dropbox
@@ -65,15 +64,8 @@ class CoursesController extends StudipMobileController
 	    $this->upload_info = Course::DropboxUpload($fileid);
     }
     
-    function createDropboxFolder_action( $semId = null )
+    function createDropboxFolder_action( $semId )
     {
-        if ($semId != null)
-        {
-            $this->createdFolderInfo = Course::createDropboxFolders( $semId );
-        }
-        else
-        {
-            $this->createdFolderInfo ="Failed:";
-        }
+        $this->createdFolderInfo = Course::createDropboxFolders( $semId );
     }
 }

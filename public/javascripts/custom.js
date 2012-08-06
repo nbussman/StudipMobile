@@ -92,11 +92,10 @@ function uploadFileDropbox(upload_url, fileid)
 		error: function()
 		{
 			var newLI           = document.createElement("li");
-			newLI.innerHTML =  "Fehler aufgetreten ";
+			newLI.innerHTML =  "Fehler aufgestreten ";
 			newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
 			document.getElementById("uploadList").appendChild(newLI);
 		}
 		
 	});
 }
-

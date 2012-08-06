@@ -36,6 +36,7 @@ if ($course->metadate)
         // print cycledates
         if ($course->metadate->cycles)
         {
+        		
                 $single_cycledate= true;
                 foreach ($course->metadate->cycles AS $cycle_date)
                 {
@@ -44,10 +45,10 @@ if ($course->metadate)
                                 	<div class="ui-block-a"><strong><?= htmlReady($cycle_date->description) ?></strong></div>
                                 	<div class="ui-block-b"><?=Helper::get_weekday($cycle_date->weekday) ?><br> von <?=htmlReady(substr($cycle_date->start_time, 0,5)) ?> Uhr<br>bis <?=htmlReady(substr($cycle_date->end_time, 0,5)) ?> Uhr</div>
                                 	<? 
-                                	if(isset($cycle_date->location))
+                                	if(isset($resources[$cycle_date->metadate_id][name]))
                                 	{
                                 	    ?>
-                                	    <div class="ui-block-c">Ort:<?= htmlReady($cycle_date->location) ?></div>
+                                	    <div class="ui-block-c">Ort: <?= htmlReady($resources[$cycle_date->metadate_id][name]) ?></div>
                                 	    <?
                             	    }
                             	    ?>
@@ -159,9 +160,50 @@ if ($course->metadate)
     <a href="<?= $controller->url_for("courses/list_files", htmlReady($course->id)) ?>" data-role="button">Dateien</a>
   </div>
   <div class="ui-block-b">
-    <a href="<?= $controller->url_for("courses/show_map") ?>"  rel="external" data-role="button" data-iconpos="right" data-icon="studip-envelope" >Karte</a>
+    <a href="<?= $controller->url_for("courses/show_members") ?>"  rel="external" data-role="button" data-iconpos="right" data-icon="" >Teilnehmer</a>
   </div>
 </fieldset>
+
+
+<?
+	$first_resource = array_shift($resources);
+	array_unshift($resources,$first_resource);
+?>
+<script type="text/javascript">
+        $(function() {
+                // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
+                var yourStartLatLng = new google.maps.LatLng(<?=$first_resource['latitude'] ?> ,<?=$first_resource['longitude'] ?>);
+                $('#map_canvas').gmap({'center': yourStartLatLng,
+					zoom: 14, 
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					'disableDefaultUI':true,
+					navigationControl: false});
+		$('#map_canvas').gmap().bind('init', function() 
+		{ 
+			<?
+			foreach ($resources AS $resource)
+			{
+				?>
+				$('#map_canvas').gmap('addMarker', { 'position':  '<?=$resource['latitude'] ?> ,<?=$resource['longitude'] ?>', 'bounds': false}).click(function() 
+				{
+					$('#map_canvas').gmap('openInfoWindow', { 'content': '<?=$resource[name] ?>' }, this);
+				});
+				<?
+			}
+			?>  
+			                                                                                                                                                                                                                             
+		});
+        });
+</script>
+<div class="ui-bar-c ui-corner-all ui-shadow" style="margin-top:2em;">
+	<div id="map_canvas" style="height:300px"></div>
+</div>
+<div class="ui-grid-solo">
+	<div class="ui-block-a"><a href="<?= $controller->url_for("courses/show_map", htmlReady($course->id)) ?>"  rel="external" data-role="button" data-iconpos="right" data-icon="" >Karte vergr&ouml;&szlig;ern</a></div>
+</div>
+
+
+
 
 
 <? if ($course->description) { ?>
@@ -169,12 +211,6 @@ if ($course->metadate)
 <? } ?>
 
 
-<!--
-<div data-role="collapsible" style="margin-top: 3em;">
-    <h3>var_dump</h3>
-    <? var_dump($course->old_settings) ?>
-</div>
--->
 
 <?
 }

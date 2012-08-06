@@ -1,5 +1,5 @@
 <?php
     $page_id = "courses-upload";
     
-    echo $createdFolderInfo;
+    echo $upload_info;
 ?>
