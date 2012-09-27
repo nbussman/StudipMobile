@@ -275,3 +275,66 @@ img.contact {
     font-size:10pt;
 }
 
+
+.ui-icon-calendar {
+	background-image: url("../images/icons/glyfish/calendar.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+	.ui-icon-calendar {
+		background-image: url("../images/icons/glyfish18/calendar.png");
+		background-size: 18px 18px;
+	}
+}
+.ui-bar-r { 
+    background: -moz-linear-gradient(center top , #BF5858, #D46E6C) repeat scroll 0 0 #D46E6C;
+    border: 1px solid #B3B3B3;
+    color: #212121;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #FFFFFF;
+}
+.calendar{
+	width:100%;
+	border:1px dashed rgba(0,0,0,0.1);
+}
+.calendar_cell_active{
+	color:#424242;
+	width:14.28%;
+	text-align: right;
+	vertical-align: bottom;
+	height:30px;
+	border:1px dashed rgba(0,0,0,0.1);
+}
+.calendar_cell_inactive{
+	color:#bbb9b9;
+	width:14.28%;
+	text-align: right;
+	vertical-align: bottom;
+	height:35px;
+	border:1px dashed rgba(0,0,0,0.1);
+}
+.calendar_month{
+	width:100%;
+}
+.calendar_month_inactive{
+	color:#7f7f7f;
+	width:16.5%;
+}
+.calendar_month_activ{
+	color:#e8c203;
+	width:16.5%;
+}
+.calendar_year{
+	font-size:3em;
+	float:block;
+	color:#e8c203;
+}
+.calendar_bubble{
+	border:1px dashed rgba(0,0,0,0.1);
+	margin-bottom: 7px;
+	padding:6px;
+	font-style:italic;
+}
+.calendar_time{
+	font-size:small;	
+	color:#656565;
+}

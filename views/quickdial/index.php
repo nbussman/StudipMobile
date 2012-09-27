@@ -14,7 +14,7 @@ $page_title = _("Uni Osnabrück");
             </a>
           </div>
           <div class="ui-block-b grid">
-            <a href="<?= $controller->url_for("dates") ?>">
+            <a href="<?= $controller->url_for("calendar") ?>"  rel="external">
               <img class="icon" src="<?= $plugin_path ?>/public/images/quickdial/schedule.png" /><br />
               <span>Planer</span>
             </a>

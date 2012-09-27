@@ -12,25 +12,25 @@ class Helper {
                 switch ( $day )
                 {
                         case 1:
-                                $ausgabe = "Montag";
+                                $ausgabe = _("Montag");
                                 break;
                         case 2:
-                                $ausgabe = "Dienstag";
+                                $ausgabe = _("Dienstag");
                                 break;
                         case 3:
-                                $ausgabe = "Mittwoch";
+                                $ausgabe = _("Mittwoch");
                                 break;
                         case 4:
-                                $ausgabe = "Donnerstag";
+                                $ausgabe = _("Donnerstag");
                                 break;
                         case 5:
-                                $ausgabe = "Freitag";
+                                $ausgabe = _("Freitag");
                                 break;
                         case 6:
-                                $ausgabe = "Samstag";
+                                $ausgabe = _("Samstag");
                                 break;
                         case 7:
-                                $ausgabe = "Sonntag";
+                                $ausgabe = _("Sonntag");
                                 break;
                 }
                 return $ausgabe;
