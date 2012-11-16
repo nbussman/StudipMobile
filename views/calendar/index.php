@@ -13,6 +13,11 @@ $year = date("Y");
 $weekday= date("N");
 */
 ?>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
 <div data-role="page" id="landing">
 
 	<div data-role="header" data-position="fixed" data-theme="e" data-fullscreen="true">       
@@ -56,9 +61,22 @@ $weekday= date("N");
 					{
 						foreach($array["col_0"] as $termin )
 						{
+<<<<<<< HEAD
+							$link = $controller->url_for("courses/show", htmlReady(substr($termin['id'],0,32)));
+							?>
+							<div class="calendar_time" onclick="location.href='<?=$link ?>'">
+									 
+								<?=substr($termin["start"],0,2) ?>:<?=substr($termin["start"],2,2) ?> - 
+								<?=substr($termin["end"],0,2) ?>:<?=substr($termin["end"],2,2) ?>:
+							</div>
+							<div class="calendar_bubble"  onclick="location.href='<?=$link ?>'">
+								<?=$termin["title"] ?>
+							</div>	   
+=======
 							?>
 								<div class="calendar_time"><?=$termin["start_hour"] ?>:<?=$termin["start_minute"] ?> - <?=$termin["end_hour"] ?>:<?=$termin["end_minute"] ?>:</div>
 								<div class="calendar_bubble"><?=$termin["title"] ?></div>	   
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
 							<?
 						}
 						$no_entries=false;

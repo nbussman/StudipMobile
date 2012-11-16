@@ -18,7 +18,11 @@ arsort($groups);
         <? foreach ($group as $course) { ?>
 
             <li class="course" data-course="<?= htmlReady($course['Seminar_id']) ?>">
+<<<<<<< HEAD
+                <a href="<?= $controller->url_for("courses/show", htmlReady($course['Seminar_id'])) ?>"  rel="external">
+=======
                 <a href="<?= $controller->url_for("courses/show", htmlReady($course['Seminar_id'])) ?>">
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
                     <?
                         Helper::getColorball($course["color"]);
                     ?>

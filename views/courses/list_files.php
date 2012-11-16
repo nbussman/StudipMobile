@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
+$this->set_layout("layouts/single_page_back");
+=======
 $this->set_layout("layouts/single_page_normal");
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
 $page_title = "Dateien";
 $page_id = "courses-list_files";
 
@@ -17,9 +21,15 @@ if (sizeof($files))
 				<!-- <img src="<?= $plugin_path ?>/public/images/activities/files.png" class="ui-li-icon"> -->
 				<img src="<?=$plugin_path ?><?=$file["icon_link"] ?>" class="ui-li-icon">
 				<div style="padding-left:10px;">
+<<<<<<< HEAD
+					<h3><?=htmlReady($file["name"]) ?></h3>
+					<p><strong><?=htmlReady($file["author"]) ?></strong></p>
+					<p><?=htmlReady($file["description"]) ?></p>
+=======
 					<h3><?=$file["name"] ?></h3>
 					<p><strong><?=$file["author"] ?></strong></p>
 					<p><?=$file["description"] ?></p>
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
 				</div>
 				<!-- <p class="ui-li-count"><strong> <?=$file["extension"] ?> </strong></p> -->
 			</a></li>

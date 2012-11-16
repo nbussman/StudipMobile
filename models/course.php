@@ -1,9 +1,35 @@
 <?php
 namespace Studip\Mobile;
 
+<<<<<<< HEAD
+require_once("resource.php");
+
+require_once('Dropbox/autoload.php');
+
+class Course {
+	function __construct($id)
+    {
+        $seminar = new \Seminar($id);
+        if ($seminar->isVisible())
+        	$this->delegate = $seminar;
+    }
+
+    function __get($key)
+    {
+        return $this->delegate->$key;
+    }
+
+    function isAuthorized($user_id)
+    {
+        return true;
+    }
+   
+    
+=======
 require_once 'Dropbox/autoload.php';
 
 class Course {
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
     static function findAllByUser($user_id)
     {
         foreach (\SemesterData::GetSemesterArray() as $key => $value){
@@ -14,7 +40,11 @@ class Course {
         $sem_number_sql = "INTERVAL(start_time," . join(",",$sem_start_times) .")";
         $sem_number_end_sql = "IF(duration_time=-1,-1,INTERVAL(start_time+duration_time," . join(",",$sem_start_times) ."))";
 
+<<<<<<< HEAD
+        $query = "SELECT seminare.VeranstaltungsNummer AS sem_nr, schedule_seminare.color AS color, seminare.Name, seminare.Seminar_id, seminare.status as sem_status,
+=======
         $query = "SELECT seminare.VeranstaltungsNummer AS sem_nr, schedule_seminare.color AS color, seminare.Name, seminare.Seminar_id, seminare.status as sem_status, 
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
                          seminar_user.status, seminar_user.gruppe, seminare.chdate, seminare.visible, admission_binding,modules,IFNULL(visitdate,0) as visitdate, 
                          admission_prelim, {$sem_number_sql} as sem_number, {$sem_number_end_sql} as sem_number_end $add_fields
                 FROM seminar_user LEFT 
@@ -29,11 +59,47 @@ class Course {
         return $stmt->fetchAll();
     }
 
+<<<<<<< HEAD
+    function getMemmbers( $semId )
+    {
+    	$query = "SELECT seminar_user.Seminar_id, seminar_user.user_id, seminar_user.visible, 
+    			  seminar_user.status, auth_user_md5.Vorname, auth_user_md5.Nachname
+    		      FROM   seminar_user
+    		      JOIN 	 auth_user_md5 ON auth_user_md5.user_id = seminar_user.user_id
+    		      WHERE  seminar_user.visible = 'yes' AND seminar_user.Seminar_id = '$semId'
+    		      ORDER BY FIELD(seminar_user.status, 'dozent','tutor' ,'autor', 'user'), auth_user_md5.Nachname
+    		      ";	
+		$stmt = \DBManager::get()->query($query);
+		$result = $stmt->fetchAll();
+		return $result;
+	}
+    		
+=======
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
     static function find($id)
     {
         return new Course($id);
     }
     
+<<<<<<< HEAD
+
+
+/* /////////////////// */
+/*     RESSOURCE MANAGEMENT */
+/* /////////////////// */
+	
+	
+	static function getResources( $course )
+	{	
+		return Resource::getResources( $course );
+	}
+
+	
+/* ////////////////////// */
+/*     Dropbox MANAGEMENT */
+/* ////////////////////// */
+
+=======
     static function getResourses($course)
     {
     	$resources =array();
@@ -79,24 +145,41 @@ class Course {
 		    $result = $stmt->fetchAll();
 		    return $result[0]["latitude"];    
 	}
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
     static function get_token( $user_id )
     {
         $query ="       SELECT *
                         FROM dropbox_tokens
                         WHERE           dropbox_tokens.user_id =  '$user_id'
 			";
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
 	$stmt = \DBManager::get()->query($query);
 	return $stmt->fetchAll();
     }
 
+<<<<<<< HEAD
+
+
+/* /////////////////// */
+/*     FILE MANAGEMENT */
+/* /////////////////// */
+
+=======
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
     static function find_files( $id = null )
     {
 	    $db = \DBManager::get();
         $query ="       SELECT *
                         FROM Dokumente
                         WHERE           Dokumente.seminar_id =  '$id'
+<<<<<<< HEAD
+                        ORDER BY mkdate DESC
+=======
                         ORDER BY mkdate
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
 			LIMIT 0,30
 			";
         
@@ -160,6 +243,9 @@ class Course {
 	return $files;
     }
 
+<<<<<<< HEAD
+        
+=======
     function __construct($id)
     {
         $this->delegate = new \Seminar($id);
@@ -175,6 +261,7 @@ class Course {
         return true;
     }
     
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
     function DropboxUpload($fileid)
     {
         /*

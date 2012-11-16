@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
 namespace Studip\Mobile;
 
 class Activity {
@@ -65,9 +69,17 @@ class Activity {
                 'updated' => $row['chdate'],
                 'summary' => sprintf('%s %s hat im Forum der Veranstaltung "%s" den Beitrag "%s" geschrieben.',
                     $row['Vorname'], $row['Nachname'], $row['Name'], $row['name']),
+<<<<<<< HEAD
+                'content' => $row['description'],
+                'category' => 'forum'
+            );
+            // ersetzt, da forum_kill_edit nicht auffindbar, bzw nur vom root nutzbar
+            //'content' => forum_kill_edit($row['description']),
+=======
                 'content' => forum_kill_edit($row['description']),
                 'category' => 'forum'
             );
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
         }
 
         $sql = "SELECT px_topics.*, $inst_fields
@@ -90,9 +102,17 @@ class Activity {
                 'updated' => $row['chdate'],
                 'summary' => sprintf('%s %s hat im Forum der Einrichtung "%s" den Beitrag "%s" geschrieben.',
                     $row['Vorname'], $row['Nachname'], $row['Name'], $row['name']),
+<<<<<<< HEAD
+                'content' => $row['description'],
+                'category' => 'forum'
+            );
+            // ersetzt, da forum_kill_edit nicht auffindbar, bzw nur vom root nutzbar
+            //'content' => forum_kill_edit($row['description']),
+=======
                 'content' => forum_kill_edit($row['description']),
                 'category' => 'forum'
             );
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
         }
 
         // files
@@ -115,8 +135,12 @@ class Activity {
                     'title' => $row['name'],
                     'author' => $row['Vorname'] . ' ' . $row['Nachname'],
                     'author_id' => $row['author_id'],
+<<<<<<< HEAD
+                    'link' => htmlReady("courses/list_files/".$row['seminar_id']),
+=======
                     'link' => \URLHelper::getLink('folder.php#anker',
                         array('cid' => $row['seminar_id'], 'cmd' => 'tree', 'open' => $row['dokument_id'])),
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
                     'updated' => $row['chdate'],
                     'summary' => sprintf('%s %s hat im Dateibereich der Veranstaltung "%s" die Datei "%s" hochgeladen.',
                         $row['Vorname'], $row['Nachname'], $row['Name'], $row['name']),

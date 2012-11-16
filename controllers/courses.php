@@ -2,7 +2,10 @@
 
 require "StudipMobileController.php";
 require dirname(__FILE__) . "/../models/course.php";
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
 use Studip\Mobile\Course;
 
 class CoursesController extends StudipMobileController
@@ -30,8 +33,14 @@ class CoursesController extends StudipMobileController
  
     function show_action( $id = null )
     {
+<<<<<<< HEAD
+    	
+        $this->course      = Course::find($id);
+        $this->resources   = Course::getResources($this->course);
+=======
         $this->course      = Course::find($id);
         $this->resources   = Course::getResourses($this->course);
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
         //Course::createDropboxFolders($id);
         if (!$this->course) {
             throw new Trails_Exception(404);
@@ -40,12 +49,21 @@ class CoursesController extends StudipMobileController
         if (!$this->course->isAuthorized($this->currentUser()->id)) {
             throw new Trails_Exception(403);
         }
+<<<<<<< HEAD
+        
+        //Course::getRootResource("51ad4b7100d3a8a1db61c7b099f052a6");
+=======
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
     }
 
     function show_map_action($id)
     {
 	    $this->course      = Course::find($id);
+<<<<<<< HEAD
+        $this->resources   = Course::getResources($this->course);
+=======
         $this->resources   = Course::getResourses($this->course);
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
     }
     /*
      * @brief Action for sync files width the dropbox
@@ -54,9 +72,16 @@ class CoursesController extends StudipMobileController
      */
     function dropfiles_action( $id = null )
     {
+<<<<<<< HEAD
+    	$this->seminar_id  = $id;
+    	$this->db_tokens   = Course::get_token($this->currentUser()->id);
+    	$this->files       = Course::find_files($id);
+    	$this->user_id	   = $this->currentUser()->id;
+=======
     	$this->seminar_id = $id;
     	$this->db_tokens  = Course::get_token($this->currentUser()->id);
     	$this->files      = Course::find_files($id);
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
     }
     
     function upload_action( $fileid)
@@ -68,4 +93,11 @@ class CoursesController extends StudipMobileController
     {
         $this->createdFolderInfo = Course::createDropboxFolders( $semId );
     }
+<<<<<<< HEAD
+    function show_members_action( $semId )
+    {
+	    $this->members = Course::getMemmbers( $semId );
+    }
+=======
+>>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
 }
