@@ -6,6 +6,13 @@ require_once("resource.php");
 require_once('Dropbox/autoload.php');
 
 class Course {
+
+
+	var $consumerKey     = '5wty9mf06gcuco0';
+	var $consumerSecret  = 'hveok3hllw48hji';
+	
+	
+	
 	function __construct($id)
     {
         $seminar = new \Seminar($id);
@@ -71,7 +78,7 @@ class Course {
 
 
 /* /////////////////// */
-/*     RESSOURCE MANAGEMENT */
+/* RESSOURCE MANAGEMENT */
 /* /////////////////// */
 	
 	
@@ -225,7 +232,7 @@ class Course {
             /* start interaction width dropbox
                session shoud be started, user should logged in
                Please supply your own consumer key and consumer secret */
-            $consumerKey = '5wty9mf06gcuco0';
+            $consumerKey 	= '5wty9mf06gcuco0';
             $consumerSecret = 'hveok3hllw48hji';
             
             try{
@@ -307,15 +314,35 @@ class Course {
     }
     function createDropboxFolders($semId)
     {
-        session_start();
+	    session_start();
+    	$consumerKey 	= '5wty9mf06gcuco0';
+        $consumerSecret = 'hveok3hllw48hji';
+        
         
         $folder_paths = self::get_folder_pathes($semId);
         $ausgabe = "Success";
+        try{
+            	$oauth   = new \Dropbox_OAuth_PEAR( $consumerKey, $consumerSecret );
+            	$dropbox = new \Dropbox_API( $oauth,\Dropbox_API::ROOT_SANDBOX );
+
+            	$oauth->setToken( $_SESSION['oauth_tokens'] );
+            }
+        catch (Exception $e)
+        {
+	        return "Error";
+        }
         foreach ($folder_paths as $folder_path)
         {
-            if (!( self::create_dropbox_folder($folder_path) ))
+        	echo $folder_path."<br>";
+            try{
+            if (!( self::create_dropbox_folder($folder_path, $dropbox) ))
             {
                 $ausgabe ="Error";
+            }
+            }
+            catch(Exception $e)
+            {
+/* 	            echo $e; */
             }
         }
         return $ausgabe;
@@ -328,10 +355,11 @@ class Course {
      */
     function get_folder_pathes($semId)
     {
+    	
         if (isset($semId))
         {
             $seminar = \Seminar::GetInstance($semId);
-            $seminar_name = $seminar->getName();
+            $seminar_name = \Helper::filenameReplaceBadChars( $seminar->getName() );
             $folder_tree = \TreeAbstract::GetInstance('StudipDocumentTree', array('range_id' => $semId));
             //$folder_ids = array_keys($folder_tree->tree_data);
             //unset($folder_ids[0]); // root element löschen
@@ -343,7 +371,10 @@ class Course {
             {
                 if (!($folder_tree->hasKids($folder_id)))
                 {
-                    $folder_paths[]= $seminar_name."/".eregi_replace("/virtual/","",eregi_replace( " / ", "/", $folder_tree->getItemPath($folder_id)));
+                    $folder_paths[]= $seminar_name."/"
+                    				.\Helper::filenameReplaceBadChars(
+                    					eregi_replace("/virtual/","",eregi_replace( " / ", "/", $folder_tree->getItemPath($folder_id))) 
+                    				);
                 }
 
             }
@@ -356,17 +387,14 @@ class Course {
      * pathexample: Veranstaltungsname/Ordner/unterodern/...
      * @param folderDumpPath path 
      */
-    function create_dropbox_folder($folderDumpPath)
+    function create_dropbox_folder($folderDumpPath, $dropbox)
     {
+    	
         //connection to dropbox should be valid
+
         if (1==1)
         {
             try{
-            	$oauth   = new \Dropbox_OAuth_PEAR( $consumerKey, $consumerSecret );
-            	$dropbox = new \Dropbox_API( $oauth,\Dropbox_API::ROOT_SANDBOX );
-
-            	$oauth->setToken( $_SESSION['oauth_tokens'] );
-
             	//Check if the directories are created and
             	//single subfolders in $folders
             	$folders = explode( "/", $folderDumpPath );
@@ -374,7 +402,9 @@ class Course {
             	foreach ( $folders AS $subfolder )
             	{
             		$found_folder = false;	
+            		//var_dump($checked_path);
             		$info = $dropbox->getMetaData( $checked_path );
+            		
             		foreach( $info["contents"] AS $meta_info )
             		{
             			if ( ( $meta_info["is_dir"] == 1 ) && (\Helper::endsWith( $meta_info["path"],$subfolder ) ) )
@@ -392,11 +422,13 @@ class Course {
             		else
             			$checked_path .= "/" .$subfolder;
             	} 
-            }
+            }/*
+
             catch(HTTP_OAuth_Exception $e)
             {
             	return false;
             }
+*/
             catch(Exception $e)
             {
             	// something went wrong, not specified
@@ -425,5 +457,15 @@ class Course {
                 return eregi_replace("/virtual/","",eregi_replace( " / ", "/", $folder_tree->getItemPath($item_id)));
             }
             return false;
+    }
+    
+    function getDropboxKey()
+    {
+		return	$consumerKey;  
+    }
+    
+    function getDropboxKeySecret()
+    {
+		return	$consumerSecret;  
     }
 }

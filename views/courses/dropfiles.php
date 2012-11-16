@@ -1,12 +1,19 @@
 <?php
 
 require_once 'Dropbox/autoload.php';
+
+
 //fopen("http://localhost/~nils/studip/public/sendfile.php?force_download=0&type=0&file_id=aa164a04d7fa4f69535ec3d7d99f57a5&file_name=Auto_Plan.xls", "r");
 
 $this->set_layout("layouts/single_page_back");
 $page_title      = "Dateien droppen";
 $page_id         = "courses-dropfiles";
 
+
+
+////////////////////////////////
+///// LOGIN TO DROPBOX   //////
+////////////////////////////////
 // custom settings
 $consumerKey     = '5wty9mf06gcuco0';
 $consumerSecret  = 'hveok3hllw48hji';
@@ -146,6 +153,7 @@ if (class_exists("Dropbox_OAuth_PEAR") && class_exists("Dropbox_API") )
                                 }
                                 break;
                         }
+                       
                         if ( $connection_good == true )
                         {
                             //print_r($_SESSION['oauth_tokens']);
@@ -174,8 +182,6 @@ if (class_exists("Dropbox_OAuth_PEAR") && class_exists("Dropbox_API") )
                             	$result = $db->query($query);
                             }
                             
-
-
                             $accInfo= $dropbox->getAccountInfo();
                             ?>
                             <ul data-role="listview" data-inset="true" data-theme="e">
@@ -187,13 +193,18 @@ if (class_exists("Dropbox_OAuth_PEAR") && class_exists("Dropbox_API") )
                                     </fieldset>
                                 </li>
                             </ul>
+                            
+                            
                             <?
-                            //Uploading files
+                            	////////////////////////////////
+                            	///// LOGIN PROZESS FERTIG  ////
+                            	////////////////////////////////
+
                             ?>
-                            <!--
-<script>
-                                create_folders("asdasdsd");
-                                 <?
+                            <script>
+                                create_folders( <?= $controller->url_for("courses/createDropboxFolder", htmlReady( $seminar_id )) ?>);
+                                 /*
+<?
                                  list($upload_link) = explode( "?cid=",$controller->url_for("courses/upload") );
                                  foreach($files AS $file)
                                     {
@@ -202,8 +213,8 @@ if (class_exists("Dropbox_OAuth_PEAR") && class_exists("Dropbox_API") )
                                         <?
                                  }
                                  ?>
+*/
                             </script>
--->
                             <ul id="uploadList" data-role="listview" data-inset="true" data-theme="b" data-divider-theme="a">
                                 <li data-role="list-divider">Abgleich beginnt</li>
                                 </ul>
@@ -223,3 +234,7 @@ else
 	<?
 }
 
+var_dump( $_SESSION['oauth_tokens']);
+
+
+?>

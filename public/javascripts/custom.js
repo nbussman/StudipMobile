@@ -6,7 +6,7 @@ var DROPBBOX_FAIL    = false;
 // 
 var CREATED_FOLDERS = false;
 
-function create_folders(link, sem_id)
+function create_folders(link)
 {
     //folders need to created first
     jQuery.ajaxSetup({async:false});

@@ -56,10 +56,14 @@ class CoursesController extends StudipMobileController
      */
     function dropfiles_action( $id = null )
     {
-    	$this->seminar_id  = $id;
-    	$this->db_tokens   = Course::get_token($this->currentUser()->id);
-    	$this->files       = Course::find_files($id);
-    	$this->user_id	   = $this->currentUser()->id;
+    	session_start();
+    	$this->seminar_id  		= $id;
+    	$this->consumerKey 		= Course::getDropboxKey();
+    	$this->consumerSecret 	= Course::getDropboxKeySecret();
+    	$this->db_tokens   		= Course::get_token($this->currentUser()->id);
+    	$this->files      		= Course::find_files($id);
+    	$this->user_id	   		= $this->currentUser()->id;
+    	
     }
     
     function upload_action( $fileid)
