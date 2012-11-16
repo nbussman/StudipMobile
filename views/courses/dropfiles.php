@@ -1,10 +1,5 @@
 <?php
 
-//Fehler im link!! also bei der herstellung, wenn der gespeiherte token nicht funktioniert .... fix irgendwie weiterleiten zu case1
-
-
-
-
 require_once 'Dropbox/autoload.php';
 //fopen("http://localhost/~nils/studip/public/sendfile.php?force_download=0&type=0&file_id=aa164a04d7fa4f69535ec3d7d99f57a5&file_name=Auto_Plan.xls", "r");
 
