@@ -1,4 +1,0 @@
-
-- Wie komme ich an den ganzen path runter bis public?
-	$GLOBALS['STUDIP_BASE_PATH'] 
-		-> upload path: $GLOBALS['UPLOAD_PATH']
