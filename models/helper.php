@@ -7,10 +7,7 @@ class Helper {
                 $date    = date("j.m.Y", $timestamp);
                 return $date;
         }
-<<<<<<< HEAD
         
-=======
->>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
         function get_weekday( $day )
         {
                 switch ( $day )
@@ -39,7 +36,6 @@ class Helper {
                 }
                 return $ausgabe;
         }
-<<<<<<< HEAD
         
         public static function correctText($text)
         {
@@ -50,8 +46,6 @@ class Helper {
         public static function url_to_link($text) {
         	return preg_replace("#(https?|ftp)://\S+[^\s.,>)\];'\"!?]#", '<a href="\\0">\\0</a>',$text);    
         }
-=======
->>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
         function colourBrightness($hex, $percent) {
         	// Work out if hash given
         	$hash = '';

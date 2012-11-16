@@ -5,7 +5,6 @@ $page_id = "activities-index";
 ?>
 
 <ul id="activities" data-role="listview" data-filter="true">
-<<<<<<< HEAD
     <? foreach ($activities as $activity) { 
 /* 	    var_dump($activity); */
     ?>
@@ -26,18 +25,5 @@ $page_id = "activities-index";
 	         	</a>
 	         <? } ?>
 	     </li>
-=======
-    <? foreach ($activities as $activity) { ?>
-        <li class="activity" data-activity="<?= htmlReady($activity['id']) ?>">
-             <img src="<?= $controller->url_for("avatars/show", $activity['author_id']) ?>"
-                  alt="<?= htmlReady($activity['category']) ?>"
-                 class="ui-li-icon" style="padding-top: 20px">
-             <img src="<?= $plugin_path ?>/public/images/activities/<?= htmlReady($activity['category']) ?>.png" alt="<?= htmlReady($activity['category']) ?>" class="ui-li-icon">
-             <h3><?= htmlReady($activity['title']) ?></h3>
-             <p><strong><?= htmlReady($activity['author']) ?></strong></p>
-             <p><?= htmlReady($activity['content']) ?></p>
-             <p class="ui-li-aside"><strong><?= htmlReady($activity['readableTime']) ?></strong></p>
-       </li>
->>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
     <? } ?>
 </ul>

@@ -1,9 +1,5 @@
 <?
-<<<<<<< HEAD
 $this->set_layout("layouts/single_page_back");
-=======
-$this->set_layout("layouts/single_page_normal");
->>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
 $page_title = "Kurse";
 $page_id = "courses-show";
 
@@ -67,7 +63,6 @@ if ($course->metadate)
         }
         ?>
                 </div>
-<<<<<<< HEAD
         
         <?
         	//Beschreibung
@@ -78,8 +73,6 @@ if ($course->metadate)
            	echo Helper::correctText($course->description); 
            ?>
         </div>
-=======
->>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
         <?
         // sonstiges
         ?>
@@ -177,17 +170,12 @@ if ($course->metadate)
     <a href="<?= $controller->url_for("courses/list_files", htmlReady($course->id)) ?>" data-role="button">Dateien</a>
   </div>
   <div class="ui-block-b">
-<<<<<<< HEAD
     <a href="<?= $controller->url_for("courses/show_members", htmlReady($course->id)) ?>"  rel="external" data-role="button" data-iconpos="right" data-icon="" >Teilnehmer</a>
-=======
-    <a href="<?= $controller->url_for("courses/show_members") ?>"  rel="external" data-role="button" data-iconpos="right" data-icon="" >Teilnehmer</a>
->>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
   </div>
 </fieldset>
 
 
 <?
-<<<<<<< HEAD
 $resources_locations = array();
 
 foreach ($resources AS $reso)
@@ -212,14 +200,6 @@ else
 
 <script type="text/javascript">
         $(function() {
-=======
-	$first_resource = array_shift($resources);
-	array_unshift($resources,$first_resource);
-?>
-<script type="text/javascript">
-        $(function() {
-                // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
->>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
                 var yourStartLatLng = new google.maps.LatLng(<?=$first_resource['latitude'] ?> ,<?=$first_resource['longitude'] ?>);
                 $('#map_canvas').gmap({'center': yourStartLatLng,
 					zoom: 14, 
@@ -229,7 +209,6 @@ else
 		$('#map_canvas').gmap().bind('init', function() 
 		{ 
 			<?
-<<<<<<< HEAD
 			foreach ($resources_locations AS $resource)
 			{
 				if ( !empty($resource['latitude']) ||  !empty($resource['longitude']))
@@ -237,14 +216,6 @@ else
 				$('#map_canvas').gmap('addMarker', { 'position':  '<?=$resource['latitude'] ?> ,<?=$resource['longitude'] ?>', 'bounds': false}).click(function() 
 				{
 					$('#map_canvas').gmap('openInfoWindow', { 'content': '<?=htmlReady($resource[name]) ?>' }, this);
-=======
-			foreach ($resources AS $resource)
-			{
-				?>
-				$('#map_canvas').gmap('addMarker', { 'position':  '<?=$resource['latitude'] ?> ,<?=$resource['longitude'] ?>', 'bounds': false}).click(function() 
-				{
-					$('#map_canvas').gmap('openInfoWindow', { 'content': '<?=$resource[name] ?>' }, this);
->>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
 				});
 				<?
 			}
@@ -261,18 +232,9 @@ else
 </div>
 
 
-<<<<<<< HEAD
 <?
 }
 ?>
-=======
-
-
-
-<? if ($course->description) { ?>
-    <div class="description" data-theme="d"><?= htmlReady($course->description) ?></div>
-<? } ?>
->>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
 
 
 
@@ -281,10 +243,6 @@ else
 else
 {
         ?>
-<<<<<<< HEAD
                 <h2>Der Kurs ist leider nicht sichtbar</h2>
-=======
-                <h2>Kurs ist leider nicht sichtbar</h2>
->>>>>>> 3f9395817e821753bae80db600cc893a89fcd3dc
         <?
 }
