@@ -218,9 +218,9 @@ class Course {
             $folder_result = $db->query($query)->fetchAll();
             
             // repart the important strings
-            $filename       = \Helper::filenameReplaceBadChars( $file_result[0]["filename"] );
+            $filename       = \Helper::cleanFilename( $file_result[0]["filename"] );
             $file           = $GLOBALS['UPLOAD_PATH']."/".substr($fileid,0,2)."/".$fileid;
-            $folder         = \Helper::filenameReplaceBadChars( $folder_result[0]["seminar_name"] ."/".  $folder_result[0]["folder_name"] );
+            $folder         = \Helper::cleanFilename( $folder_result[0]["seminar_name"] ."/".  $folder_result[0]["folder_name"] );
             //check if everthing is allright
             if (!isset($filename) || !isset($file) || !isset($folder))
             {
@@ -333,7 +333,6 @@ class Course {
         }
         foreach ($folder_paths as $folder_path)
         {
-        	echo $folder_path."<br>";
             try{
             if (!( self::create_dropbox_folder($folder_path, $dropbox) ))
             {
@@ -355,12 +354,11 @@ class Course {
      */
     function get_folder_pathes($semId)
     {
-    	
         if (isset($semId))
         {
-            $seminar = \Seminar::GetInstance($semId);
-            $seminar_name = \Helper::filenameReplaceBadChars( $seminar->getName() );
-            $folder_tree = \TreeAbstract::GetInstance('StudipDocumentTree', array('range_id' => $semId));
+            $seminar 		= \Seminar::GetInstance($semId);
+            $seminar_name 	= \Helper::cleanFilename( $seminar->getName() );
+            $folder_tree 	= \TreeAbstract::GetInstance('StudipDocumentTree', array('range_id' => $semId));
             //$folder_ids = array_keys($folder_tree->tree_data);
             //unset($folder_ids[0]); // root element löschen
             $folder_ids = $folder_tree->getReadableFolders( $GLOBALS['user']->id );
@@ -372,7 +370,7 @@ class Course {
                 if (!($folder_tree->hasKids($folder_id)))
                 {
                     $folder_paths[]= $seminar_name."/"
-                    				.\Helper::filenameReplaceBadChars(
+                    				.\Helper::cleanFilename(
                     					eregi_replace("/virtual/","",eregi_replace( " / ", "/", $folder_tree->getItemPath($folder_id))) 
                     				);
                 }
@@ -392,7 +390,7 @@ class Course {
     	
         //connection to dropbox should be valid
 
-        if (1==1)
+        if (isset($_SESSION['oauth_tokens']))
         {
             try{
             	//Check if the directories are created and
@@ -402,7 +400,6 @@ class Course {
             	foreach ( $folders AS $subfolder )
             	{
             		$found_folder = false;	
-            		//var_dump($checked_path);
             		$info = $dropbox->getMetaData( $checked_path );
             		
             		foreach( $info["contents"] AS $meta_info )

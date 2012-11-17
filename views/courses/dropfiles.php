@@ -202,9 +202,8 @@ if (class_exists("Dropbox_OAuth_PEAR") && class_exists("Dropbox_API") )
 
                             ?>
                             <script>
-                                create_folders( <?= $controller->url_for("courses/createDropboxFolder", htmlReady( $seminar_id )) ?>);
-                                 /*
-<?
+                                create_folders('<?= $controller->url_for("courses/createDropboxFolder", htmlReady( $seminar_id )) ?>');
+                                 <?
                                  list($upload_link) = explode( "?cid=",$controller->url_for("courses/upload") );
                                  foreach($files AS $file)
                                     {
@@ -213,7 +212,6 @@ if (class_exists("Dropbox_OAuth_PEAR") && class_exists("Dropbox_API") )
                                         <?
                                  }
                                  ?>
-*/
                             </script>
                             <ul id="uploadList" data-role="listview" data-inset="true" data-theme="b" data-divider-theme="a">
                                 <li data-role="list-divider">Abgleich beginnt</li>
@@ -234,7 +232,6 @@ else
 	<?
 }
 
-var_dump( $_SESSION['oauth_tokens']);
 
 
 ?>

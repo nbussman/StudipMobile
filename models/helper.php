@@ -2,13 +2,13 @@
 
 
 class Helper {
-        function stamp_to_dat( $timestamp )
+        static function stamp_to_dat( $timestamp )
         {
                 $date    = date("j.m.Y", $timestamp);
                 return $date;
         }
         
-        function get_weekday( $day )
+        static function get_weekday( $day )
         {
                 switch ( $day )
                 {
@@ -46,7 +46,7 @@ class Helper {
         public static function url_to_link($text) {
         	return preg_replace("#(https?|ftp)://\S+[^\s.,>)\];'\"!?]#", '<a href="\\0">\\0</a>',$text);    
         }
-        function colourBrightness($hex, $percent) {
+        static function colourBrightness($hex, $percent) {
         	// Work out if hash given
         	$hash = '';
         	if (stristr($hex,'#')) {
@@ -86,7 +86,7 @@ class Helper {
         	return $hash.$hex;
         }
         
-        function getColorball($color, $size=15, $noColor=false)
+        static function getColorball($color, $size=15, $noColor=false)
         {
             if ($noColor)
             {
@@ -127,7 +127,7 @@ class Helper {
             }
         }
         
-        function filenameReplaceBadChars( $filename ) 
+        static function filenameReplaceBadChars( $filename ) 
         {
              
              $patterns = array( 
@@ -144,6 +144,9 @@ class Helper {
                "/ä/",
                "/ö/",
                "/ü/",
+               "/Ä/",
+               "/Ö/",
+               "/Ü/",
                "/\\*/"   # * Zeichen 
              ); 
               
@@ -161,13 +164,28 @@ class Helper {
                "ae",
                "oe",
                "ue",
+               "Ae",
+               "Oe",
+               "Ue",
                "_", 
                ); 
                return preg_replace( $patterns, $replacements, $filename ); 
         }
         
-        
-        function endsWith($check, $endStr) {
+        static function cleanFilename($string, $lowercase=false)
+        {
+	        // Remove special accented characters - ie. sí.
+	        $clean_name = strtr($string, 'ŠŽšžŸÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖØÙÚÛÜÝàáâãäåçèéêëìíîïñòóôõöøùúûüýÿ', 										'SZszYAAAAAACEEEEIIIINOOOOOOUUUUYaaaaaaceeeeiiiinoooooouuuuyy');
+	        $clean_name = strtr($clean_name, array('Þ' => 'TH', 'þ' => 'th', 'Ð' => 'DH', 'ð' => 'dh', 'ß' => 'ss', 'Œ' => 'OE', 'œ' => 'oe', 'Æ' => 'AE', 'æ' => 'ae', 'µ' => 'u'));
+
+	        $clean_name = preg_replace(array('/\s/', '/\.[\.]+/', '/[^\w_\.\-]/'), array('_', '.', ''), $clean_name);
+	        if ($lowercase) $clean_name = strtolower($clean_name);
+	        return utf8_encode($clean_name);
+        }
+		
+		
+		
+        static function endsWith($check, $endStr) {
                 if (!is_string($check) || !is_string($endStr) || strlen($check)<strlen($endStr)) {
                     return false;
                 }

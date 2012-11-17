@@ -9,7 +9,7 @@ var CREATED_FOLDERS = false;
 function create_folders(link)
 {
     //folders need to created first
-    jQuery.ajaxSetup({async:false});
+    //jQuery.ajaxSetup({async:false});
     $.ajax(
 	{
 	  	type:  "GET",
@@ -33,7 +33,7 @@ function create_folders(link)
 		
 	});
     //free road for async upload
-    jQuery.ajaxSetup({async:true});
+    //jQuery.ajaxSetup({async:true});
 }
 
 /*
