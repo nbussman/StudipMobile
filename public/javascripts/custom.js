@@ -6,10 +6,21 @@ var DROPBBOX_FAIL    = false;
 // 
 var CREATED_FOLDERS = false;
 
+
+function setAjaxASync()
+{
+	$.ajaxSetup({async:true});
+}
+
+function setAjaxSync()
+{
+	$.ajaxSetup({async:false});
+}
+
+/*
 function create_folders(link)
 {
     //folders need to created first
-    //jQuery.ajaxSetup({async:false});
     $.ajax(
 	{
 	  	type:  "GET",
@@ -31,10 +42,12 @@ function create_folders(link)
 			document.getElementById("uploadList").appendChild(newLI);
 		}
 		
-	});
+	}).done(function() { 
+	                                 	alert("$.get succeeded"); 
+	                                 	});
     //free road for async upload
-    //jQuery.ajaxSetup({async:true});
 }
+*/
 
 /*
  * You use this function to upload a specified 
@@ -92,7 +105,7 @@ function uploadFileDropbox(upload_url, fileid)
 		error: function()
 		{
 			var newLI           = document.createElement("li");
-			newLI.innerHTML =  "Fehler aufgestreten ";
+			newLI.innerHTML =  "Fehler aufgetreten ";
 			newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
 			document.getElementById("uploadList").appendChild(newLI);
 		}

@@ -37,7 +37,7 @@ $page_title = _("Uni Osnabrück");
           <div class="ui-block-a grid scndrow">
             <a href="<?= $controller->url_for("courses") ?>" rel="external">
               <img class="icon" src="<?= $plugin_path ?>/public/images/quickdial/seminar.png" /><br />
-              <span>Veranstaltung</span>
+              <span>Kurse</span>
             </a>
           </div>
           <div class="ui-block-b grid scndrow">

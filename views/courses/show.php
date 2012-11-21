@@ -14,6 +14,9 @@ if ( $course->visible == 1 )
 <? } 
         
 
+/* var_dump($course->delegate->getUndecoratedData()); */
+/* var_dump($course->delegate->getSingleDates()); */
+
 if ($course->metadate)
 {
         //termine

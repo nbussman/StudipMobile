@@ -7,7 +7,7 @@ $page_id = "dates-index";
 <? if (empty($dates)) : ?>
 <h1><?= _('Keine Termine vorhanden!') ?></h1>
 <? else : ?>
-<ul id="dates" data-role="listview" data-filter="true">
+<ul id="dates" data-role="listview" data-filter="true" data-filter-placeholder="Suchen">
     <? foreach ($dates as $date) : ?>
     <li class="dates ui-btn" data-dates="<?= $date['id'] ?>">
         <a href="#">

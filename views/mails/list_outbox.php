@@ -13,7 +13,7 @@ $page_id = "mail-outbox";
         	<a href=""data-theme="c">Bearbeiten</a>
 	</div><!-- /header -->
       <div data-role="content">
-        <ul id="swipeMe" data-role="listview" data-filter="true" data-inset="false" data-divider-theme="d">
+        <ul id="swipeMe" data-role="listview" data-filter="true" data-filter-placeholder="Suchen" data-inset="false" data-divider-theme="d">
 
 <?
 //wenn ausgang leer

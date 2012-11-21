@@ -23,8 +23,8 @@ class CoursesController extends StudipMobileController
 
     function list_files_action($id = null)
     {
-		$this->seminar_id = $id;
-        $this->files = Course::find_files($id);
+		$this->seminar_id 	= $id;
+        $this->files 		= Course::find_files($id, $this->currentUser()->id);
     }
  
     function show_action( $id = null )
@@ -61,12 +61,12 @@ class CoursesController extends StudipMobileController
     	$this->consumerKey 		= Course::getDropboxKey();
     	$this->consumerSecret 	= Course::getDropboxKeySecret();
     	$this->db_tokens   		= Course::get_token($this->currentUser()->id);
-    	$this->files      		= Course::find_files($id);
+    	$this->files      		= Course::find_files($id, $this->currentUser()->id);
     	$this->user_id	   		= $this->currentUser()->id;
     	
     }
     
-    function upload_action( $fileid)
+    function upload_action( $fileid )
     {
 	    $this->upload_info = Course::DropboxUpload($fileid);
     }
@@ -77,6 +77,6 @@ class CoursesController extends StudipMobileController
     }
     function show_members_action( $semId )
     {
-	    $this->members = Course::getMemmbers( $semId );
+	    $this->members = Course::getMembers( $semId );
     }
 }

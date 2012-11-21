@@ -39,8 +39,7 @@ class Helper {
         
         public static function correctText($text)
         {
-	        $text = Helper::url_to_link( studip_utf8encode($text) );
-	        return $text;
+	        return Helper::url_to_link( studip_utf8encode($text) ) ;
         }
         
         public static function url_to_link($text) {
@@ -171,14 +170,15 @@ class Helper {
                ); 
                return preg_replace( $patterns, $replacements, $filename ); 
         }
-        
+
+        //filters a string so thats ist vaild for filenames and pathes, slashes are not filterd
         static function cleanFilename($string, $lowercase=false)
         {
 	        // Remove special accented characters - ie. sí.
 	        $clean_name = strtr($string, 'ŠŽšžŸÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖØÙÚÛÜÝàáâãäåçèéêëìíîïñòóôõöøùúûüýÿ', 										'SZszYAAAAAACEEEEIIIINOOOOOOUUUUYaaaaaaceeeeiiiinoooooouuuuyy');
 	        $clean_name = strtr($clean_name, array('Þ' => 'TH', 'þ' => 'th', 'Ð' => 'DH', 'ð' => 'dh', 'ß' => 'ss', 'Œ' => 'OE', 'œ' => 'oe', 'Æ' => 'AE', 'æ' => 'ae', 'µ' => 'u'));
 
-	        $clean_name = preg_replace(array('/\s/', '/\.[\.]+/', '/[^\w_\.\-]/'), array('_', '.', ''), $clean_name);
+	        $clean_name = preg_replace(array('/\s/', '/\.[\.]+/', '/[^\w_\.\-\/]/'), array('_', '.', ''), $clean_name);
 	        if ($lowercase) $clean_name = strtolower($clean_name);
 	        return utf8_encode($clean_name);
         }

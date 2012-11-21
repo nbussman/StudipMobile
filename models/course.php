@@ -56,12 +56,13 @@ class Course {
         return $stmt->fetchAll();
     }
 
-    function getMemmbers( $semId )
+    function getMembers( $semId )
     {
     	$query = "SELECT seminar_user.Seminar_id, seminar_user.user_id, seminar_user.visible, 
-    			  seminar_user.status, auth_user_md5.Vorname, auth_user_md5.Nachname
+    			  seminar_user.status, auth_user_md5.Vorname, auth_user_md5.Nachname, user_info.title_front
     		      FROM   seminar_user
     		      JOIN 	 auth_user_md5 ON auth_user_md5.user_id = seminar_user.user_id
+    		      JOIN   user_info     ON auth_user_md5.user_id = user_info.user_id
     		      WHERE  seminar_user.visible = 'yes' AND seminar_user.Seminar_id = '$semId'
     		      ORDER BY FIELD(seminar_user.status, 'dozent','tutor' ,'autor', 'user'), auth_user_md5.Nachname
     		      ";	
@@ -108,7 +109,7 @@ class Course {
 /*     FILE MANAGEMENT */
 /* /////////////////// */
 
-    static function find_files( $id = null )
+    static function find_files( $id = null, $user_id )
     {
 	    $db = \DBManager::get();
         $query ="       SELECT *
@@ -122,64 +123,69 @@ class Course {
         $files = array();
         foreach ($result as $row) 
         {
-	    // getLink
-	    $link = $row['url'];
-	    if (($row['url'] == "") OR(!$row['url']) )
-	    {
-		$link    = GetDownloadLink($row['dokument_id'], $row['filename'], 0,'force_download');
-	    }
+		    // getLink
+		    $link = $row['url'];
+		    if (($row['url'] == "") OR(!$row['url']) )
+		    {
+			$link    = GetDownloadLink($row['dokument_id'], $row['filename'], 0,'force_download');
+			}
 	
-	    // get file extension
-	    $path_parts = pathinfo($row['filename']);
-	    $extension  = strtoupper($path_parts['extension']);
-	    //get extension icon
-	    switch($extension)
-	    {
-		case "PDF":
-			$icon_link= "/public/images/icons/files32/pdf.png";
-			break;     
-		case "XLS":        
-			$icon_link= "/public/images/icons/files32/xls.png";
-			break;     
-		case "PPT":        
-			$icon_link= "/public/images/icons/files32/ppt.png";
-			break;     
-		case "ZIP":        
-			$icon_link= "/public/images/icons/files32/zip.png";
-			break;     
-		case "RTF":        
-			$icon_link= "/public/images/icons/files32/rtf.png";
-			break;     
-		case "TXT":        
-			$icon_link= "/public/images/icons/files32/txt.png";
-			break;     
-		case "TGZ":        
-			$icon_link= "/public/images/icons/files32/tgz.png";
-			break;     
-		default:           
-			$icon_link= "/public/images/icons/files32/_blank.png";
-	    }
-            $files[] = array(
-                'id'            => $row['dokument_id'],
-                'name'          => $row['name'],
-		'Seminar_id'    => $row['seminar_id'],
-                'author'        => $row['author_name'],
-                'author_id'     => $row['user_id'],
-                'description'   => $row['description'],
-                'mkdate'        => $row['mkdate'],
-                'filesize'      => $row['filesize'],
-		'link'	        => $link,
-		'filename'      => $row['filename'],
-		'icon_link'      => $icon_link,
-		'extension'     => $extension
-            );
+		    // get file extension
+		    $path_parts = pathinfo($row['filename']);
+		    $extension  = strtoupper($path_parts['extension']);
+		    //get extension icon
+		    switch($extension)
+		    {
+			case "PDF":
+				$icon_link= "/public/images/icons/files32/pdf.png";
+				break;     
+			case "XLS":        
+				$icon_link= "/public/images/icons/files32/xls.png";
+				break;     
+			case "PPT":        
+				$icon_link= "/public/images/icons/files32/ppt.png";
+				break;     
+			case "ZIP":        
+				$icon_link= "/public/images/icons/files32/zip.png";
+				break;     
+			case "RTF":        
+				$icon_link= "/public/images/icons/files32/rtf.png";
+				break;     
+			case "TXT":        
+				$icon_link= "/public/images/icons/files32/txt.png";
+				break;     
+			case "TGZ":        
+				$icon_link= "/public/images/icons/files32/tgz.png";
+				break;     
+			default:           
+				$icon_link= "/public/images/icons/files32/_blank.png";
+		    }
+	        //check access
+	        $file_object = \StudipDocument::find( $row['dokument_id'] );
+	        // Falls $file_oject vorhanden ab in den Array
+	        if ((isset($file_object)) && ($file_object->checkAccess($user_id)) )
+	        {
+	        		$files[] = array(
+		                'id'            => $row['dokument_id'],
+		                'name'          => $row['name'],
+		                'Seminar_id'    => $row['seminar_id'],
+		                'author'        => $row['author_name'],
+		                'author_id'     => $row['user_id'],
+		                'description'   => $row['description'],
+		                'mkdate'        => $row['mkdate'],
+		                'filesize'      => $row['filesize'],
+						'link'	        => $link,
+						'filename'      => $row['filename'],
+						'icon_link'      => $icon_link,
+						'extension'     => $extension
+			        );
+			}
         }
 
 	return $files;
     }
 
-        
-    function DropboxUpload($fileid)
+    static function DropboxUpload($fileid)
     {
         /*
          * This script shoud upload a file to a 
@@ -193,7 +199,7 @@ class Course {
          * @param  folder the folder in the dropbox
          *
          * @return  fail:   filename    if something went wrong
-         * 	        success:filename    if all went right
+         * 	        success:filename    if everything went right
          *          exists: filename    if the file already exists
          */
         if (isset($fileid))
@@ -312,6 +318,15 @@ class Course {
 
         return $ausgabe;
     }
+
+    
+    static function getDropFilePath( $file_id )
+    {
+	    
+    } 
+        
+        
+    
     function createDropboxFolders($semId)
     {
 	    session_start();

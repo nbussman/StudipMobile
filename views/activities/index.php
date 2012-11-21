@@ -4,7 +4,7 @@ $page_title = "Stud.IP - Activity Feed";
 $page_id = "activities-index";
 ?>
 
-<ul id="activities" data-role="listview" data-filter="true">
+<ul id="activities" data-role="listview" data-filter="true" data-filter-placeholder="Suchen">
     <? foreach ($activities as $activity) { 
 /* 	    var_dump($activity); */
     ?>

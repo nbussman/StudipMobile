@@ -95,7 +95,6 @@ if (class_exists("Dropbox_OAuth_PEAR") && class_exists("Dropbox_API") )
                                     $state             		  = 3;
                                     $_SESSION['oauth_tokens'] = $tokens;
                                 }catch(Exception $e){
-                                    echo "bla";
                                     $_SESSION['state']        = 1;
                                     $state                    = 1;
                                     $_SESSION['oauth_tokens'] = NULL;
@@ -202,16 +201,41 @@ if (class_exists("Dropbox_OAuth_PEAR") && class_exists("Dropbox_API") )
 
                             ?>
                             <script>
-                                create_folders('<?= $controller->url_for("courses/createDropboxFolder", htmlReady( $seminar_id )) ?>');
-                                 <?
-                                 list($upload_link) = explode( "?cid=",$controller->url_for("courses/upload") );
-                                 foreach($files AS $file)
-                                    {
-                                        ?>
-                                            uploadFileDropbox("<?=htmlReady($upload_link) ?>","<?= $file['id'] ?>");
-                                        <?
-                                 }
-                                 ?>
+                                 //create_folders('<?= $controller->url_for("courses/createDropboxFolder", htmlReady( $seminar_id )) ?>');
+                                 //creating folders, after that uploading files
+                                 $.ajax(
+									{
+									  	type:  "GET",
+									  	url:   '<?= $controller->url_for("courses/createDropboxFolder", htmlReady( $seminar_id )) ?>',
+									  	data:  { },
+										success: function( data )
+										{
+										    DROPBOX_COUNTER = 0;
+											var newLI           = document.createElement("li");
+											newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
+											newLI.innerHTML =  "Ordnerstruktur angelegt";
+											document.getElementById("uploadList").appendChild(newLI);
+										},
+										error: function()
+										{
+											var newLI           = document.createElement("li");
+											newLI.innerHTML =  "Anlegen Ordnerstruktur fehlgeschlagen";
+											newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
+											document.getElementById("uploadList").appendChild(newLI);
+										}
+										
+									}).done(function() { 
+											<?
+												list($upload_link) = explode( "?cid=",$controller->url_for("courses/upload") );
+												foreach($files AS $file)
+												{
+													?>
+														uploadFileDropbox("<?=htmlReady($upload_link) ?>","<?= $file['id'] ?>");
+													<?
+												}
+											?>
+									});
+                                 
                             </script>
                             <ul id="uploadList" data-role="listview" data-inset="true" data-theme="b" data-divider-theme="a">
                                 <li data-role="list-divider">Abgleich beginnt</li>
