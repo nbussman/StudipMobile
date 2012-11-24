@@ -23,7 +23,7 @@ class Mail {
                                 AND message_user.message_id ='$id'";
                 $result = $db->query($query);
         }
-        private function get_mail($user_id, $msg_id, $mark=0)
+        static function get_mail($user_id, $msg_id, $mark=0)
         {
                 if ($msg_id == null)
                 {
@@ -101,7 +101,7 @@ class Mail {
                 $db->query($query2);
                 return $items;
         }
-        private function get_mails($user_id, $intervall, $inbox = true)
+        static function get_mails($user_id, $intervall, $inbox = true)
         {
                 $items = array();
                 $db = \DBManager::get();
