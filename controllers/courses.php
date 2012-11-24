@@ -2,6 +2,7 @@
 
 require "StudipMobileController.php";
 require dirname(__FILE__) . "/../models/course.php";
+
 use Studip\Mobile\Course;
 
 class CoursesController extends StudipMobileController
@@ -21,13 +22,13 @@ class CoursesController extends StudipMobileController
         $this->courses = Course::findAllByUser($this->currentUser()->id);
     }
 
-    function list_files_action($id = null)
+    function list_files_action($id = NULL)
     {
 		$this->seminar_id 	= $id;
         $this->files 		= Course::find_files($id, $this->currentUser()->id);
     }
  
-    function show_action( $id = null )
+    function show_action( $id = NULL )
     {
     	
         $this->course      = Course::find($id);
@@ -54,7 +55,7 @@ class CoursesController extends StudipMobileController
      *        user takens for dropbox sync saved in sql table 
      * @param id the seminar id
      */
-    function dropfiles_action( $id = null )
+    function dropfiles_action( $id = NULL )
     {
     	session_start();
     	$this->seminar_id  		= $id;

@@ -13,3 +13,4 @@ $page_title = "Stud.IP - Login";
   </div>
     <input type="submit" value="Login">
 </form>
+<button data-theme="e">Zur Webansicht</button>
