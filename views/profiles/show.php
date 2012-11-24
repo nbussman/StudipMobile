@@ -1,7 +1,7 @@
 <?php
 
 $this->set_layout("layouts/single_page_back");
-$page_title = $data["user_data"]["title_front"]." ".$data["user_data"]["nachname"]?:"Profil";
+$page_title = $data["user_data"]["title_front"]." ".$data["user_data"]["vorname"]." ".$data["user_data"]["nachname"]?:"Profil";
 $page_id = "profile-index";
 
 ?>

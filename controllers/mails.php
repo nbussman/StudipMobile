@@ -63,5 +63,14 @@ class MailsController extends StudipMobileController
 		        $this->empfData = User::find($empf)->getData();
 	        }
         }
+        
+        function send_action ( $empf )
+        {
+	        $betreff     = $_POST["mail_title"];
+	        $nachricht   = $_POST["mail_message"];
+	        $this->sendmessage = Mail::send( $empf, $betreff, $nachricht, $this->currentUser()->id );
+	        
+	        
+        }
 }
 

@@ -187,9 +187,54 @@ class Mail {
 			$stmt = \DBManager::get()->query($query);
 			$result = $stmt->fetchAll();
 			
-			//to do dublicate entfernen 
 			
-			return array_unique($result); 
+			//dublicate entfernen 
+			//zunäcsht alle user_ids in array packen
+			$user_ids = array();
+			foreach( $result AS $member)
+			{
+				if (!in_array( $member["user_id"] , $user_ids ))
+					array_push($user_ids, $member["user_id"]);
+			}
+			
+			//löschen der eigenen id
+			unset( $user_ids[array_search($userId,$user_ids)] );
+			
+			//jetzt alle einmal in ausgaben array packen
+			$ausgabe = array();
+			foreach( $result AS $member)
+			{
+				if (in_array( $member["user_id"] , $user_ids ))
+				{
+					array_push($ausgabe, $member);	
+					unset( $user_ids[array_search($member["user_id"],$user_ids)] );
+				}
+			}
+			
+			
+			return $ausgabe; 
         }
+        static function send ( $empf, $betreff, $nachricht, $abs)
+        {
+	        //Nachricht Objekt erstellen
+	        $message    = new \messaging();
+	        
+	        // wenn empfänger kein array, mach ein draus
+			if (is_array($empf))
+			{
+				$empf_array = array(0 => $empf);
+			}
+			else
+			{
+				$empf_array = $empf;
+			}
+	        
+	        //senden der Nachricht
+	        $send = $message->insert_message(mysql_escape_string($nachricht), mysql_escape_string($empf_array), 
+	        			mysql_escape_string($abs), '', '', '', '',mysql_escape_string($betreff), '', 'normal');
+	        if ($send > 0)	return true;
+	        return false;
+        }
+        
 
 }

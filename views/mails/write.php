@@ -18,6 +18,7 @@ $page_id = "mail-write";
       			// adressat wurde gewählt
 	      		?>
 	      			<p>
+	      			<form action="<?= $controller->url_for("mails/send", htmlReady($empfData['username'])) ?>" method="POST">
 	      				<div class="ui-grid-b a_bit_smaller_text" data-theme="c" style="font-size:10pt;">
                         	<div class="ui-block-a">
 	                        	<img  src="
@@ -30,9 +31,11 @@ $page_id = "mail-write";
                         </div><!-- /grid-a -->
 	      				<hr>
 	      				<h3>Betreff</h3>
-	      				<input name="title">
+	      				<input name="mail_title">
 	      				<h3>Nachricht</h3>
-	      				<textarea style="min-height:200px;"></textarea>
+	      				<textarea style="min-height:200px;" name="mail_message">Sehr geehrte(r) <?=$empfData['vorname'] ?> <?=$empfData['nachname'] ?>,
+
+Mit freundlichen Grüßen</textarea>
 	      				<button value="submit">Senden</button>
 	      				</p>
 	      		<?
@@ -49,7 +52,7 @@ $page_id = "mail-write";
 					{
 					?>
 				        <li>
-					        <a href=" <?= $controller->url_for("mail/write", htmlReady($member['user_id'])) ?>">
+					        <a href="<?= $controller->url_for("mails/write", htmlReady($member['user_id'])) ?>">
 						        <img src="<?= $controller->url_for("avatars/show", $member['user_id'], 'medium') ?>" class="ui-li-thumb">
 						        <h3><?=htmlReady($member["title_front"]) ?> <?=htmlReady($member['Vorname']) ?>  <?=htmlReady($member['Nachname'])?> </h3>
 						    </a>
