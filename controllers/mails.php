@@ -51,5 +51,17 @@ class MailsController extends StudipMobileController
         {
                     $this->mail = Mail::findMsgById($this->currentUser()->id, $id, $mark);
         }
+        
+        function write_action ( $empf=null )
+        {
+	        if ($empf == null)
+	        {
+		        $this->members  = Mail::findAllInvolvedMembers( $this->currentUser()->id );
+	        } 
+	        else
+	        {
+		        $this->empfData = User::find($empf)->getData();
+	        }
+        }
 }
 

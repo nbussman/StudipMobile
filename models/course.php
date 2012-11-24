@@ -70,7 +70,7 @@ class Course {
 		$result = $stmt->fetchAll();
 		return $result;
 	}
-    		
+	    		
     static function find($id)
     {
         return new Course($id);

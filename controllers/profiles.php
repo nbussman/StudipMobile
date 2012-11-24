@@ -18,8 +18,7 @@ class ProfilesController extends StudipMobileController
 
     function index_action()
     {
-    	
-    	$this->profile 	= Profile::finduser(  $this->currentUser()->id );
+    	$this->userId 	  	= $this->currentUser()->id;
     }
     function show_action ($id=null)
     {

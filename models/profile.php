@@ -3,6 +3,8 @@
 // !!! totaler pfad zum bild -> ändern
 
 require_once($STUDIP_BASE_PATH."lib/user_visible.inc.php");
+require_once($STUDIP_BASE_PATH."lib/classes/Institute.class.php");
+
 
 class Profile {
 

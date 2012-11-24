@@ -21,7 +21,7 @@ $page_id = "profile-index";
 	                        <?
 	                }
 	                ?>
-	                <li><a href="">Nachricht senden</a></li>
+	                <li><a href="<?= $controller->url_for("mails/write", htmlReady($data["user_data"]['user_id'])) ?>">Nachricht senden</a></li>
 			</ul>
        </div>
        

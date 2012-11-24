@@ -1,6 +1,8 @@
 <?php
 namespace Studip\Mobile;
 
+require_once $this->trails_root .'/models/course.php';
+
 class Mail {
 
         static function findAllByUser($user_id, $intervall, $inbox = true)
@@ -161,6 +163,33 @@ class Mail {
                 
                 
                 return $items;
+        }
+        
+        static function findAllInvolvedMembers ( $userId )
+        {	
+        	//get all seminars 
+        	$seminare = Course::findAllByUser( $userId );
+        	$seminarIdString = "";
+        	foreach ($seminare AS $seminar)
+        	{
+	        	if ($seminarIdString == "")  $seminarIdString .= " Seminar_id='".$seminar["Seminar_id"]."' ";
+	        	else						 $seminarIdString .= "OR   Seminar_id='".$seminar["Seminar_id"]."' ";
+        	}
+
+        	$query = "SELECT seminar_user.Seminar_id, seminar_user.user_id, seminar_user.visible, 
+	    			  seminar_user.status, auth_user_md5.Vorname, auth_user_md5.Nachname, user_info.title_front
+	    		      FROM   seminar_user
+	    		      JOIN 	 auth_user_md5 ON auth_user_md5.user_id = seminar_user.user_id
+	    		      JOIN   user_info     ON auth_user_md5.user_id = user_info.user_id
+	    		      WHERE $seminarIdString
+	    		      ORDER BY auth_user_md5.Nachname
+	    		      ";	
+			$stmt = \DBManager::get()->query($query);
+			$result = $stmt->fetchAll();
+			
+			//to do dublicate entfernen 
+			
+			return array_unique($result); 
         }
 
 }
