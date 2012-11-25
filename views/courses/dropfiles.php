@@ -3,8 +3,6 @@
 require_once 'Dropbox/autoload.php';
 
 
-//fopen("http://localhost/~nils/studip/public/sendfile.php?force_download=0&type=0&file_id=aa164a04d7fa4f69535ec3d7d99f57a5&file_name=Auto_Plan.xls", "r");
-
 $this->set_layout("layouts/single_page_back");
 $page_title      = "Dateien droppen";
 $page_id         = "courses-dropfiles";
@@ -17,7 +15,9 @@ $page_id         = "courses-dropfiles";
 // custom settings
 $consumerKey     = '5wty9mf06gcuco0';
 $consumerSecret  = 'hveok3hllw48hji';
-$call_back_link  = $controller->url_for("courses/dropfiles", htmlReady($seminar_id) );
+$hostAdress      = 'http://h2103528.stratoserver.net'; // Shoud not  end width a Backslash
+
+$call_back_link  = $hostAdress.$controller->url_for("courses/dropfiles", htmlReady($seminar_id) );
 
 // is set if the user is logged in
 $connection_good = false;
