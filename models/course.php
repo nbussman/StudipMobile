@@ -113,8 +113,8 @@ class Course {
     {
 	    $db = \DBManager::get();
         $query ="       SELECT *
-                        FROM Dokumente
-                        WHERE           Dokumente.seminar_id =  '$id'
+                        FROM dokumente
+                        WHERE seminar_id =  '$id'
                         ORDER BY mkdate DESC
 			LIMIT 0,30
 			";

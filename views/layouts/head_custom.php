@@ -18,7 +18,6 @@
   <script src="<?= $plugin_path ?>/public/vendor/date/date.js"></script>
   <script src="<?= $plugin_path ?>/public/javascripts/application.js"></script>
   <script src="<?= $plugin_path ?>/public/javascripts/jquery.swipeButton.min.js"></script>
-  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
   <script>
     $(document).ready(function() {
      

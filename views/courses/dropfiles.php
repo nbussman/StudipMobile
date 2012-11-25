@@ -17,7 +17,7 @@ $page_id         = "courses-dropfiles";
 // custom settings
 $consumerKey     = '5wty9mf06gcuco0';
 $consumerSecret  = 'hveok3hllw48hji';
-$call_back_link  = "http://localhost/~nbussman/studip2/public/plugins.php/studipmobile/courses/dropfiles/" . $seminar_id;
+$call_back_link  = $controller->url_for("courses/dropfiles", htmlReady($seminar_id) );
 
 // is set if the user is logged in
 $connection_good = false;

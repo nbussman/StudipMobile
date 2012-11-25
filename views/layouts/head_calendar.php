@@ -24,7 +24,6 @@
 	<script src="<?= $plugin_path ?>/public/vendor/map/jquery.ui.map.full.min.js" type="text/javascript"></script>
     <!-- END MAP-->
 
-    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
     <script src="<?= $plugin_path ?>/public/javascripts/custom.js"></script>
     <!-- CUSTOM END -->
     <script src="<?= $plugin_path ?>/public/vendor/mustache/jquery.mustache.js"></script>
