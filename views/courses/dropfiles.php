@@ -213,7 +213,7 @@ if (class_exists("Dropbox_OAuth_PEAR") && class_exists("Dropbox_API") )
 										    DROPBOX_COUNTER = 0;
 											var newLI           = document.createElement("li");
 											newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
-											newLI.innerHTML =  "Ordnerstruktur angelegt";
+											newLI.innerHTML =  "Ordnerstruktur angelegt. Sie können diese Seite nun schließen";
 											document.getElementById("uploadList").appendChild(newLI);
 										},
 										error: function()
