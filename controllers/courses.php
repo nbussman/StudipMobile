@@ -3,6 +3,7 @@
 require "StudipMobileController.php";
 require dirname(__FILE__) . "/../models/course.php";
 
+
 use Studip\Mobile\Course;
 
 class CoursesController extends StudipMobileController
@@ -55,7 +56,8 @@ class CoursesController extends StudipMobileController
      *        user takens for dropbox sync saved in sql table 
      * @param id the seminar id
      */
-    function dropfiles_action( $id = NULL )
+    /*
+function dropfiles_action( $id = NULL )
     {
     	session_start();
     	$this->seminar_id  		= $id;
@@ -65,6 +67,16 @@ class CoursesController extends StudipMobileController
     	$this->files      		= Course::find_files($id, $this->currentUser()->id);
     	$this->user_id	   		= $this->currentUser()->id;
     	
+    }
+*/
+    function dropfiles_action( $id = NULL )
+    {
+    	session_start();
+    	$call_back_link  = "http://localhost/~nbussman/studip2/public/plugins.php/studipmobile/courses/dropfiles2/".$id;//$hostAdress.$this->url_for("courses/dropfiles2", htmlReady($id) );
+    	$this->seminar_id  		= $id;
+    	$this->files      		= Course::find_files($id, $this->currentUser()->id);
+    	$this->user_id	   		= $this->currentUser()->id;
+    	$this->dropCom 			= Course::connectToDropbox( $this->currentUser()->id, $call_back_link );
     }
     
     function upload_action( $fileid )

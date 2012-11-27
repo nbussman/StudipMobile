@@ -1,9 +1,9 @@
 <?php
-
+	
 class StudipMobile extends StudipPlugin implements SystemPlugin
 {
     const DEFAULT_CONTROLLER = "activities";
-
+    
     /**
      * This method dispatches and displays all actions. It uses the template
      * method design pattern, so you may want to implement the methods #route

@@ -2,9 +2,8 @@
 namespace Studip\Mobile;
 
 require_once("resource.php");
-
 require_once('Dropbox/autoload.php');
-
+require_once("dropboxCom.php");
 class Course {
 
 
@@ -479,5 +478,9 @@ class Course {
     function getDropboxKeySecret()
     {
 		return	$consumerSecret;  
+    }
+    function connectToDropbox($user_id, $link)
+    {
+	    return DropboxCommunication::dropConnect( $this->currentUser()->id, $link );
     }
 }

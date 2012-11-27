@@ -3,7 +3,7 @@
 require_once $this->trails_root .'/models/helper.php';
 class StudipMobileController extends Trails_Controller
 {
-
+	
     /**
      * Applikationsübergreifender before_filter mit Trick:
      *
@@ -12,6 +12,9 @@ class StudipMobileController extends Trails_Controller
      * Geben diese FALSE zurück, bricht Trails genau wie beim normalen
      * before_filter ab.
      */
+     
+    
+	
     function before_filter(&$action, &$args)
     {
         $this->plugin_path = URLHelper::getURL($this->dispatcher->plugin->getPluginPath());
