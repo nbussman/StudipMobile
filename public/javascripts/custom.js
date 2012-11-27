@@ -31,7 +31,7 @@ function create_folders(link)
 		    DROPBOX_COUNTER = 0;
 			var newLI           = document.createElement("li");
 			newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
-			newLI.innerHTML =  "Ordnerstruktur angelegt";
+			newLI.innerHTML =  "Ordnerstruktur angelegt. Sie k&ouml;nnen diese Seite nun schlie&szlig;";
 			document.getElementById("uploadList").appendChild(newLI);
 		},
 		error: function()

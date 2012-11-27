@@ -1,7 +1,8 @@
 <?php
 $this->set_layout("layouts/single_page_back");
 $page_title      = "Dateien droppen";
-$page_id         = "courses-dropfiles2";
+$page_id         = "courses-dropfiles";
+
 
 if (($dropCom != "connected"))
 {
