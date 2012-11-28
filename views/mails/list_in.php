@@ -1,7 +1,7 @@
 
 <div data-role="page" id="<?= $page_id ?: '' ?>">
 	<div data-role="header" data-theme="a">
-        	<a href="<?= $controller->url_for("quickdial") ?>" rel="external" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>
+        	<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>
         	<h1><?=$page_title ?: 'Stud.IP' ?></h1>
         	<a href=""data-theme="c">Bearbeiten</a>
 	</div><!-- /header -->

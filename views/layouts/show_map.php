@@ -32,7 +32,7 @@
     <div data-role="page" id="<?= $page_id ?: '' ?>" >
 
       <div data-role="header"  data-theme="<?=TOOLBAR_THEME ?>">
-        <a href="javascript:history.back()" rel="external" data-icon="delete" data-iconpos="notext" data-theme="d"></a>
+        <a href="javascript:history.back()" class="externallink" data-icon="delete" data-iconpos="notext" data-theme="d"></a>
         <h1><?= $page_title ?: 'Stud.IP' ?></h1>
        
       </div><!-- /header -->

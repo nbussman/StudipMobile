@@ -19,13 +19,7 @@
   <script src="<?= $plugin_path ?>/public/javascripts/application.js"></script>
   <script src="<?= $plugin_path ?>/public/javascripts/jquery.swipeButton.min.js"></script>
   <script>
-    $(document).ready(function() {
-     
-      $('.bookmark').click(function() {
-        $('.bookmark').fadeOut('slow');
-      }); 
-    }); 
-    
+       
     
     function SetCookie(bookmark,cookieValue,nDays) {
       var today = new Date();
@@ -36,64 +30,7 @@
         document.cookie = cookieName+"="+escape(cookieValue)
                         + ";expires="+expire.toGMTString();
       }
-    
-    
-    function detectmobiles () {
-      var ua = navigator.userAgent;
-      var checker = {
-        iphone: ua.match(/(iPhone|iPod|iPad)/),
-        blackberry: ua.match(/BlackBerry/),
-        android: ua.match(/Android/)
-      };
-        if (checker.iphone) {
-          $('.bookmark').show();                                          
-        };
-    }
-          
-    
-    function hideinfo () {
-      if ( $('.bookmark').is(':visible') ) {
-      $('.bookmark').fadeOut('slow');
-      }
-    } 
-    
-    window.setTimeout ("hideinfo()", 20000);
-    
-    $(function() {          
-       $('.ticker').bind('swipeleft', function(event) {
-        $('.ticker').animate({"left": "-=300px"}, "slow");
-      });        
-    
-      $('.ticker').bind('swiperight', function(event) {
-        $('.ticker').animate({"left": "+=300px"}, "slow");
-      });  
-           
-      $(window).bind('orientationchange',function(e){
-        if(window.orientation == 0) {
-          $('.ticker').show();
-          window.setTimeout('location.reload()');
-        }
-        else {
-         $('.ticker').hide();
-        }
-      });   
-    });
- 
-    $(document).ready(function() {
-
-      		// attach the plugin to an element
-      		$('#swipeMe li').swipeDelete({
-      			btnTheme: 'f',
-      			click: function(e){
-      				e.preventDefault();
-      				var url = $(e.target).attr('href');
-      				$(this).parents('li').remove();
-      				$.post(url, function(data) {
-      					console.log(data);
-      				});
-      			}
-      		});
-
-    });
+    //register, cause external link like class="externallink" not work for android standard browser
+    $('a.externallink').bind( 'tap', function(){ window.location = this.href; } );
     </script>
 </head>

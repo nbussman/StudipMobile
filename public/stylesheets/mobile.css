@@ -260,6 +260,19 @@ img.contact {
     border-radius: 0px;
 }
 
+.ui-icon-studip-mail {
+    background-image: url('../images/icons/standard/mailclosed18.png');
+    background-color: transparent;
+    height: 18px;
+    width: 18px;
+    top: 0;
+    
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+
+}
+
+
 .little_space
 {
     width:1px;

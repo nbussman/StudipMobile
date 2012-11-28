@@ -18,7 +18,7 @@ $weekday= date("N");
 <div data-role="page" id="landing">
 
 	<div data-role="header" data-position="fixed" data-theme="e" data-fullscreen="true">       
-		<a href="<?= $controller->url_for("quickdial") ?>" rel="external" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>          
+		<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>          
 		<h1>Stundenplan</h1>
 	</div>
 
@@ -58,6 +58,7 @@ $weekday= date("N");
 					{
 						foreach($array["col_0"] as $termin )
 						{
+							//var_dump($termin);
 							$link = $controller->url_for("courses/show", htmlReady(substr($termin['id'],0,32)));
 							?>
 							<div class="calendar_time" onclick="location.href='<?=$link ?>'">
@@ -66,7 +67,8 @@ $weekday= date("N");
 								<?=substr($termin["end"],0,2) ?>:<?=substr($termin["end"],2,2) ?>:
 							</div>
 							<div class="calendar_bubble"  onclick="location.href='<?=$link ?>'">
-								<?=$termin["title"] ?>
+								<strong><?=htmlReady($termin["content"]) ?> </strong>	
+								<?=htmlReady($termin["title"]) ?>
 							</div>	   
 							<?
 						}
@@ -89,8 +91,8 @@ $weekday= date("N");
 	<div data-role="footer" data-id="mainFooter" data-position="fixed">
 		<div data-role="navbar" data-grid="a">
 			<ul class="apple-navbar-ui comboSprite">
-				<li><a href="" data-iconpos="top" data-icon="calendar"  class="ui-btn-active">Stundenplan</a></li>
-				<li><a href="<?= $controller->url_for("calendar/kalender") ?>" data-iconpos="top" data-icon="calendar"                         >Kalender</a></li>
+				<li><a href="" data-iconpos="top" data-icon="cal"  class="ui-btn-active">Stundenplan</a></li>
+				<li><a href="<?= $controller->url_for("calendar/kalender") ?>" data-iconpos="top" data-icon="cal"                         >Kalender</a></li>
 			</ul>
 		</div>
 	</div>

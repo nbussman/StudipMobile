@@ -35,6 +35,9 @@
       STUDIP.ABSOLUTE_URI_STUDIP = "<?= $GLOBALS['ABSOLUTE_URI_STUDIP'] ?>";
     </script>
     <script>
+    	//register, cause external link like class="externallink" not work for android standard browser
+    	$('a.externallink').bind( 'tap', function(){ window.location = this.href; } );
+
     	$(document).ready(function() {
     
     		// attach the plugin to an element

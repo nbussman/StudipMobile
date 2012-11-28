@@ -10,7 +10,7 @@ $page_id = "activities-index";
     ?>
     	<li class="activity" data-activity="<?= htmlReady($activity['id']) ?>">
     		<? if (!empty($activity["link"])){ ?>
-    			<a href="<?=$controller->url_for($activity['link']) ?>" rel="external">
+    			<a href="<?=$controller->url_for($activity['link']) ?>" class="externallink">
     		<? } ?>
 	             <img src="<?= $controller->url_for("avatars/show", $activity['author_id']) ?>"
 	                  alt="<?= htmlReady($activity['category']) ?>"

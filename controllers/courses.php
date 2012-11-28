@@ -72,7 +72,7 @@ function dropfiles_action( $id = NULL )
     function dropfiles_action( $id = NULL )
     {
     	session_start();
-    	$call_back_link  = "http://localhost/~nbussman/studip2/public/plugins.php/studipmobile/courses/dropfiles2/".$id;//$hostAdress.$this->url_for("courses/dropfiles2", htmlReady($id) );
+    	$call_back_link  = "http://localhost/~nbussman/studip2/public/plugins.php/studipmobile/courses/dropfiles/".$id;//$hostAdress.$this->url_for("courses/dropfiles2", htmlReady($id) );
     	$this->seminar_id  		= $id;
     	$this->files      		= Course::find_files($id, $this->currentUser()->id);
     	$this->user_id	   		= $this->currentUser()->id;

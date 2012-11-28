@@ -14,13 +14,13 @@ $page_title = _("Uni Osnabrück");
             </a>
           </div>
           <div class="ui-block-b grid">
-            <a href="<?= $controller->url_for("calendar") ?>"  rel="external">
+            <a href="<?= $controller->url_for("calendar") ?>"  class="externallink">
               <img class="icon" src="<?= $plugin_path ?>/public/images/quickdial/schedule.png" /><br />
               <span>Planer</span>
             </a>
           </div>
           <div class="ui-block-c grid">
-            <a href="<?= $controller->url_for("mails") ?>/" rel="external">
+            <a href="<?= $controller->url_for("mails") ?>/" class="externallink">
 	      <?
 	      	if ($number_unread_mails > 0)
 		{ 
@@ -35,7 +35,7 @@ $page_title = _("Uni Osnabrück");
           </div>
           
           <div class="ui-block-a grid scndrow">
-            <a href="<?= $controller->url_for("courses") ?>" rel="external">
+            <a href="<?= $controller->url_for("courses") ?>" class="externallink">
               <img class="icon" src="<?= $plugin_path ?>/public/images/quickdial/seminar.png" /><br />
               <span>Kurse</span>
             </a>
@@ -53,44 +53,38 @@ $page_title = _("Uni Osnabrück");
             </a>
           </div>
       </div>
-      
-      <div class="bookmark">
-          Für eine bessere Darstellung fügen Sie diese Seite zum <b>Home-Bildschirm</b> hinzu!
-        <div class="chat-bubble-arrow-border"></div>
-        <div class="chat-bubble-arrow"></div>
-      </div>
-    
-    
    
     <?
-	$i=0;
 
-    	foreach($next_courses as $next)
+	if (!empty($next_courses))
 	{
-		if($i > 0)
-		{
-			$selektor=" ticker-r".$i;
-		}
 		?>
-			<div class="ticker<?=$selektor ?>">
-
-			        <div class="tickerhead">
-			          <span style="float:left;"><img src="<?= $plugin_path ?>/public/images/quickdial/ticker-left.png" /></span>
-			            Nächste Veranstaltung:
-			          <span style="float:right;"><img src="<?= $plugin_path ?>/public/images/quickdial/ticker-right.png" /></span>
-			        </div>
-
-			        <div class="tickercontent">
-			          von <?=$next["beginn"] ?> bis <?=$next["beginn"] ?><br />
-			          <b><?=$next["title"] ?></b><br />
-			          <?=$next["description"] ?>
-			        </div>
-
-			</div>
+			<ul data-role="listview" data-inset="true" data-theme="c">
+				<li data-role="list-divider" data-theme="b">Als Nächstes</li>
 		<?
-		$i++;
 	}
-
+    foreach($next_courses as $next)
+	{	
+		?>
+				<li>
+					<a href="<?= $controller->url_for("courses/show", htmlReady($next["id"])) ?>" data-ajax='false'>
+						<p><strong><?=htmlReady($next["title"]) ?></Strong></p>
+						<p>
+							<?=htmlReady($next["description"]) ?>
+						    <span class="ui-li-count">
+						    	<?=htmlReady($next["beginn"])?> - <?=htmlReady($next["ende"])?>
+						    </span>
+						</p>
+					</a>
+				</li>
+		<?
+	}
+	if (!empty($next_courses))
+	{
+		?>
+			</ul>
+		<?
+	}
     ?>
 
     
