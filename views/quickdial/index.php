@@ -53,7 +53,7 @@ $page_title = _("Uni Osnabrück");
             </a>
           </div>
       </div>
-   
+      <div style="width:70%;height:15px;"></div>
     <?
 
 	if (!empty($next_courses))
