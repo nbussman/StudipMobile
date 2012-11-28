@@ -3,6 +3,20 @@ $this->set_layout("layouts/single_page_back");
 $page_title = "Kurse";
 $page_id = "courses-show";
 
+// check if there are Geolocations 
+$resources_locations = array();
+
+foreach ($resources AS $reso)
+{
+	if ( is_numeric($reso['latitude']) && is_numeric($reso['longitude']))
+	{
+		//wenn keine geoinfos: aus array kicken
+		$resources_locations[] = $reso;				
+	}
+}
+
+//ausgabe 
+
 if ( $course->visible == 1 )
 {
 // print title and subtitle
@@ -166,7 +180,24 @@ if ($course->metadate)
     <a href="<?= $controller->url_for("activities/index", htmlReady($course->id)) ?>" data-role="button" data-iconpos="right" data-icon="star" data-theme="b">News</a>
   </div>
   <div class="ui-block-b">
-    <a href="#" data-role="button" data-iconpos="right" data-icon="star" data-theme="b">Forum</a>
+  	<?
+  		if (!empty($resources_locations))
+  		{
+	  		?>
+	  		 <a href="<?= $controller->url_for("courses/show_map", htmlReady($course->id)) ?>" 
+	  		    data-role="button" data-iconpos="right" data-icon="star" data-theme="b"
+	  		    class="externallink" data-ajax="false">
+	  		    	Karte
+	  		 </a>
+	  		<?
+  		}
+  		else
+  		{
+	  		?>
+	  		<a href="#" data-role="button" data-iconpos="right" data-icon="star" data-theme="d">keine Karte</a>
+	  		<?
+  		}
+   ?>
   </div>
 
   <div class="ui-block-a">
@@ -179,22 +210,7 @@ if ($course->metadate)
 
 
 <?
-$resources_locations = array();
-
-foreach ($resources AS $reso)
-{
-	if ( is_numeric($reso['latitude']) && is_numeric($reso['longitude']))
-	{
-		//wenn keine geoinfos: aus array kicken
-		$resources_locations[] = $reso;				
-	}
-}
-
-if ( empty($resources_locations) )
-{
-	echo "<center><h3>Leider keine Geoinformationen vorhanden</h3></center>";
-}
-else
+if ( !empty($resources_locations) )
 {
 
 	$first_resource = array_shift($resources_locations);
@@ -230,10 +246,6 @@ else
 <div class="ui-bar-c ui-corner-all ui-shadow" style="margin-top:2em;">
 	<div id="map_canvas" style="height:300px"></div>
 </div>
-<div class="ui-grid-solo">
-	<div class="ui-block-a"><a href="<?= $controller->url_for("courses/show_map", htmlReady($course->id)) ?>"  class="externallink" data-ajax="false" data-role="button" data-iconpos="right" data-icon="" >Karte vergr&ouml;&szlig;ern</a></div>
-</div>
-
 
 <?
 }

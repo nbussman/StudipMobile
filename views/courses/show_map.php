@@ -19,7 +19,7 @@ foreach ($resources AS $reso)
 
 if ( empty($resources_locations) )
 {
-	echo "<center><h3>Leider keine Geoinformationen vorhanden</h3></center>";
+	echo "<center><h3>Leider sind für diesen Kurs keine Geoinformationen vorhanden</h3></center>";
 }
 else
 {
@@ -54,12 +54,19 @@ array_unshift($resources,$first_resource);
 			                                                                                                                                                                                                                             
 		});
         });
-        
+
 </script>
 <div class="ui-bar-c ui-corner-all ui-shadow" style="margin-top:0em;">
-	<div id="map_canvas" style="height:355px"></div>
+	<div id="map_canvas" style="height:335px;"></div>
 </div>
 
+<script type="text/javascript">
+	// stellt sicher, dass immer 80% der höhe von der karte gefüllt sind 
+	$("#map_canvas").height( $(window).height() - (0.1 * $(window).height()));
+	$(window).resize(function(){
+		$("#map_canvas").height( $(window).height() - (0.2 * $(window).height()));		
+	});
+</script>
 <?
 }
 ?>
