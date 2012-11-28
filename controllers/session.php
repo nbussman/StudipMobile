@@ -33,7 +33,6 @@ class SessionController extends StudipMobileController
             return;
         }
 
-
         $user_id = get_userid($username);
 
         if (isset($user_id)) {
@@ -46,10 +45,14 @@ class SessionController extends StudipMobileController
 
     function destroy_action()
     {
-        # TODO dummy implementation just for testing
-        $this->content_for_layout = "not implemented";
-        $this->render_template("layouts/single_page");
-        $this->set_layout(null);
+        global $perm, $user, $auth, $sess, $forced_language, $_language;
+        $perm = null;
+        $user = null;
+        $auth->logout();
+        $forced_language = null;
+        $_language = null;
+        $sess->delete();
+        $this->redirect("activities");
     }
 
     protected function start_session($user_id)

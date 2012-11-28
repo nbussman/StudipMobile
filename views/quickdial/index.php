@@ -14,13 +14,13 @@ $page_title = _("Uni Osnabrück");
             </a>
           </div>
           <div class="ui-block-b grid">
-            <a href="<?= $controller->url_for("calendar") ?>"  class="externallink">
+            <a href="<?= $controller->url_for("calendar") ?>"  class="externallink" data-ajax="false">
               <img class="icon" src="<?= $plugin_path ?>/public/images/quickdial/schedule.png" /><br />
               <span>Planer</span>
             </a>
           </div>
           <div class="ui-block-c grid">
-            <a href="<?= $controller->url_for("mails") ?>/" class="externallink">
+            <a href="<?= $controller->url_for("mails") ?>/" class="externallink" data-ajax="false">
 	      <?
 	      	if ($number_unread_mails > 0)
 		{ 
@@ -35,7 +35,7 @@ $page_title = _("Uni Osnabrück");
           </div>
           
           <div class="ui-block-a grid scndrow">
-            <a href="<?= $controller->url_for("courses") ?>" class="externallink">
+            <a href="<?= $controller->url_for("courses") ?>" class="externallink" rel="external" data-ajax="false">
               <img class="icon" src="<?= $plugin_path ?>/public/images/quickdial/seminar.png" /><br />
               <span>Kurse</span>
             </a>
@@ -47,9 +47,10 @@ $page_title = _("Uni Osnabrück");
             </a>
           </div>
           <div class="ui-block-c grid scndrow">
-            <a href="html/community.html">
-              <img class="icon" src="<?= $plugin_path ?>/public/images/quickdial/community.png" /><br />
-              <span>Community</span>
+            <a href="<?= $controller->url_for("profiles/show",htmlReady($user_id)) ?>"  
+               class="externallink" rel="external" data-ajax="false">
+              <img class="icon" src="<?= $plugin_path ?>/public/images/quickdial/profile.png" /><br />
+              <span>Ich</span>
             </a>
           </div>
       </div>

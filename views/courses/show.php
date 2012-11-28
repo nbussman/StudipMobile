@@ -173,7 +173,7 @@ if ($course->metadate)
     <a href="<?= $controller->url_for("courses/list_files", htmlReady($course->id)) ?>" data-role="button">Dateien</a>
   </div>
   <div class="ui-block-b">
-    <a href="<?= $controller->url_for("courses/show_members", htmlReady($course->id)) ?>"  class="externallink" data-role="button" data-iconpos="right" data-icon="" >Teilnehmer</a>
+    <a href="<?= $controller->url_for("courses/show_members", htmlReady($course->id)) ?>"  class="externallink" data-ajax="false" data-role="button" data-iconpos="right" data-icon="" >Teilnehmer</a>
   </div>
 </fieldset>
 
@@ -231,7 +231,7 @@ else
 	<div id="map_canvas" style="height:300px"></div>
 </div>
 <div class="ui-grid-solo">
-	<div class="ui-block-a"><a href="<?= $controller->url_for("courses/show_map", htmlReady($course->id)) ?>"  class="externallink" data-role="button" data-iconpos="right" data-icon="" >Karte vergr&ouml;&szlig;ern</a></div>
+	<div class="ui-block-a"><a href="<?= $controller->url_for("courses/show_map", htmlReady($course->id)) ?>"  class="externallink" data-ajax="false" data-role="button" data-iconpos="right" data-icon="" >Karte vergr&ouml;&szlig;ern</a></div>
 </div>
 
 

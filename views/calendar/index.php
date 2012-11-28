@@ -18,7 +18,7 @@ $weekday= date("N");
 <div data-role="page" id="landing">
 
 	<div data-role="header" data-position="fixed" data-theme="e" data-fullscreen="true">       
-		<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>          
+		<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-ajax="false" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>          
 		<h1>Stundenplan</h1>
 	</div>
 

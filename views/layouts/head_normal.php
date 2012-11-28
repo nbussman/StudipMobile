@@ -3,13 +3,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stud.IP Mobile</title>
     <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/custom_mobile_theme.min.css" />
-    <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.0rc1.min.css" />
+    <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.2.0.min.css" />
     <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/mobile.css" />
     <link rel="stylesheet"  href="<?= $plugin_path ?>/public/stylesheets/jquery.swipeButton.css" />
     <!--
       <script src="<?= $plugin_path ?>/public/vendor/jquery/jquery-1.6.3.min.js"></script>
       -->
-     <script src="http://code.jquery.com/jquery-1.6.4.js"></script>    <script src="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.0rc1.min.js"></script>
+     <script src="<?= $plugin_path ?>/public/vendor/jquery/jquery-1.8.3.min.js"></script>    
+     <script src="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.2.0.min.js"></script>
     <!-- CUSTOM -->
 
     <!-- MAP-->
@@ -28,7 +29,7 @@
       STUDIP.ABSOLUTE_URI_STUDIP = "<?= $GLOBALS['ABSOLUTE_URI_STUDIP'] ?>";
     </script>
     <script>
-    //register, cause external link like class="externallink" not work for android standard browser
+    //register, cause external link like class="externallink" data-ajax="false" not work for android standard browser
     $('a.externallink').bind( 'tap', function(){ window.location = this.href; } );
 
     	$(document).ready(function() {

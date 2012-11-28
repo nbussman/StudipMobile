@@ -4,7 +4,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/mobile.css" />
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/custom_mobile_theme.min.css" />
-  <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.0rc1.min.css" />
+  <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.2.0.min.css" />
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/mobile.css" />
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/startscreen.css" />
   <link rel="apple-touch-icon" href="<?= $plugin_path ?>/public/images/quickdial/ios.png" type="image/gif" />
@@ -12,8 +12,8 @@
   <!--
   <script src="<?= $plugin_path ?>/public/vendor/jquery/jquery-1.6.3.min.js"></script>
   -->
- <script src="http://code.jquery.com/jquery-1.6.4.js"></script>
-  <script src="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.0rc1.min.js"></script>
+  <script src="<?= $plugin_path ?>/public/vendor/jquery/jquery-1.8.3.min.js"></script>
+  <script src="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.2.0.min.js"></script>
   <script src="<?= $plugin_path ?>/public/vendor/mustache/jquery.mustache.js"></script>
   <script src="<?= $plugin_path ?>/public/vendor/date/date.js"></script>
   <script src="<?= $plugin_path ?>/public/javascripts/application.js"></script>
@@ -30,7 +30,7 @@
         document.cookie = cookieName+"="+escape(cookieValue)
                         + ";expires="+expire.toGMTString();
       }
-    //register, cause external link like class="externallink" not work for android standard browser
+    //register, cause external link like rel="external" not work for android standard browser
     $('a.externallink').bind( 'tap', function(){ window.location = this.href; } );
     </script>
 </head>

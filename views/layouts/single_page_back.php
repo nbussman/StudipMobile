@@ -10,7 +10,7 @@
     <div data-role="page" id="<?= $page_id ?: '' ?>" >
 
       <div data-role="header"  data-theme="<?=TOOLBAR_THEME ?>">
-        <a href="javascript:history.back()" class="externallink" data-icon="arrow-l" data-iconpos="notext" data-theme="d"><?=_("Menu")?></a>
+        <a href="javascript:history.back()" class="externallink" data-ajax="false" data-icon="arrow-l" data-iconpos="notext" data-theme="d"><?=_("Menu")?></a>
         <h1><?= $page_title ?: 'Stud.IP' ?></h1>
        
       </div><!-- /header -->

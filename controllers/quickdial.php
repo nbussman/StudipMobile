@@ -20,6 +20,7 @@ class QuickdialController extends StudipMobileController
     {
 	// get next 5 courses of the day
 	$this->next_courses 		=	Quickdail::get_next_courses( $this->currentUser()->id );
+	$this->user_id 	  	= $this->currentUser()->id;
         
 
 	// get numbers of new mails

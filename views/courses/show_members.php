@@ -24,7 +24,7 @@ $status = '';
 		}
 		?>
         <li>
-	        <a href=" <?= $controller->url_for("profiles/show", htmlReady($member['user_id'])) ?>" class="externallink">
+	        <a href=" <?= $controller->url_for("profiles/show", htmlReady($member['user_id'])) ?>" class="externallink" data-ajax="false">
 		        <img src="<?= $controller->url_for("avatars/show", $member['user_id'], 'medium') ?>" class="ui-li-thumb">
 		        <h3><?=htmlReady($member["title_front"]) ?> <?=htmlReady($member['Vorname']) ?>  <?=htmlReady($member['Nachname'])?> </h3>
 		    </a>

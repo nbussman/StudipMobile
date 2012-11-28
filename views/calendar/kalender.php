@@ -13,7 +13,7 @@ $daysOfMonth = date("t",$stamp);
 <div data-role="page" id="calendar">
 
 	<div data-role="header" data-position="fixed" data-theme="e" data-fullscreen="true">       
-		<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>          
+		<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-ajax="false" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>          
 		<h1>Kalender</h1>
 	</div>
 
@@ -428,7 +428,7 @@ $daysOfMonth = date("t",$stamp);
 <div data-role="page" id="day1">
 
 	<div data-role="header" data-position="fixed" data-theme="e" data-fullscreen="true">       
-		<a href="#calendar" class="externallink" data-icon="arrow-l" data-iconpos="notext" data-theme="c"><?=_("back")?></a>          
+		<a href="#calendar" class="externallink" data-ajax="false" data-icon="arrow-l" data-iconpos="notext" data-theme="c"><?=_("back")?></a>          
 		<h1>1.<?=$month ?>.<?=$year ?> </h1>
 	</div>
 
