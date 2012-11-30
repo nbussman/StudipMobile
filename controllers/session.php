@@ -20,7 +20,7 @@ class SessionController extends StudipMobileController
     function create_action()
     {
 
-        $username = Request::get("username");
+        $username = strtolower( Request::get("username") );
         $password = Request::get("password");
 
         if (isset($username) && isset($password)) {

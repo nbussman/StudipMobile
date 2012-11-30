@@ -23,6 +23,7 @@ class DropboxCommunication {
 	
 	static function tryToConnect ( $call_back_link, $user_id, $token = null )
 	{
+		try{
 		if (isset($token))
 		{
 			//token übergeben
@@ -106,11 +107,28 @@ class DropboxCommunication {
                                         self::deleteToken($user_id);
                                         return self::tryToConnect( $call_back_link, $user_id );
                                 }
+                                catch(\HTTP_OAuth_Exception $e)
+                                {
+	                                	$_SESSION['state'] = 1;
+                                        $state             = 1;
+                                        $link = $oauth->getAuthorizeUrl( $call_back_link ) . "\n";
+                                        unset($_SESSION['oauth_tokens']);
+                                        // delete the stored token
+                                        self::deleteToken($user_id);
+                                        return self::tryToConnect( $call_back_link, $user_id );
+                                }
                                 break;
                         }
                         //connection should be good
                         self::storeToken($user_id);
                         return "connected";
+                        }
+                        catch(Exception $e)
+                        { return false;}
+                        catch(\HTTP_OAuth_Exception $e)
+                                {return false;}
+                        catch(\Dropbox_Exception $e)
+                                {return false;}
 
 	}
 	

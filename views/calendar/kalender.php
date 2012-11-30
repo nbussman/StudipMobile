@@ -12,7 +12,7 @@ $daysOfMonth = date("t",$stamp);
 ?>
 <div data-role="page" id="calendar">
 
-	<div data-role="header" data-position="fixed" data-theme="e" data-fullscreen="true">       
+	<div data-role="header" data-theme="e">       
 		<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-ajax="false" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>          
 		<h1>Kalender</h1>
 	</div>
@@ -416,7 +416,7 @@ $daysOfMonth = date("t",$stamp);
 	</div>
   
 
-	<div data-role="footer" data-id="mainFooter" data-position="fixed">
+	<div data-role="footer" data-id="mainFooter" data-position="fixed" style="position:absolute;bottom:0px;">
 		<div data-role="navbar" data-grid="a">
 			<ul class="apple-navbar-ui comboSprite">
 				<li><a href="<?= $controller->url_for("calendar") ?>" data-iconpos="top" data-icon="calendar"  >Stundenplan</a></li>
@@ -440,9 +440,9 @@ $daysOfMonth = date("t",$stamp);
 		<div class="calendar_bubble">Termin B .. C ... D</div>	   	   
 		
 	</div>
-  
+ 
 
-	<div data-role="footer" data-id="mainFooter" data-position="fixed">
+	<div data-role="footer" data-id="mainFooter" data-position="fixed" style="position:absolute;bottom:0px;">
 		<div data-role="navbar" data-grid="a">
 			<ul class="apple-navbar-ui comboSprite">
 				<li><a href="<?= $controller->url_for("calendar") ?>" data-iconpos="top" data-icon="calendar"  >Stundenplan</a></li>
