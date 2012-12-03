@@ -15,7 +15,6 @@ class DropboxCommunication {
 		session_start();
 		
 		$stored_token  = self::get_token( $user_id );
-		var_dump($stored_token);
 		$connectStatus = self::tryToConnect( $call_back_link, $user_id , $stored_token[0] );
 		
 		return $connectStatus;
