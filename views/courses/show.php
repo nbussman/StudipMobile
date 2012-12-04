@@ -216,7 +216,7 @@ if ( !empty($resources_locations) )
 	$first_resource = array_shift($resources_locations);
 	array_unshift($resources_locations,$first_resource);
 ?>
-
+<!-- SHOW MAP -->
 <script type="text/javascript">
         $(function() {
                 var yourStartLatLng = new google.maps.LatLng(<?=$first_resource['latitude'] ?> ,<?=$first_resource['longitude'] ?>);
@@ -243,6 +243,7 @@ if ( !empty($resources_locations) )
 		});
         });
 </script>
+<!-- END SHOW MAP -->
 <div class="ui-bar-c ui-corner-all ui-shadow" style="margin-top:2em;">
 	<div id="map_canvas" style="height:300px"></div>
 </div>
