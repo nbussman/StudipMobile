@@ -230,8 +230,8 @@ class Mail {
 			}
 	        
 	        //senden der Nachricht
-	        $send = $message->insert_message(mysql_escape_string($nachricht), mysql_escape_string($empf_array), 
-	        			mysql_escape_string($abs), '', '', '', '',mysql_escape_string($betreff), '', 'normal');
+	        $send = $message->insert_message(utf8_decode($nachricht), mysql_escape_string($empf_array), 
+	        			mysql_escape_string($abs), '', '', '', '',utf8_decode($betreff), '', 'normal');
 	        if ($send > 0)	return true;
 	        return false;
         }

@@ -1,5 +1,7 @@
-pluginname=StudipMobile
-pluginclassname=StudipMobile
-origin=elan-ev
-version=1.0
-studipMinVersion=2.0
+pluginname= StudipMobile
+pluginclassname= StudipMobile
+origin= Nils Bussmann
+version= 0.1
+studipMinVersion= 2.0
+discription= Mobile Studip Ansicht
+dbscheme= sql/install.sql

@@ -1,9 +1,16 @@
 
-<div data-role="page" id="<?= $page_id ?: '' ?>">
+<div data-role="page" id="Nachrichten">
 	<div data-role="header" data-theme="a">
         	<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-ajax="false" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>
-        	<h1><?=$page_title ?: 'Stud.IP' ?></h1>
-        	<a href=""data-theme="c">Bearbeiten</a>
+        	<h1>Nachrichten</h1>
+        	<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Eingang</a>
+        	<div data-role="popup" id="popupMenu" data-theme="a">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+					<li data-role="divider" data-theme="a">Eingang</li>
+					<li><a href="<?= $controller->url_for("mails/list_outbox") ?>">Ausgang</a></li>
+					<li><a href="<?= $controller->url_for("mails/write") ?>">Neue Nachricht</a></li>
+				</ul>
+			</div>
 	</div><!-- /header -->
       <div data-role="content">
  <? //<ul id="messages" data-role="listview" data-filter="true" data-filter-placeholder="Suchen" data-inset="false" data-divider-theme="d"> ?>
@@ -22,10 +29,14 @@ else
     //wenn array nicht leer
     foreach ($inbox as $mail)
     {
-            if ( ( !$day ) || ( date("l, j. F, Y",$mail['mkdate']) != $day ) )
-            {
-                    $day = date("l, j. F, Y",$mail['mkdate']);
-                    ?>
+            if ( ( !$day ) || ( date("j.m.Y",$mail['mkdate']) != $dayCount ) )
+            {	
+            		$wochentag = Helper::get_weekday(date("N", $mail['mkdate']));
+            		$monat      = Helper::get_moth(date("m", $mail['mkdate']));
+            		$day = $wochentag.date(", j. ",$mail['mkdate']).$monat.date(", Y",$mail['mkdate']);
+
+                    $dayCount = date("j.m.Y",$mail['mkdate']);
+                                        ?>
                             <li  data-role="list-divider"><?= htmlReady($day) ?></li>
                     <?php
             }
@@ -62,10 +73,7 @@ else
 </ul>
 </div><!-- /content -->
 
-<?
-    // print footer
-    echo $this->render_partial('mails/footer.php');
-?>
+
 
 </div>
 

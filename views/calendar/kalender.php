@@ -15,6 +15,13 @@ $daysOfMonth = date("t",$stamp);
 	<div data-role="header" data-theme="e">       
 		<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-ajax="false" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>          
 		<h1>Kalender</h1>
+		<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Planer</a>
+		<div data-role="popup" id="popupMenu" data-theme="a">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+					<li><a href="<?= $controller->url_for("calendar/index") ?>">Stundenplan</a></li>
+					<li data-role="divider" data-theme="a">Kalender</li>
+				</ul>
+		</div>
 	</div>
 
 	<div data-role="content" class="content">
@@ -416,14 +423,7 @@ $daysOfMonth = date("t",$stamp);
 	</div>
   
 
-	<div data-role="footer" data-id="mainFooter" data-position="fixed" style="position:absolute;bottom:0px;">
-		<div data-role="navbar" data-grid="a">
-			<ul class="apple-navbar-ui comboSprite">
-				<li><a href="<?= $controller->url_for("calendar") ?>" data-iconpos="top" data-icon="calendar"  >Stundenplan</a></li>
-				<li><a href="#" data-iconpos="top" data-icon="calendar" class="ui-btn-active">Kalender</a></li>
-			</ul>
-		</div>
-	</div>
+	
 </div>
 <div data-role="page" id="day1">
 
@@ -442,12 +442,4 @@ $daysOfMonth = date("t",$stamp);
 	</div>
  
 
-	<div data-role="footer" data-id="mainFooter" data-position="fixed" style="position:absolute;bottom:0px;">
-		<div data-role="navbar" data-grid="a">
-			<ul class="apple-navbar-ui comboSprite">
-				<li><a href="<?= $controller->url_for("calendar") ?>" data-iconpos="top" data-icon="calendar"  >Stundenplan</a></li>
-				<li><a href="<?= $controller->url_for("calendar/kalender") ?>" data-iconpos="top" data-icon="calendar" class="ui-btn-active">Kalender</a></li>
-			</ul>
-		</div>
-	</div>
 </div>

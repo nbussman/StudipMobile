@@ -13,29 +13,73 @@ class Helper {
                 switch ( $day )
                 {
                         case 1:
-                                $ausgabe = _("Montag");
+                                $ausgabe = "Montag";
                                 break;
                         case 2:
-                                $ausgabe = _("Dienstag");
+                                $ausgabe = "Dienstag";
                                 break;
                         case 3:
-                                $ausgabe = _("Mittwoch");
+                                $ausgabe = "Mittwoch";
                                 break;
                         case 4:
-                                $ausgabe = _("Donnerstag");
+                                $ausgabe = "Donnerstag";
                                 break;
                         case 5:
-                                $ausgabe = _("Freitag");
+                                $ausgabe = "Freitag";
                                 break;
                         case 6:
-                                $ausgabe = _("Samstag");
+                                $ausgabe = "Samstag";
                                 break;
                         case 7:
-                                $ausgabe = _("Sonntag");
+                                $ausgabe = "Sonntag";
                                 break;
                 }
                 return $ausgabe;
         }
+        static function get_moth( $month )
+        {
+                switch ( $month )
+                {
+                        case 1:
+                                $ausgabe = "Januar";
+                                break;
+                        case 2:
+                                $ausgabe = "Februar";
+                                break;
+                        case 3:
+                                $ausgabe = "März";
+                                break;
+                        case 4:
+                                $ausgabe = "April";
+                                break;
+                        case 5:
+                                $ausgabe = "Mail";
+                                break;
+                        case 6:
+                                $ausgabe = "Juni";
+                                break;
+                        case 7:
+                                $ausgabe = "Juli";
+                                break;
+                        case 8:
+                                $ausgabe = "August";
+                                break;
+                        case 9:
+                                $ausgabe = "September";
+                                break;
+                        case 10:
+                                $ausgabe = "Oktober";
+                                break;
+                        case 11:
+                                $ausgabe = "November";
+                                break;
+                        case 12:
+                                $ausgabe = "Dezember";
+                                break;
+                }
+                return $ausgabe;
+        }
+
         
         public static function correctText($text)
         {

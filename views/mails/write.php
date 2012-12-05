@@ -9,7 +9,15 @@ $page_id = "mail-write";
 <div data-role="page" id="<?= $page_id ?: '' ?>">
 	<div data-role="header" data-theme="a">
         	<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-ajax="false" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>
-        	<h1><?=$page_title ?: 'Stud.IP' ?></h1>
+        	<h1>Nachrichten</h1>
+        	<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Neue</a>
+        	<div data-role="popup" id="popupMenu" data-theme="a">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+					<li><a href="<?= $controller->url_for("mails/index") ?>">Eingang</a></li>
+					<li><a href="<?= $controller->url_for("mails/list_outbox") ?>">Ausgang</a></li>
+					<li data-role="divider" data-theme="a">Neue Nachricht</li>
+				</ul>
+			</div>
 	</div><!-- /header -->
       <div data-role="content">
       <?
@@ -47,6 +55,7 @@ Mit freundlichen Grüßen</textarea>
 	      		
 	      		?>
 				<ul id="courses" data-role="listview" data-filter="true" data-filter-placeholder="Suchen" data-divider-theme="d" >
+				<li data-role="divider" data-theme="d">Bitte wählen Sie einen Empfänger:</li>
 				<?
 					foreach ($members AS $member)   
 					{
@@ -66,8 +75,4 @@ Mit freundlichen Grüßen</textarea>
       
       ?>
 	  </div>
-<?
-    //print footer
-    echo $this->render_partial('mails/footer.php');
-?>
 </div>

@@ -1,7 +1,7 @@
 <?
 
 $this->set_layout("layouts/mail_list");
-$page_title = "Ausgang";
+$page_title = "Nachrichten";
 $page_id = "mail-outbox";
 
 ?>
@@ -10,7 +10,14 @@ $page_id = "mail-outbox";
 	<div data-role="header" data-theme="a">
         	<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-ajax="false" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>
         	<h1><?=$page_title ?: 'Stud.IP' ?></h1>
-        	<a href=""data-theme="c">Bearbeiten</a>
+        	<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Ausgang</a>
+        	<div data-role="popup" id="popupMenu" data-theme="a">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+					<li><a href="<?= $controller->url_for("mails/index") ?>">Eingang</a></li>
+					<li data-role="divider" data-theme="a">Ausgang</li>
+					<li><a href="<?= $controller->url_for("mails/write") ?>">Neue Nachricht</a></li>
+				</ul>
+			</div>
 	</div><!-- /header -->
     <div data-role="content" data-scroll="y">
         <ul id="swipeMe" data-role="listview" data-filter="true" 
@@ -29,13 +36,17 @@ $page_id = "mail-outbox";
 			    //wenn ausgang nicht leer
 			    foreach ($outbox as $mail)
 			    {
-			            if ( ( !$day ) || ( date("l, j. F, Y",$mail['mkdate']) != $day ) )
-			            {
-			                    $day = date("l, j. F, Y",$mail['mkdate']);
-			                    ?>
-			                            <li data-role="list-divider"><?= htmlReady($day) ?></li>
-			                    <?php
-			            }
+			            if ( ( !$day ) || ( date("j.m.Y",$mail['mkdate']) != $dayCount ) )
+				        {	
+				        		$wochentag = Helper::get_weekday(date("N", $mail['mkdate']));
+				        		$monat      = Helper::get_moth(date("m", $mail['mkdate']));
+				        		$day = $wochentag.date(", j. ",$mail['mkdate']).$monat.date(", Y",$mail['mkdate']);
+				
+				                $dayCount = date("j.m.Y",$mail['mkdate']);
+				                                    ?>
+				                        <li  data-role="list-divider"><?= htmlReady($day) ?></li>
+				                <?php
+				        }
 			        
 			            $time = date("H:i",$mail['mkdate']);
 			            ?>
@@ -60,8 +71,4 @@ $page_id = "mail-outbox";
 
 ?>
 	</div><!-- Content -->
-<?
-    //print footer
-    echo $this->render_partial('mails/footer.php');
-?>
 </div><!-- /page -->

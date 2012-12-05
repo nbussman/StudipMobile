@@ -20,19 +20,18 @@ $weekday= date("N");
 	<div data-role="header" data-theme="e">       
 		<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-ajax="false" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>          
 		<h1>Stundenplan</h1>
+		<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Planer</a>
+		<div data-role="popup" id="popupMenu" data-theme="a">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+					<li data-role="divider" data-theme="a">Stundenplan</li>
+					<li><a href="<?= $controller->url_for("calendar/kalender") ?>">Kalender</a></li>
+				</ul>
+		</div>
 	</div>
 
 	<div data-role="content" class="content">
-		<div class="ui-grid-a">
-			<div class="ui-block-a"> <div class="calendar_year"><?=Helper::get_weekday($weekday) ?></div> </div>
-			<div class="ui-block-b"> <div style="text-align:right;">
-				<div data-role="controlgroup" data-type="horizontal" data-mini="true" >
-					<a href="<?= $controller->url_for("calendar/index", htmlReady( ($weekday==1)?6:($weekday-1) )) ?>" data-role="button" data-iconpos="notext" data-icon="arrow-l">left</a>
-					<a href="<?= $controller->url_for("calendar/index", htmlReady( ($weekday==6)?1:($weekday+1) )) ?>" data-role="button" data-iconpos="notext" data-icon="arrow-r">right</a>
-				</div>
-			</div></div>
-		</div>
-		
+		<div class="calendar_year"><?=Helper::get_weekday($weekday) ?></div>
+					
 		<table border=0 cellspacing=0 class="calendar_month">
 		<tr>
 			<td class="<?echo ($weekday==1) ? "calendar_month_activ":"calendar_month_inactive"; ?>"  onclick="location.href='<?= $controller->url_for("calendar/index", htmlReady("1")) ?>'">MON</td>
@@ -87,12 +86,4 @@ $weekday= date("N");
 			
 	</div>
 
-	<div data-role="footer" data-position="fixed" style="position:absolute;bottom:0px;">
-		<div data-role="navbar" data-grid="a">
-			<ul class="apple-navbar-ui comboSprite">
-				<li><a href="" data-iconpos="top" data-icon="cal"  class="ui-btn-active">Stundenplan</a></li>
-				<li><a href="<?= $controller->url_for("calendar/kalender") ?>" data-iconpos="top" data-icon="cal"                         >Kalender</a></li>
-			</ul>
-		</div>
-	</div>
 </div>

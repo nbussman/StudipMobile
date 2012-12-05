@@ -7,7 +7,9 @@ $page_id = "mail-show";
 if (sizeof($mail)) 
 {
         $time = date("H:i",$mail[0]['mkdate']);
-        $day = date("l, j. F, Y",$mail[0]['mkdate']);
+        $wochentag = Helper::get_weekday(date("N", $mail[0]['mkdate']));
+		$monat      = Helper::get_moth(date("m", $mail[0]['mkdate']));
+		$day = $wochentag.date(", j. ",$mail[0]['mkdate']).$monat.date(", Y",$mail[0]['mkdate']);
         ?>
         <ul data-role="listview">
         			<li data-role="fieldcontain">
@@ -25,7 +27,7 @@ if (sizeof($mail))
         </ul>
         <p style="font-family: Helvetica,Arial,sans-serif;font-size: 12px;font-weight: normal;white-space:wrap;">
         	<br />
-        	<?= preg_replace('/\r\n|\r|\n/','<br \>',$mail[0]['message']) ?>
+        	<?= htmlReady($mail[0]['message'],TRUE, TRUE); ?>
         </p>
         <?php
 }
