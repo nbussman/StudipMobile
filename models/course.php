@@ -40,8 +40,10 @@ class Course {
         $sem_number_sql = "INTERVAL(start_time," . join(",",$sem_start_times) .")";
         $sem_number_end_sql = "IF(duration_time=-1,-1,INTERVAL(start_time+duration_time," . join(",",$sem_start_times) ."))";
 
-        $query = "SELECT seminare.VeranstaltungsNummer AS sem_nr, schedule_seminare.color AS color, seminare.Name, seminare.Seminar_id, seminare.status as sem_status,
-                         seminar_user.status, seminar_user.gruppe, seminare.chdate, seminare.visible, admission_binding,modules,IFNULL(visitdate,0) as visitdate, 
+        $query = "SELECT seminare.VeranstaltungsNummer AS sem_nr, schedule_seminare.color AS color, 
+        				 seminare.Name, seminare.Seminar_id, seminare.status as sem_status,
+                         seminar_user.status, seminar_user.gruppe, seminare.chdate, seminare.visible, 
+                         admission_binding,modules,IFNULL(visitdate,0) as visitdate, 
                          admission_prelim, {$sem_number_sql} as sem_number, {$sem_number_end_sql} as sem_number_end $add_fields
                 FROM seminar_user LEFT 
                 JOIN seminare  USING (Seminar_id)
@@ -108,7 +110,7 @@ class Course {
 /*     FILE MANAGEMENT */
 /* /////////////////// */
 
-    static function find_files( $id = null, $user_id )
+    static function find_files( $id, $user_id )
     {
 	    $db = \DBManager::get();
         $query ="       SELECT *
@@ -182,6 +184,25 @@ class Course {
         }
 
 	return $files;
+    }
+    
+    static function finaAllFiles( $user_id )
+    {
+	    //alle kurse besorgen
+	    $courses = self::findAllByUser($user_id);
+	    //alle files von alles kursen holen
+	    $files = array();
+	    foreach ($courses AS $course)
+	    {
+			    $actFiles = Course::find_files($course["Seminar_id"], $user_id);
+			    foreach ($actFiles AS $actFile)
+			    {
+				    array_push($files, $actFile);
+			    }
+			    
+	    }
+	    var_dump($files);
+
     }
 
     static function DropboxUpload($fileid)

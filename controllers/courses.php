@@ -92,4 +92,13 @@ function dropfiles_action( $id = NULL )
     {
 	    $this->members = Course::getMembers( $semId );
     }
+    function dropAll_action()
+    {
+    	session_start();
+	    $call_back_link 		= $_SERVER['HTTP_HOST'].$this->url_for("courses/dropfiles", htmlReady($id) );
+	    $this->files      		= Course::finaAllFiles( $this->currentUser()->id );
+    	$this->user_id	   		= $this->currentUser()->id;
+    	$this->courses 	        = Course::findAllByUser($this->currentUser()->id);
+    	$this->dropCom 			= Course::connectToDropbox( $this->currentUser()->id, $call_back_link );
+    }
 }

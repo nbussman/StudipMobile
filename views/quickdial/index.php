@@ -41,7 +41,7 @@ $page_title = _("Uni Osnabrück");
             </a>
           </div>
           <div class="ui-block-b grid scndrow">
-            <a href="<?= $controller->url_for("dropfiles") ?>">
+            <a href="<?= $controller->url_for("courses/dropAll") ?>">
               <img class="icon" src="<?= $plugin_path ?>/public/images/quickdial/dropbox.png" /><br />
               <span>DropFiles</span>
             </a>
