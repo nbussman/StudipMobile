@@ -7,43 +7,12 @@ Still in process - not ready to use!!
 
 A plugin which serves as a mobile view for the Stud.IP-LMS.
 
+
 Install Notes:
 ––––––––––––––
 - for Dropbox use
 	- PHP Pear HTTP:OAuth should be installed
-	- PHP Pear Dropbox shoud be installed
-
-
-To Do!
-––––––
-- Generell
-	- navigation items "backwards" etc
-- Message
-	- "bearbeiten Button" -> show delete buttons
-	- write message
-	- response message
-	- show action fix
-	
-- Veranstaltungen
-	- dropbox upload
-	- Forum
-
-- Profil
-	- response to empty fields
-	- user rights
-	
-- Planer
-	- implement timetable
-	
-- Community
-	- implement forms
-	
-- Search
-	- implement searchs	
-- News 
-	- Good
-	
-	
-	
+	- PHP Pear Dropbox shoud be installed	
+- may e you have to run the sql-files from the sql folder
 
 
