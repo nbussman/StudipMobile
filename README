@@ -5,7 +5,7 @@ Stud.IP - Mobile
 Still in process - not ready to use!!
 
 
-A plugin which serves as a mobile view for the Stud.IP-LMS.
+A plugin creates a mobile view for the Stud.IP-LMS.
 
 
 Install Notes:
@@ -16,3 +16,7 @@ Install Notes:
 - may e you have to run the sql-files from the sql folder
 
 
+Just install it via the studip-root user. Important the plugin needs to be acceable from
+the nobody-user.
+You can reach the mobile-view at:
+  yourstudipadress / plugins.php / studipmobile

@@ -3,8 +3,6 @@ $this->set_layout("layouts/quickdial");
 $page_title = _("Uni Osnabrück");
 
 ?>
-
-
       
       <div class="ui-grid-b" >
           <div class="ui-block-a grid">
@@ -60,7 +58,7 @@ $page_title = _("Uni Osnabrück");
 	if (!empty($next_courses))
 	{
 		?>
-			<ul data-role="listview" data-inset="true" data-theme="c">
+			<ul id="nextCourses" data-role="listview" data-inset="true" data-theme="c">
 				<li data-role="list-divider" data-theme="b">Als Nächstes</li>
 		<?
 	}
