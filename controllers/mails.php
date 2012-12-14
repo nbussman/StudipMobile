@@ -47,7 +47,7 @@ class MailsController extends StudipMobileController
                     $this->outbox = Mail::findAllByUser($this->currentUser()->id, $intervall, false);
         }
         
-        function show_msg_action($id = null, $mark=0)
+        function show_msg_action($id, $mark=0)
         {
                     $this->mail = Mail::findMsgById($this->currentUser()->id, $id, $mark);
         }

@@ -51,7 +51,7 @@ class Mail {
                                 JOIN auth_user_md5 ON message.autor_id =auth_user_md5.user_id 
                                 JOIN message_user USING (message_id)
                                 WHERE           message.message_id   =  '$msg_id'
-                                        AND     message_user.user_id <> message.autor_id
+                                        AND     message_user.user_id =  '$user_id'
                                         AND     message_user.deleted =  '0'
                                 LIMIT 0,1";
                 
