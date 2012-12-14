@@ -40,7 +40,7 @@ class SessionController extends StudipMobileController
         }
 
         $this->flash["notice"] = "login successful!";
-        $this->redirect("activities");
+        $this->redirect("quickdial");
     }
 
     function destroy_action()
