@@ -66,15 +66,19 @@ $page_title = _("Uni Osnabrück");
 	{	
 		?>
 				<li>
-					<a href="<?= $controller->url_for("courses/show", htmlReady($next["id"])) ?>" data-ajax='false'>
-						<p><strong><?=htmlReady($next["title"]) ?></Strong></p>
+					<?
+						if (strlen($next["id"]) == 32) $this_link = $next["id"];
+						else 	$this_link = "";
+					?>
+						<a href="<?= $controller->url_for("courses/show", htmlReady($this_link)) ?>" data-ajax='false'>
+						<p><strong><?=Helper::get_weekday($next["weekday"]) ?></Strong> <?=htmlReady($next["title"]) ?></p>
 						<p>
 							<?=htmlReady($next["description"]) ?>
 						    <span class="ui-li-count">
 						    	<?=htmlReady($next["beginn"])?> - <?=htmlReady($next["ende"])?>
 						    </span>
 						</p>
-					</a>
+						</a>
 				</li>
 		<?
 	}

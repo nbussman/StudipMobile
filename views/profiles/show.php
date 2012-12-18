@@ -16,12 +16,16 @@ $page_id = "profile-index";
 	                {
 	                        ?>
 	                                <li><a href="mailto:<?=htmlReady( $data["user_data"]["email"] ) ?>">
-	                                		<?=htmlReady( $data["user_data"]["email"] ) ?>
+	                                		<p style="margin:auto;"><?=htmlReady( $data["user_data"]["email"] ) ?></p>
 	                                </a></li>
 	                        <?
 	                }
 	                ?>
-	                <li><a href="<?= $controller->url_for("mails/write", htmlReady($data["user_data"]['user_id'])) ?>">Nachricht senden</a></li>
+	                <li>
+	                	<a href="<?= $controller->url_for("mails/write", htmlReady($data["user_data"]['user_id'])) ?>">
+	                		<p style="margin:auto;">Nachricht senden</p>
+	                	</a>
+	                </li>
 			</ul>
        </div>
        

@@ -48,7 +48,8 @@ class CalendarModell {
         	$current_semester	 = $semdata->getCurrentSemesterData();
         	$current_semester_id = $current_semester['semester_id'];
         	
-        	return \CalendarScheduleModel::getEntries($user_id,$current_semester, 0800,2000,array($weekday-1),false);
+        	return \CalendarScheduleModel::getEntries($user_id, $current_semester, 0800 ,2000,array($weekday-1),false);
+        	
         }
         
         static function getCalendarEvents($user_id, $month, $year)

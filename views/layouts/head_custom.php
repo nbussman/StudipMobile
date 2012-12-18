@@ -30,6 +30,7 @@
         document.cookie = cookieName+"="+escape(cookieValue)
                         + ";expires="+expire.toGMTString();
       }
+      
     //register, cause external link like rel="external" not work for android standard browser
     $('a.externallink').bind( 'tap', function(){ window.location = this.href; } );
     </script>
