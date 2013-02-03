@@ -1,4 +1,5 @@
 <?
+echo "kuss";
 $this->set_layout("layouts/calendar");
 $page_title = "Kalender";
 $page_id = "calendar-kalender";

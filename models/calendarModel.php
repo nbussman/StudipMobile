@@ -6,6 +6,11 @@ class CalendarModell {
 
         static function getMonthDates($user_id, $month, $year)
         {
+        	/*
+require_once($GLOBALS['RELATIVE_PATH_CALENDAR'] . '/lib/calendar/calendar_visual.inc');
+	        var_dumb( includeMonth($date(),"" ));
+*/
+	        echo "blub";
 	        return array(
 	        			1 => 3,
 	        			2 => 2,
@@ -39,6 +44,7 @@ class CalendarModell {
 	        			30 => 1,
 	        			31 => 4
 	        );
+	        
         }
         
         static function getDayDates($user_id, $weekday)
