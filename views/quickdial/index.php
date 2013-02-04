@@ -67,11 +67,14 @@ $page_title = _("Uni Osnabrück");
 		?>
 				<li>
 					<?
-						if (strlen($next["id"]) == 32) $this_link = $next["id"];
+						if (strlen($next["id"]) == 32) 
+            {
+              $this_link = $controller->url_for("courses/show", htmlReady($next["id"]));
+            }
 						else 	$this_link = "";
 					?>
-						<a href="<?= $controller->url_for("courses/show", htmlReady($this_link)) ?>" data-ajax='false'>
-						<p><strong><?=Helper::get_weekday($next["weekday"]) ?></Strong> <?=htmlReady($next["title"]) ?></p>
+						<a href="<?=$this_link ?>" data-ajax='false'>
+						<p><strong><?=Helper::get_weekday($next["weekday"]) ?></strong> <?=htmlReady($next["title"]) ?></p>
 						<p>
 							<?=htmlReady($next["description"]) ?>
 						    <span class="ui-li-count">

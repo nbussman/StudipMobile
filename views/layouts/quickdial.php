@@ -14,7 +14,6 @@
 	      <a href="<?= $controller->url_for("session/destroy") ?>" data-role="button"  
 	      	 data-iconpos="noicon" class="externallink" data-ajax="false">Logout</a>
 	        <h1><?= $page_title ?: 'Stud.IP' ?></h1>
-	      <a href="html/search.html" data-role="button" data-icon="search" data-iconpos="notext">Suche</a>
 	    </div>
 
 	    <div data-role="content">
