@@ -31,46 +31,75 @@ class Resource
 		    //durchlaufen aller Ressourcen für den Termin
 		    foreach ($resourcesForTermin AS $resourceID)
 		    {
-			    $location = Resource::getLocationForResource($resourceID);
-				 	$resources[$metadate_id]["id"]   = $resourceID;
-				 	$resources[$metadate_id]["name"] = Resource::getResourceName($resourceID);
-				 	$resources[$metadate_id]["longitude"] = $location["longitude"];
-				 	$resources[$metadate_id]["latitude"]  = $location["latitude"];   
+		    	$resObject = \ResourceObject::Factory( $resourceID );
+			    $location = Resource::getLocationForResource($resObject);
+			 	$resources[$metadate_id]["id"]   = $resourceID;
+			 	$resources[$metadate_id]["name"] = $resObject->	getName();
+			 	$resources[$metadate_id]["description"] = $resObject->getDescription();
+			 	$resources[$metadate_id]["longitude"] = $location["longitude"];
+			 	$resources[$metadate_id]["latitude"]  = $location["latitude"]; 
 		    }
+		    //var_dump($resources);
 		    
 	    }
 	    return $resources;
 	}
 	
-	function getLocationForResource($resourceID)
+	function getLocationForResource(&$resource)
 	{
-		// checken ob ressource eine loaction hat
-		//wenn nicht wird beim Parent bis level 1 gesucht 
-		$location = array();
-		$level = 1;
-		$long = Resource::getResourceLongitude($resourceID);
-		$lat  = Resource::getResourcelatitude($resourceID);
-		while ( (empty($location)) && ($level > 0))
+		$geoinfo   = array();
+		$location  = array();
+		$plainProp = $resource->getPlainProperties( false );
+		if (preg_match_all("#(?:geoLocation:\s)([0-9\.]+)-([0-9\.]+)#", $plainProp, $geoinfo) > 0)
 		{
-			if ((!empty($long)) && (!empty($lat)))
-			{
-				//location gefunden. in array schreiben
-				$location["longitude"] = $long;
-		 		$location["latitude"]  = $lat;
-				break;
-			}
-			else
-			{
-				//gucken ob parrent resource eine location hat 
-				$parent     = Resource::getResourceParent($resourceID);
-				$resourceID = $parent["parent_id"];
-				$long 		= Resource::getResourceLongitude($resourceID);
-				$lat  		= Resource::getResourcelatitude($resourceID);
-				$level 		= $parent["level"];			
-			}
+			//pattern gefunden
+			$location["longitude"] = $geoinfo[2][0];
+			$location["latitude"]  = $geoinfo[1][0];
+			return $location;
 		}
-		return $location;
+		$parentID = $resource->getParentId();
+		$parentObject = $resObject = \ResourceObject::Factory( $parentID ); 
+		if ($parentObject->getId() == $parentObject->getRootId())
+		{
+			return false;
+		}
+		else
+		{
+			//suche nach geoinfo am parent
+			return Resource::getLocationForResource($parentObject);
+		}
+		
 	}
+
+	// function getLocationForResource($resourceID)
+	// {
+	// 	// checken ob ressource eine loaction hat
+	// 	//wenn nicht wird beim Parent bis level 1 gesucht 
+	// 	$location = array();
+	// 	$level = 1;
+	// 	$long = Resource::getResourceLongitude($resourceID);
+	// 	$lat  = Resource::getResourcelatitude($resourceID);
+	// 	while ( (empty($location)) && ($level > 0))
+	// 	{
+	// 		if ((!empty($long)) && (!empty($lat)))
+	// 		{
+	// 			//location gefunden. in array schreiben
+	// 			$location["longitude"] = $long;
+	// 	 		$location["latitude"]  = $lat;
+	// 			break;
+	// 		}
+	// 		else
+	// 		{
+	// 			//gucken ob parrent resource eine location hat 
+	// 			$parent     = Resource::getResourceParent($resourceID);
+	// 			$resourceID = $parent["parent_id"];
+	// 			$long 		= Resource::getResourceLongitude($resourceID);
+	// 			$lat  		= Resource::getResourcelatitude($resourceID);
+	// 			$level 		= $parent["level"];			
+	// 		}
+	// 	}
+	// 	return $location;
+	// }
 
 
     function getResourceName($resourceID)

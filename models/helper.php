@@ -2,6 +2,20 @@
 
 
 class Helper {
+
+		
+		// Comparison function
+		static function cmpEarlier($a, $b) {
+			if (!isset($a["start"]))	return -1;
+			if (!isset($b["start"]))	return 1;
+			
+		    if ($a["start"] == $b["start"]) {
+		        return 0;
+		    }
+		    return ($a["start"] < $b["start"]) ? -1 : 1;
+		}
+		
+		
         static function stamp_to_dat( $timestamp )
         {
                 $date    = date("j.m.Y", $timestamp);

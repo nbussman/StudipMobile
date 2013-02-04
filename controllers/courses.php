@@ -33,6 +33,7 @@ class CoursesController extends StudipMobileController
     	
         $this->course      = Course::find($id);
         $this->resources   = Course::getResources($this->course);
+        // var_dump($this->course->getUndecoratedData());
         //Course::createDropboxFolders($id);
         if (!$this->course) {
             throw new Trails_Exception(404);

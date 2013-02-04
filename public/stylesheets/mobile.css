@@ -316,6 +316,7 @@ img.contact {
 	vertical-align: bottom;
 	height:30px;
 	border:1px dashed rgba(0,0,0,0.1);
+  background-color: rgba(252,238,146,0.5 );
 }
 .calendar_cell_inactive{
 	color:#bbb9b9;

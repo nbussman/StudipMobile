@@ -19,9 +19,23 @@ class Course {
         	$this->delegate = $seminar;
     }
 
+    function __call($method, $args)
+    {
+        echo __METHOD__.PHP_EOL;
+        if(method_exists($this, $method))
+        {
+            $this->$method($args);
+        }
+    }
+
     function __get($key)
     {
         return $this->delegate->$key;
+    }
+
+    function getUndecoratedData()
+    {
+        return $this->delegate->getUndecoratedData();
     }
 
     function isAuthorized($user_id)

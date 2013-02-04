@@ -33,13 +33,14 @@ class CalendarController extends StudipMobileController
         	if (empty($year) || empty($month))
         	{
 	        	$month = date("n");
-	        	$year  = date("Y"); 
+	        	$year  = date("Y");
         	}
-        	$this->stamp = mktime(0,0,0,$month,5, $year);
+        	$this->stamp = mktime(0,0,0,$month,1, $year);
         	
-        	$this->dots = CalendarModell::getMonthDates($this->currentUser, $mont, $year);
-        	//DbCalendarMonth::DbCalendarMonth( $calendar, 1348733516 );
-	        //$this->dates = CalendarModell::getMonthDates($this->currentUser()->id,$month, $year);
+        	$this->dates = CalendarModell::getMonthDates( $this->currentUser,$this->stamp );
+            $this->dots = CalendarModell::getMonthDayCounts( $this->dates );
+
         }
+
 }
 

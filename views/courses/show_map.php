@@ -46,7 +46,7 @@ array_unshift($resources,$first_resource);
 				?>
 				$('#map_canvas').gmap('addMarker', { 'position':  '<?=$resource['latitude'] ?> ,<?=$resource['longitude'] ?>', 'bounds': false}).click(function() 
 				{
-					$('#map_canvas').gmap('openInfoWindow', { 'content': '<?=htmlReady($resource[name]) ?>' }, this);
+					$('#map_canvas').gmap('openInfoWindow', { 'content': '<span style="font-weight:bold"><?=htmlReady($resource[name]) ?></span><br><span style="font-weight:normal;"><?=htmlReady($resource[description]) ?></span' }, this);
 				});
 				<?
 			}
