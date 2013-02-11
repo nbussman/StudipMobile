@@ -2,6 +2,10 @@
 
 require "StudipMobileController.php";
 
+/**
+ *    just a few helfull functions
+ *    @author Nils Bussmann - nbussman@uos.de
+ */
 class ConverterController extends StudipMobileController
 {
     /**

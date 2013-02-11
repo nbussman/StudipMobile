@@ -1,6 +1,13 @@
 <?php
 
 require_once $this->trails_root .'/models/helper.php';
+
+/**
+ *    global usefull stuff
+ *    @author Marcus Lunzenauer - mlunzena@uos.de
+ *    @author André Klaßen - aklassen@uos.de
+ *    @author Nils Bussmann - nbussman@uos.de
+ */
 class StudipMobileController extends Trails_Controller
 {
 	

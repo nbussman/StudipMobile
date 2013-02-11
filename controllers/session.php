@@ -2,6 +2,13 @@
 
 require "StudipMobileController.php";
 
+/**
+ *    create, destroy (...) sessions
+ *    login process
+ *    @author Marcus Lunzenauer - mlunzena@uos.de
+ *    @author André Klaßen - aklassen@uos.de
+ *    @author Nils Bussmann - nbussman@uos.de
+ */
 class SessionController extends StudipMobileController
 {
 

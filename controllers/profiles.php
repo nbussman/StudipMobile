@@ -1,10 +1,13 @@
 <?php
-
 require "StudipMobileController.php";
 require dirname(__FILE__) . "/../models/profile.php";
 
 use Studip\Mobile\Activity;
 
+/**
+ *    get the profile of a user, if visible
+ *    @author Nils Bussmann - nbussman@uos.de
+ */
 class ProfilesController extends StudipMobileController
 {
     /**

@@ -1,7 +1,10 @@
 <?php
-
 namespace Studip\Mobile;
 
+/**
+ *    Activity Class for newest informations
+ *    @author Nils Bussmann - nbussman@uos.de
+ */
 class Activity {
 
     # TODO args?
