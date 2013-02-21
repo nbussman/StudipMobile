@@ -1,0 +1,587 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"jq",
+				"jquery-mobile	jquerymobile"
+			],
+			[
+				"com",
+				"com_release"
+			],
+			[
+				"comm-s",
+				"comm-section-header	Comment - Section header comment"
+			],
+			[
+				"comm-",
+				"comm-todo	Comment - To-do list"
+			],
+			[
+				"comm",
+				"com_message_pump"
+			],
+			[
+				"comme",
+				"comm-section-header	Comment - Section header comment"
+			],
+			[
+				"commen",
+				"comm-section	Comment - Full section comment"
+			],
+			[
+				"vide",
+				"video_id"
+			],
+			[
+				"time",
+				"timestamp"
+			],
+			[
+				"mk",
+				"mktime"
+			],
+			[
+				"month",
+				"monthDateAmount"
+			],
+			[
+				"mon",
+				"monthDateAmount"
+			],
+			[
+				"reso",
+				"resources"
+			],
+			[
+				"preg",
+				"preg_match"
+			],
+			[
+				"a",
+				"attr"
+			],
+			[
+				"tr",
+				"trackBarItem"
+			],
+			[
+				"vi",
+				"video_breite"
+			],
+			[
+				"dis",
+				"dies_start"
+			],
+			[
+				"block",
+				"inline-block"
+			],
+			[
+				"ta",
+				"table-column-group"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"j",
+				"justFilename"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"backgroun",
+				"background-color"
+			],
+			[
+				"temp",
+				"tempTree"
+			],
+			[
+				"utf",
+				"utf8_encode"
+			],
+			[
+				"pro",
+				"project_id"
+			],
+			[
+				"font",
+				"font-size"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"t",
+				"Tidy CSS"
+			],
+			[
+				"tid",
+				"Tidy CSS"
+			],
+			[
+				"tidy",
+				"Tidy CSS"
+			],
+			[
+				"git",
+				"Git: Status"
+			],
+			[
+				"gits",
+				"Git: Status"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"commen",
+				"Snippet: Comment - Section footer comment"
+			],
+			[
+				"snippet ",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"snipp",
+				"Snippet: XML Processing Instruction"
+			],
+			[
+				"Snippet: ",
+				"Snippet: CDATA"
+			],
+			[
+				"la",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"late",
+				"LaTeXTools: Jump to PDF"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"syn php",
+				"Set Syntax: PHP"
+			],
+			[
+				"syn html",
+				"Set Syntax: HTML"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"sy html",
+				"Set Syntax: HTML"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/public/stylesheets/side_menu.css",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/public/javascripts/side_menu.js",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/head_custom.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/head_normal.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/single_page_back.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/head_calendar.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/profiles/index.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/profiles.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/side_menu.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/single_msg.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/show_map.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/mail_list.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/quickdial.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/mails/write.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/mails/list_outbox.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/mails/list_in.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/calendar/kalender.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/calendar/index.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/mails/index.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/single_page.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/single_page_normal.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/dates/index.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/quickdial/index.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/side_menu_link.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/calendar.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/show_map.php.dist",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/public/javascripts/side_menu.min.js",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/activity.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/dates.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/StudipMobile.php",
+		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/User/Git.sublime-settings",
+		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/Git/Git.sublime-settings",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/course.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/public/javascripts/custom.js",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/mail.php",
+		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/converter.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/search.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/session.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/quickdial.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/StudipMobileController.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/activities.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/calendar.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/courses.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/avatars.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/activities.php.dist",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/mails.php",
+		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/studipmobile.sublime-workspace",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/dates.php.dist",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/dropallfiles.php.dist",
+		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/User/php.sublime-snippet",
+		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/User/LatexBib",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/Arbeit/chapter/02-einleitung/einleitung.tex",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/Arbeit/arbeit.sublime-project",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/Arbeit/arbeit.sublime-workspace",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/Arbeit/chapter/01-abstract/abstract.tex",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/Arbeit/chapter/03-hintergrund/hintergrund.tex",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/Arbeit/chapter/01-abstract/abstract.tex.aux",
+		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/LaTeX Accents/LaTeX.sublime-commands",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/Arbeit/Arbeit.tex",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/Arbeit/papers.bib",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/Arbeit/Arbeit.bbl",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/Arbeit/base/thesis_KBS.cls",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/Arbeit/bsp.tex",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/LatexVorlage/thesis_KBS/base/thesis_KBS.cls",
+		"/Volumes/HDD/Downloads/thesis_KBS 2/bsp.tex",
+		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/LaTeXTools/LaTeX.sublime-build",
+		"/Volumes/HDD/Documents/Studium/Bachelorarbeit/LatexVorlage/thesis_KBS/bsp.tex",
+		"/Users/nbussman/Sites/annotation/vendor/templates/menu_elements.inc.php",
+		"/Users/nbussman/Sites/annotation/vendor/js/script.js",
+		"/Users/nbussman/Sites/annotation/vendor/js/js-mindmap.js",
+		"/Users/nbussman/Sites/annotation/index.php",
+		"/Users/nbussman/Sites/test/vid_push/.htaccess",
+		"/Users/nbussman/Sites/test/vid_push/tests/test_tran_ifram.html",
+		"/Users/nbussman/Sites/test/vid_push/test_tran_ifram.html",
+		"/Users/nbussman/Desktop/BachelorArbeit/buecher.bib",
+		"/Users/nbussman/Desktop/BachelorArbeit/02-einleitung/einleitung.tex",
+		"/Users/nbussman/Desktop/BachelorArbeit/ba_main.tex",
+		"/usr/local/texlive/2012/texmf-dist/tex/latex/biblatex/biblatex.def",
+		"/usr/local/texlive/2012/texmf-dist/tex/latex/biblatex/biblatex.sty",
+		"/Users/nbussman/Desktop/BachelorArbeit/ba_main.aux",
+		"/Users/nbussman/Desktop/BachelorArbeit/ba_main.bbl",
+		"/Users/nbussman/Desktop/BachelorArbeit/code/example.php",
+		"/Users/nbussman/Desktop/BachelorArbeit/01-abstract/abstract.tex",
+		"/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/utf8x.def",
+		"/Users/nbussman/Desktop/BachelorArbeit/Ohne-Titel.tex",
+		"/Users/nbussman/Desktop/latex Tests/Ohne-Titel.aux",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/calendar/singleDay.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/courses/show.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/courses/show_map.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/profile.php",
+		"/Users/nbussman/Sites/test/vid_push/vendor/css/custom.css",
+		"/Users/nbussman/Sites/test/vid_push/play_video3.php",
+		"/Users/nbussman/Sites/test/vid_push/vendor/js/jquery.annotatevideo.js",
+		"/Users/nbussman/Sites/test/vid_push/vendor/js/custom.js",
+		"/Users/nbussman/Sites/test/vid_push/play_video.php",
+		"/Users/nbussman/Sites/test/vid_push/vendor/images/video_poster.png",
+		"/Users/nbussman/Sites/test/vid_push/videos/.htaccess",
+		"/Users/nbussman/Sites/test/vid_push/vendor/js/flarevideo.js",
+		"/Users/nbussman/Sites/test/vid_push/iframe.html",
+		"/Users/nbussman/Sites/test/vid_push/get_video.php",
+		"/Users/nbussman/Sites/test/vid_push/play_video2.php",
+		"/Users/nbussman/Sites/test/vid_push/get_video3.php",
+		"/Users/nbussman/Sites/test/vid_push/get_video2.php",
+		"/Users/nbussman/Sites/test/vid_push/.htacess",
+		"/Users/nbussman/Sites/mindmap/lib/mysql.inc.php",
+		"/Users/nbussman/Sites/mediathek/temp",
+		"/Users/nbussman/Sites/mediathek/index.php",
+		"/Volumes/HDD/Downloads/OriginalHoverEffects/index3.html",
+		"/Users/nbussman/Sites/mindmap/vendor/js/js-mindmap.js",
+		"/Users/nbussman/Sites/mindmap/vendor/css/style.css",
+		"/Users/nbussman/Sites/mindmap/lib/loggedIn.inc.php",
+		"/Users/nbussman/Sites/mindmap/vendor/templates/menu_elements.inc.php",
+		"/Users/nbussman/Sites/mindmap/vendor/templates/footer.inc.php",
+		"/Users/nbussman/Sites/mindmap/vendor/js/script.js",
+		"/Users/nbussman/Sites/mindmap/login.php",
+		"/Users/nbussman/Sites/mindmap/index.php",
+		"/Users/nbussman/Sites/mindmap/vendor/css/style_login.css",
+		"/Users/nbussman/Sites/mindmap/vendor/css/js-mindmap.css",
+		"/Users/nbussman/Sites/mindmap/vendor/templates/header_nodes.inc.php",
+		"/Users/nbussman/Sites/mindmap/vendor/templates/header.inc.php",
+		"/Users/nbussman/Sites/mindmap/edit.php",
+		"/Users/nbussman/Sites/mindmap/index.html",
+		"/Users/nbussman/Sites/mindmap/style.css",
+		"/Users/nbussman/Sites/js-mindmap/index.html",
+		"/Users/nbussman/Sites/js-mindmap/js-mindmap.css"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<open folders>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"head_normal",
+			"head_custom",
+			"$dir =",
+			"dir=",
+			"side_menu_link",
+			"layouts/sid",
+			"include",
+			"style=\"height:13pt;width:13pt; padding-right:5pt;\"",
+			"single_page",
+			"v",
+			"abstrac",
+			"fass",
+			"zusammen",
+			"StudIp",
+			"pt",
+			"utf",
+			"coffee",
+			"relax",
+			"coffee",
+			"    this.mediaid  = splited[1];  \n",
+			"log",
+			"addNode",
+			"addnode",
+			"link",
+			"videoId",
+			"biblatex",
+			"list",
+			"float",
+			"i",
+			"daysOfMonth",
+			"month",
+			"Month",
+			"month",
+			"Month",
+			"month",
+			"stamp",
+			"monthDateAmount",
+			"video",
+			"trackBarItem",
+			"rgb",
+			")\"",
+			"d57768",
+			"span",
+			"video",
+			"../",
+			"Class(\"video\");",
+			"class",
+			"class=\"video\"",
+			"style=\"display:none\"",
+			"video_container",
+			"javascripts",
+			"stylesheets",
+			"2",
+			"justFIlename",
+			"fff",
+			"nav_query",
+			"mysql_espace_string(",
+			"mysql_real_espace_string",
+			"real",
+			"nav_query",
+			"updateVideoLink",
+			"findEq",
+			"filter",
+			"repel",
+			"build_",
+			"else",
+			"click",
+			"activeparent",
+			"node",
+			"background",
+			"modern",
+			"modern_",
+			"title",
+			"build_child",
+			"category_id",
+			"categories",
+			"distance",
+			"length",
+			"//",
+			"require",
+			"o",
+			"asd"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 193.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"head",
+				"vendor/templates/header_nodes.inc.php"
+			],
+			[
+				"sc",
+				"vendor/js/script.js"
+			],
+			[
+				"sty",
+				"vendor/css/style.css"
+			],
+			[
+				"scr",
+				"vendor/js/script.js"
+			],
+			[
+				"js",
+				"js-mindmap.css"
+			],
+			[
+				"js-m",
+				"js-mindmap.js"
+			],
+			[
+				"j",
+				"js-mindmap.css"
+			],
+			[
+				"calenda",
+				"models/calendarModel.php"
+			],
+			[
+				"",
+				"<html>"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 246.0,
+	"status_bar_visible": true
+}

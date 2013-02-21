@@ -6,7 +6,7 @@ $page_title = _("Uni Osnabrück");
       
       <div class="ui-grid-b" >
           <div class="ui-block-a grid">
-            <a href="<?= $controller->url_for("activities") ?>">
+            <a href="<?= $controller->url_for("activities") ?>" class="externallink" data-ajax="false">
               <img class="icon" src="<?= $plugin_path ?>/public/images/quickdial/news.png" /><br />
               <span>News</span>
             </a>
@@ -38,12 +38,12 @@ $page_title = _("Uni Osnabrück");
               <span>Kurse</span>
             </a>
           </div>
-          <div class="ui-block-b grid scndrow">
+          <!-- <div class="ui-block-b grid scndrow">
             <a href="<?= $controller->url_for("courses/dropAll") ?>">
               <img class="icon" src="<?= $plugin_path ?>/public/images/quickdial/dropbox.png" /><br />
               <span>DropFiles</span>
             </a>
-          </div>
+          </div> -->
           <div class="ui-block-c grid scndrow">
             <a href="<?= $controller->url_for("profiles/show",htmlReady($user_id)) ?>"  
                class="externallink" rel="external" data-ajax="false">
@@ -51,6 +51,7 @@ $page_title = _("Uni Osnabrück");
               <span>Ich</span>
             </a>
           </div>
+          <div></div>
       </div>
       <div style="width:70%;height:15px;"></div>
     <?

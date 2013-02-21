@@ -25,6 +25,8 @@ class ProfilesController extends StudipMobileController
     }
     function show_action ($id=null)
     {
+        if ( $id== null)
+            $id = $this->currentUser()->id;
 	    $this->data 	= Profile::findUser( $id );
     }
 }

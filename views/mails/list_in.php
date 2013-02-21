@@ -1,7 +1,6 @@
-
 <div data-role="page" id="Nachrichten">
 	<div data-role="header" data-theme="a">
-        	<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-ajax="false" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>
+        	<? include dirname(__FILE__).'./../layouts/side_menu_link.php'; ?>
         	<h1>Nachrichten</h1>
         	<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Eingang</a>
         	<div data-role="popup" id="popupMenu" data-theme="a">

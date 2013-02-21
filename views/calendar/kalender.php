@@ -14,7 +14,7 @@ $startAt = date("N",$stamp) -1;
 <div data-role="page" id="calendar">
 
 	<div data-role="header" data-theme="e">       
-		<a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-ajax="false" data-icon="grid" data-iconpos="notext" data-theme="c"><?=_("Menu")?></a>          
+        <? include dirname(__FILE__).'./../layouts/side_menu_link.php'; ?>
 		<h1>Kalender</h1>
 		<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Planer</a>
 		<div data-role="popup" id="popupMenu" data-theme="a">

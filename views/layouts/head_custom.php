@@ -1,23 +1,30 @@
-<title>Stud.IP Mobile</title>
+<head>
+  <title>Stud.IP Mobile</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, initial-scale=1, user-scalable=0">
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/mobile.css" />
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/custom_mobile_theme.min.css" />
-  <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.2.0.min.css" />
+  <!-- <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.2.0.min.css" /> -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/mobile.css" />
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/startscreen.css" />
   <link rel="apple-touch-icon" href="<?= $plugin_path ?>/public/images/quickdial/ios.png" type="image/gif" />
   <link rel="stylesheet"  href="<?= $plugin_path ?>/public/stylesheets/jquery.swipeButton.css" />
+  <link rel="stylesheet"  href="<?= $plugin_path ?>/public/stylesheets/side_menu.css" />
   <!--
   <script src="<?= $plugin_path ?>/public/vendor/jquery/jquery-1.6.3.min.js"></script>
   -->
-  <script src="<?= $plugin_path ?>/public/vendor/jquery/jquery-1.8.3.min.js"></script>
-  <script src="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.2.0.min.js"></script>
+  <!--<script src="<?= $plugin_path ?>/public/vendor/jquery/jquery-1.8.3.min.js"></script>-->
+  <!--<script src="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.2.0.min.js"></script>-->
+  <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+
   <script src="<?= $plugin_path ?>/public/vendor/mustache/jquery.mustache.js"></script>
   <script src="<?= $plugin_path ?>/public/vendor/date/date.js"></script>
   <script src="<?= $plugin_path ?>/public/javascripts/application.js"></script>
   <script src="<?= $plugin_path ?>/public/javascripts/jquery.swipeButton.min.js"></script>
+  <script src="<?= $plugin_path ?>/public/javascripts/side_menu.min.js"></script>
   <script>
        
     
@@ -35,3 +42,4 @@
     $('a.externallink').bind( 'tap', function(){ window.location = this.href; } );
     </script>
 </head>
+

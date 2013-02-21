@@ -8,7 +8,7 @@
  ?>
 
 <body onload="detectmobiles()">
-
+	<? include("side_menu.php"); ?>
 	<div data-role="page" id="<?= $page_id ?: '' ?>" data-scroll='true'>
 	    <div data-role="header" data-theme="<?=TOOLBAR_THEME ?>">
 	      <a href="<?= $controller->url_for("session/destroy") ?>" data-role="button"  

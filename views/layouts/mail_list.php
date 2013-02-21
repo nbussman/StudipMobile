@@ -10,7 +10,7 @@
 
 
   <body>
-
+  	<? include("side_menu.php"); ?>
     	
         <?= $content_for_layout ?>
 
