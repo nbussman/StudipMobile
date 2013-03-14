@@ -16,6 +16,7 @@ $weekday= date("N");
 
 
 <div data-role="page" id="timetable">
+	<? include dirname(__FILE__).'./../layouts/side_menu.php'; ?>
 
 	<div data-role="header" data-theme="e">       
         <? include dirname(__FILE__).'./../layouts/side_menu_link.php'; ?>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
     <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/mobile.css" />
     <link rel="stylesheet"  href="<?= $plugin_path ?>/public/stylesheets/jquery.swipeButton.css" />
-    <link rel="stylesheet"  href="<?= $plugin_path ?>/public/stylesheets/side_menu.css" />
+    <!-- <link rel="stylesheet"  href="<?= $plugin_path ?>/public/stylesheets/side_menu.css" /> -->
     <!--
       <script src="<?= $plugin_path ?>/public/vendor/jquery/jquery-1.6.3.min.js"></script>
       -->

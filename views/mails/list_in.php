@@ -1,4 +1,5 @@
 <div data-role="page" id="Nachrichten">
+<? include dirname(__FILE__).'./../layouts/side_menu.php'; ?>
 	<div data-role="header" data-theme="a">
         	<? include dirname(__FILE__).'./../layouts/side_menu_link.php'; ?>
         	<h1>Nachrichten</h1>

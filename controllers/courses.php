@@ -26,7 +26,7 @@ class CoursesController extends StudipMobileController
         // get current semester
         $this->semester = \SemesterData::GetSemesterArray();
         // get all courses
-        $this->courses = Course::findAllByUser($this->currentUser()->id);
+        $this->courses  = Course::findAllByUser($this->currentUser()->id);
     }
 
     function list_files_action($id = NULL)
@@ -120,6 +120,13 @@ class CoursesController extends StudipMobileController
     	$this->courses 	        = Course::findAllByUser($this->currentUser()->id);
     	$this->dropCom 			= Course::connectToDropbox( $this->currentUser()->id, $call_back_link );
     }
+    function json_courses_action()
+    {
+        // get current semester
+        $this->semester = \SemesterData::GetSemesterArray();
+        // get all courses
+        $this->courses  = Course::findAllByUser($this->currentUser()->id);
+    }
     
     /*
      * @brief Action for sync files width the dropbox
@@ -137,5 +144,4 @@ class CoursesController extends StudipMobileController
     //     $this->files            = Course::find_files($id, $this->currentUser()->id);
     //     $this->user_id          = $this->currentUser()->id;
     // }
-
 }

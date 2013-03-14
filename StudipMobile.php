@@ -3,12 +3,11 @@
 class StudipMobile extends StudipPlugin implements SystemPlugin
 {
     const DEFAULT_CONTROLLER = "quickdial";
-    
     /**
      * This method dispatches and displays all actions. It uses the template
      * method design pattern, so you may want to implement the methods #route
      * and/or #display to adapt to your needs.
-     *
+                                                                             *
      * @param  string  the part of the dispatch path, that were not consumed yet
      *
      * @return void

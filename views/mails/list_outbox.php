@@ -7,6 +7,7 @@ $page_id = "mail-outbox";
 ?>
   
 <div data-role="page" id="<?= $page_id ?: '' ?>">
+	<? include dirname(__FILE__).'./../layouts/side_menu.php'; ?>
 	<div data-role="header" data-theme="a">
         	<? include dirname(__FILE__).'./../layouts/side_menu_link.php'; ?>
         	<h1><?=$page_title ?: 'Stud.IP' ?></h1>

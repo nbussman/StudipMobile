@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/startscreen.css" />
   <link rel="apple-touch-icon" href="<?= $plugin_path ?>/public/images/quickdial/ios.png" type="image/gif" />
   <link rel="stylesheet"  href="<?= $plugin_path ?>/public/stylesheets/jquery.swipeButton.css" />
-  <link rel="stylesheet"  href="<?= $plugin_path ?>/public/stylesheets/side_menu.css" />
+  <!-- <link rel="stylesheet"  href="<?= $plugin_path ?>/public/stylesheets/side_menu.css" /> -->
   <!--
   <script src="<?= $plugin_path ?>/public/vendor/jquery/jquery-1.6.3.min.js"></script>
   -->

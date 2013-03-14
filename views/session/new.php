@@ -1,7 +1,7 @@
 <?php
 $page_title = "Stud.IP - Login";
 ?>
-
+<center><img src="<?=$plugin_path ?>/public/images/logo.png" style="border:0;width:80%"></center>
 <form action="<?= $controller->url_for('session/create') ?>" method="post" data-ajax="false">
   <div data-role="fieldcontain">
     <label for="username">Nutzername:</label>
@@ -13,4 +13,4 @@ $page_title = "Stud.IP - Login";
   </div>
     <input type="submit" value="Login">
 </form>
-<button data-theme="e">Zur Webansicht</button>
+<button data-theme="e"><a href="<?=$_SERVER['HTTP_HOST'] ?>">Zur Webansicht</a></button>

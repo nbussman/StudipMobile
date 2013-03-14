@@ -11,27 +11,25 @@ class Activity {
     static function findAllByUser($user_id, $seminar_cur=0, $range = null, $days = 365, $category = null)
     {
         $days = \Request::int('days', 365);
-        
         return self::get_activities($user_id, $range, $days, $seminar_cur);
     }
 
     /**
      * Get all activities for this user as an array.
      */
-    private function get_activities($user_id, $range, $days, $seminar_cur= 0)
+    private function get_activities($user_id, $range, $days, $seminar_cur=0)
     {
-        
         $db = \DBManager::get();
         $now = time();
         $chdate = $now - 24 * 60 * 60 * $days;
         $items = array();
         
         $seminar_add_query = "";
-        if ($seminar_cur != 0)
+        if (($seminar_cur !== 0))
         {
             $seminar_add_query =" AND Seminar_id = '$seminar_cur'";
         }
-        echo $seminar_add_query;
+        //echo $seminar_add_query;exit();
         if ($range === 'user') {
             $sem_filter = "seminar_user.user_id = '$user_id' AND auth_user_md5.user_id = '$user_id'";
             $inst_filter = "user_inst.user_id = '$user_id' AND auth_user_md5.user_id = '$user_id'";
@@ -54,7 +52,7 @@ class Activity {
                 JOIN auth_user_md5 USING (user_id)
                 JOIN seminar_user USING (Seminar_id)
                 JOIN seminare USING (Seminar_id)
-                WHERE $sem_filter AND px_topics.chdate > $chdate $seminar_add_query";
+                WHERE $sem_filter AND px_topics.chdate > $chdate ". $seminar_add_query;
 
         $result = $db->query($sql);
 

@@ -27,4 +27,14 @@
         Ich
     </a></li>
     </ul>
+    <ul data-role="listview" data-theme="a" class="nav-search" data-inset="false" id="kurse_side" style="margin-top:30px;">
+
+    </ul>
+    <script type="text/javascript">
+        $.getJSON('http://localhost/~nbussman/studip2/public/plugins.php/studipmobile/courses/json_courses', function(data) {
+            $.each(data, function(key, val) {
+                $("#kurse_side").append('<li class="ui-btn ui-btn-icon-right ui-li ui-li-has-icon ui-last-child ui-btn-up-a" id="' + val.id + '"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="<?= $controller->url_for("courses/show", htmlReady($course['Seminar_id'])) ?>" class="externallink ui-link-inherit"><img src="<?= $plugin_path ?>/public/images/quickdial/bw/seminar.png"   class="ui-li-icon ui-corner-none" />' + val.name + '</a></div></div></li>');
+            });
+        });
+    </script>
 </div><!-- /panel -->

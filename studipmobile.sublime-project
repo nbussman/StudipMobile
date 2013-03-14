@@ -2,7 +2,9 @@
 	"folders":
 	[
 		{
-			"path": "/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile"
+			"path": "/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile",
+			"file_exclude_patterns":[
+				".gitignore"]
 		}
 	]
 }

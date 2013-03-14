@@ -1,4 +1,6 @@
 <?php
+
+
 $groups = array();
 foreach ($courses as $course) {
     if (!isset($groups[$course['sem_number']])) {
