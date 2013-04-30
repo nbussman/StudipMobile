@@ -21,3 +21,5 @@ class StudipMobile extends StudipPlugin implements SystemPlugin
         $dispatcher->dispatch($unconsumed_path);
     }
 }
+
+?>

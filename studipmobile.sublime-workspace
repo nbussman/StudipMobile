@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"commen",
+				"comm-section	Comment - Full section comment"
+			],
+			[
 				"array_p",
 				"array_push"
 			],
@@ -42,10 +46,6 @@
 			[
 				"comme",
 				"comm-section-header	Comment - Section header comment"
-			],
-			[
-				"commen",
-				"comm-section	Comment - Full section comment"
 			],
 			[
 				"vide",
@@ -139,6 +139,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "StudipMobile.php",
+			"settings":
+			{
+				"buffer_size": 934,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -146,6 +154,14 @@
 		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
 			[
 				"t",
 				"Tidy CSS"
@@ -167,15 +183,7 @@
 				"Git: Status"
 			],
 			[
-				"ins",
-				"Package Control: Install Package"
-			],
-			[
 				"in",
-				"Package Control: Install Package"
-			],
-			[
-				"insta",
 				"Package Control: Install Package"
 			],
 			[
@@ -252,14 +260,29 @@
 	},
 	"file_history":
 	[
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/no_layout.php",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/side_menu.php",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/courses/_list.php",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/courses/json_courses.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/dropboxCom.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/courses/dropfiles.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/public/javascripts/custom.js",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/courses/dropfiles.php.dist",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/course.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/courses.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/resource.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/mail.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/courses/_list.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/mails/list_outbox.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/mails.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/calendarModel.php",
+		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/calendar.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/public/javascripts/cumstom.js.dist",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/side_menu.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/head_normal.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/single_page_back_nosidemenu.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/head_normal.php.dist",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/no_layout.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/courses/json_courses.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/side_menu_better.php.dist",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/single_page_normal.php",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/mails.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/activity.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/activities.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/avatars.php",
@@ -274,10 +297,8 @@
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/single_page.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/mails/index.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/mails/write.php",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/mails/list_outbox.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/mails/list_in.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/mail_list.php",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/head_normal.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/head_custom.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/single_page_back.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/side_menu_link.php",
@@ -297,9 +318,6 @@
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/dates.php",
 		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/User/Git.sublime-settings",
 		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/Git/Git.sublime-settings",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/course.php",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/public/javascripts/custom.js",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/mail.php",
 		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
 		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/converter.php",
@@ -307,7 +325,6 @@
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/session.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/quickdial.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/StudipMobileController.php",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/calendar.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/activities.php.dist",
 		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/studipmobile.sublime-workspace",
@@ -370,16 +387,7 @@
 		"/Users/nbussman/Sites/test/vid_push/.htacess",
 		"/Users/nbussman/Sites/mindmap/lib/mysql.inc.php",
 		"/Users/nbussman/Sites/mediathek/temp",
-		"/Users/nbussman/Sites/mediathek/index.php",
-		"/Volumes/HDD/Downloads/OriginalHoverEffects/index3.html",
-		"/Users/nbussman/Sites/mindmap/vendor/js/js-mindmap.js",
-		"/Users/nbussman/Sites/mindmap/vendor/css/style.css",
-		"/Users/nbussman/Sites/mindmap/lib/loggedIn.inc.php",
-		"/Users/nbussman/Sites/mindmap/vendor/templates/menu_elements.inc.php",
-		"/Users/nbussman/Sites/mindmap/vendor/templates/footer.inc.php",
-		"/Users/nbussman/Sites/mindmap/vendor/js/script.js",
-		"/Users/nbussman/Sites/mindmap/login.php",
-		"/Users/nbussman/Sites/mindmap/index.php"
+		"/Users/nbussman/Sites/mediathek/index.php"
 	],
 	"find":
 	{
@@ -387,17 +395,26 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
+			"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models",
 			"<open folders>"
 		]
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"consumerKey",
+			"res",
+			"Resource",
+			"findMsgById",
+			"calendarModell",
+			"ajax",
+			"externallink",
+			"contentLink",
 			"ready",
 			"document",
 			"callback",
@@ -494,6 +511,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"calendarModel"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -504,8 +522,126 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "StudipMobile.php",
+					"settings":
+					{
+						"buffer_size": 934,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								934
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"is_xml": false,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

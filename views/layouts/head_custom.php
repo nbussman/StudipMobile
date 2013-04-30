@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/mobile.css" />
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/custom_mobile_theme.min.css" />
   <!-- <link rel="stylesheet" href="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.2.0.min.css" /> -->
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/mobile.css" />
   <link rel="stylesheet" href="<?= $plugin_path ?>/public/stylesheets/startscreen.css" />
   <link rel="apple-touch-icon" href="<?= $plugin_path ?>/public/images/quickdial/ios.png" type="image/gif" />
@@ -18,7 +18,7 @@
   <!--<script src="<?= $plugin_path ?>/public/vendor/jquery/jquery-1.8.3.min.js"></script>-->
   <!--<script src="<?= $plugin_path ?>/public/vendor/jquery.mobile/jquery.mobile-1.2.0.min.js"></script>-->
   <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script> 
 
   <script src="<?= $plugin_path ?>/public/vendor/mustache/jquery.mustache.js"></script>
   <script src="<?= $plugin_path ?>/public/vendor/date/date.js"></script>

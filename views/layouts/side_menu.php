@@ -2,27 +2,27 @@
     <h2>Menü</h2>
     <ul data-role="listview" data-theme="a" class="nav-search" data-inset="false" id="menu_side">
         <li class="active" data-icon="false">
-            <a href="<?= $controller->url_for("quickdial") ?>" class="externallink" data-ajax="false" class="contentLink">
+            <a href="<?= $controller->url_for("quickdial") ?>" class="externallink contentLink" data-ajax="false">
                 <img src="<?= $plugin_path ?>/public/images/quickdial/bw/quick.png"   class="ui-li-icon ui-corner-none"> Start
             </a>
         </li>
-        <li data-icon="false"><a href="<?= $controller->url_for("activities") ?>" class="externallink" data-ajax="false" class="contentLink">
+        <li data-icon="false"><a href="<?= $controller->url_for("activities") ?>" class="externallink contentLink" data-ajax="false">
         <img src="<?= $plugin_path ?>/public/images/quickdial/bw/news.png"   class="ui-li-icon ui-corner-none" />
         News
     </a></li>
-    <li data-icon="false"><a href="<?= $controller->url_for("calendar") ?>" class="externallink" data-ajax="false" class="contentLink">
+    <li data-icon="false"><a href="<?= $controller->url_for("calendar") ?>" class="externallink contentLink" data-ajax="false">
         <img src="<?= $plugin_path ?>/public/images/quickdial/bw/schedule.png"   class="ui-li-icon ui-corner-none" />
         Planer
     </a></li>
-    <li data-icon="false"><a href="<?= $controller->url_for("mails") ?>" class="externallink" data-ajax="false" class="contentLink">
+    <li data-icon="false"><a href="<?= $controller->url_for("mails") ?>" class="externallink contentLink" data-ajax="false">
         <img src="<?= $plugin_path ?>/public/images/quickdial/bw/mail.png"   class="ui-li-icon ui-corner-none" />
         Nachrichten
     </a></li>
-    <li data-icon="false"><a href="<?= $controller->url_for("courses") ?>" class="externallink" data-ajax="false" class="contentLink">
+    <li data-icon="false"><a href="<?= $controller->url_for("courses") ?>" class="externallink contentLink" data-ajax="false">
         <img src="<?= $plugin_path ?>/public/images/quickdial/bw/seminar.png"   class="ui-li-icon ui-corner-none" />
         Kurse
     </a></li>
-    <li data-icon="false"><a href="<?= $controller->url_for("profiles/show") ?>" class="externallink" data-ajax="false" class="contentLink">
+    <li data-icon="false"><a href="<?= $controller->url_for("profiles/show") ?>" class="externallink contentLink" data-ajax="false">
         <img src="<?= $plugin_path ?>/public/images/quickdial/bw/profile.png"   class="ui-li-icon ui-corner-none" />
         Ich
     </a></li>

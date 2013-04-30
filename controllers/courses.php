@@ -31,15 +31,20 @@ class CoursesController extends StudipMobileController
 
     function list_files_action($id = NULL)
     {
+        // is the user in the course?
+        $course      = Course::find($id);
+        if (!$course->isAuthorized($this->currentUser()->id)) {
+            throw new Trails_Exception(403);
+        }//else -> user is in the course ...
         // give seminarId to the view
-		$this->seminar_id 	= $id;
+        $this->seminar_id   = $id;
         // get files as array and give it to the view
-        $this->files 		= Course::find_files($id, $this->currentUser()->id);
+        $this->files        = Course::find_files($id, $this->currentUser()->id);
     }
  
     function show_action( $id = NULL )
     {
-        // get specific course	
+        // get specific course  
         $this->course      = Course::find($id);
         // get specific ressources for the course
         $this->resources   = Course::getResources($this->course);
@@ -56,27 +61,27 @@ class CoursesController extends StudipMobileController
     function show_map_action($id)
     {
         // get specific course object
-	    $this->course      = Course::find($id);
+        $this->course      = Course::find($id);
         // get destinations of the course
         $this->resources   = Course::getResources($this->course);
     }
 
     function dropfiles_action( $id = NULL )
     {
-    	session_start();
-    	//$call_back_link  = "http://localhost/~nbussman/studip2/public/plugins.php/studipmobile/courses/dropfiles/".$id;
-    	
+        session_start();
+        //$call_back_link  = "http://localhost/~nbussman/studip2/public/plugins.php/studipmobile/courses/dropfiles/".$id;
+        
         //generate the callbacklink
         $call_back_link =  "http://".$_SERVER['HTTP_HOST'].$this->url_for("courses/dropfiles", htmlReady($id) );
         // give seminar id to the view
-    	$this->seminar_id  		= $id;
+        $this->seminar_id       = $id;
         // get files to sync width the userers dropbox
         // the view starts the upload via ajax
-    	$this->files      		= Course::find_files($id, $this->currentUser()->id);
+        $this->files            = Course::find_files($id, $this->currentUser()->id);
         // give user_id t the view
-    	$this->user_id	   		= $this->currentUser()->id;
+        $this->user_id          = $this->currentUser()->id;
         // start the sync prozess
-    	$this->dropCom 			= Course::connectToDropbox( $this->currentUser()->id, $call_back_link );
+        $this->dropCom          = Course::connectToDropbox( $this->currentUser()->id, $call_back_link );
     }
     /*
      *  this controller function is called by the view via ajax
@@ -85,7 +90,7 @@ class CoursesController extends StudipMobileController
     function upload_action( $fileid )
     {
         // try to upload a specific file to the users dropboxs
-	    $this->upload_info = Course::DropboxUpload($fileid);
+        $this->upload_info = Course::DropboxUpload($fileid);
     }
     
     /*
@@ -104,7 +109,7 @@ class CoursesController extends StudipMobileController
      */
     function show_members_action( $semId )
     {
-	    $this->members = Course::getMembers( $semId );
+        $this->members = Course::getMembers( $semId );
     }
 
     /*
@@ -113,12 +118,12 @@ class CoursesController extends StudipMobileController
      */
     function dropAll_action()
     {
-    	session_start();
-	    $call_back_link 		= $_SERVER['HTTP_HOST'].$this->url_for("courses/dropfiles", htmlReady($id) );
-	    $this->files      		= Course::finaAllFiles( $this->currentUser()->id );
-    	$this->user_id	   		= $this->currentUser()->id;
-    	$this->courses 	        = Course::findAllByUser($this->currentUser()->id);
-    	$this->dropCom 			= Course::connectToDropbox( $this->currentUser()->id, $call_back_link );
+        session_start();
+        $call_back_link         = $_SERVER['HTTP_HOST'].$this->url_for("courses/dropfiles", htmlReady($id) );
+        $this->files            = Course::finaAllFiles( $this->currentUser()->id );
+        $this->user_id          = $this->currentUser()->id;
+        $this->courses          = Course::findAllByUser($this->currentUser()->id);
+        $this->dropCom          = Course::connectToDropbox( $this->currentUser()->id, $call_back_link );
     }
     function json_courses_action()
     {

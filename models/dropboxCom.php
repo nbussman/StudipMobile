@@ -22,7 +22,6 @@ class DropboxCommunication {
 	
 	static function tryToConnect ( $call_back_link, $user_id, $token = null )
 	{
-		try{
 		if (isset($token))
 		{
 			//token übergeben
@@ -44,90 +43,90 @@ class DropboxCommunication {
 		$consumerSecret  = 'hveok3hllw48hji';
 		$oauth   = new \Dropbox_OAuth_PEAR ($consumerKey, $consumerSecret);
 		$dropbox = new \Dropbox_API        ($oauth, \Dropbox_API::ROOT_SANDBOX);
-		
+		try{
 		switch($state) 
-                        {
-                        
-                            /* In this phase we grab the initial request tokens
-                               and redirect the user to the 'authorize' page hosted
-                               on dropbox */
-                            case 1 :
-                                $tokens 					= $oauth->getRequestToken();
-                                $link 						= $oauth->getAuthorizeUrl( $call_back_link ) . "\n";
+        {
+        
+            /* In this phase we grab the initial request tokens
+               and redirect the user to the 'authorize' page hosted
+               on dropbox */
+            case 1 :
+                $tokens 					= $oauth->getRequestToken();
+                $link 						= $oauth->getAuthorizeUrl( $call_back_link ) . "\n";
 
-                                // Note that if you want the user to automatically redirect back, you can
-                                // add the 'callback' argument to getAuthorizeUrl.
-                                $link = $oauth->getAuthorizeUrl( $call_back_link ) . "\n";
-                                $_SESSION['state'] 			= 2;
-                                $_SESSION['oauth_tokens'] 	= $tokens;
-                                return $link;
-                                break;
-                        
-                            /* In this phase, the user just came back from authorizing
-                               and we're going to fetch the real access tokens */
-                            case 2 :
-                                $oauth->setToken($_SESSION['oauth_tokens']);
-                                try{
-                                    $tokens            		  = $oauth->getAccessToken();
-                                    $_SESSION['state'] 		  = 3;
-                                    $state             		  = 3;
-                                    $_SESSION['oauth_tokens'] = $tokens;
-                                    
-                                }
-                                catch( \PEAR_Exception $e){
-                                	
-                                    $_SESSION['state']        = 1;
-                                    $state                    = 1;
-                                    $_SESSION['oauth_tokens'] = NULL;
-                                    $tokens                   = NULL;
-                                    $link = $oauth->getAuthorizeUrl( $call_back_link ) . "\n";
-                                    return self::tryToConnect( $call_back_link, $user_id );
-                                    break;
-                                }
-                                // There is no break here, intentional
-                        
-                            /* This part gets called if the authentication process
-                               already succeeded. We can use our stored tokens and the api 
-                               should work. Store these tokens somewhere, like a database */
-                            case 3 :
-                                try
-                                {
-                                        $oauth->setToken($_SESSION['oauth_tokens']);
-                                        //checks if Connection is Good
-                                        $dropbox->getAccountInfo();
-                                }
-                                catch(\Dropbox_Exception $e)
-                                {
-                                        $_SESSION['state'] = 1;
-                                        $state             = 1;
-                                        $link = $oauth->getAuthorizeUrl( $call_back_link ) . "\n";
-                                        unset($_SESSION['oauth_tokens']);
-                                        // delete the stored token
-                                        self::deleteToken($user_id);
-                                        return self::tryToConnect( $call_back_link, $user_id );
-                                }
-                                catch(\HTTP_OAuth_Exception $e)
-                                {
-	                                	$_SESSION['state'] = 1;
-                                        $state             = 1;
-                                        $link = $oauth->getAuthorizeUrl( $call_back_link ) . "\n";
-                                        unset($_SESSION['oauth_tokens']);
-                                        // delete the stored token
-                                        self::deleteToken($user_id);
-                                        return self::tryToConnect( $call_back_link, $user_id );
-                                }
-                                break;
-                        }
-                        //connection should be good
-                        self::storeToken($user_id);
-                        return "connected";
-                        }
-                        catch(Exception $e)
-                        { return false;}
-                        catch(\HTTP_OAuth_Exception $e)
-                                {return false;}
-                        catch(\Dropbox_Exception $e)
-                                {return false;}
+                // Note that if you want the user to automatically redirect back, you can
+                // add the 'callback' argument to getAuthorizeUrl.
+                $link = $oauth->getAuthorizeUrl( $call_back_link ) . "\n";
+                $_SESSION['state'] 			= 2;
+                $_SESSION['oauth_tokens'] 	= $tokens;
+                return $link;
+                break;
+        
+            /* In this phase, the user just came back from authorizing
+               and we're going to fetch the real access tokens */
+            case 2 :
+                $oauth->setToken($_SESSION['oauth_tokens']);
+                try{
+                    $tokens            		  = $oauth->getAccessToken();
+                    $_SESSION['state'] 		  = 3;
+                    $state             		  = 3;
+                    $_SESSION['oauth_tokens'] = $tokens;
+                    
+                }
+                catch( \PEAR_Exception $e){
+                	
+                    $_SESSION['state']        = 1;
+                    $state                    = 1;
+                    $_SESSION['oauth_tokens'] = NULL;
+                    $tokens                   = NULL;
+                    $link = $oauth->getAuthorizeUrl( $call_back_link ) . "\n";
+                    return self::tryToConnect( $call_back_link, $user_id );
+                    break;
+                }
+                // There is no break here, intentional
+        
+            /* This part gets called if the authentication process
+               already succeeded. We can use our stored tokens and the api 
+               should work. Store these tokens somewhere, like a database */
+            case 3 :
+                try
+                {
+                        $oauth->setToken($_SESSION['oauth_tokens']);
+                        //checks if Connection is Good
+                        $dropbox->getAccountInfo();
+                }
+                catch(\Dropbox_Exception $e)
+                {
+                        $_SESSION['state'] = 1;
+                        $state             = 1;
+                        $link = $oauth->getAuthorizeUrl( $call_back_link ) . "\n";
+                        unset($_SESSION['oauth_tokens']);
+                        // delete the stored token
+                        self::deleteToken($user_id);
+                        return self::tryToConnect( $call_back_link, $user_id );
+                }
+                catch(\HTTP_OAuth_Exception $e)
+                {
+                    	$_SESSION['state'] = 1;
+                        $state             = 1;
+                        $link = $oauth->getAuthorizeUrl( $call_back_link ) . "\n";
+                        unset($_SESSION['oauth_tokens']);
+                        // delete the stored token
+                        self::deleteToken($user_id);
+                        return self::tryToConnect( $call_back_link, $user_id );
+                }
+                break;
+        }
+        //connection should be good
+        self::storeToken($user_id);
+        return "connected";
+        }
+        catch(Exception $e)
+        { return false;}
+        catch(\HTTP_OAuth_Exception $e)
+                {return false;}
+        catch(\Dropbox_Exception $e)
+                {return false;}
 
 	}
 	

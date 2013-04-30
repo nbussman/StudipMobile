@@ -1,8 +1,10 @@
 <?php
-$this->set_layout("layouts/single_page_back");
+//NO SIDE MENU: BECAUSE THIS CAUSE AN ERROR-> DIE IS LOADED TWICE -> EVERY REQUEST IS SEND TWICE =(
+
+
+$this->set_layout("layouts/single_page_back_nosidemenu");
 $page_title      = "Dateien droppen";
 $page_id         = "courses-dropfiles";
-
 
 if (($dropCom != "connected"))
 {
@@ -53,7 +55,7 @@ elseif($dropCom == "connected")
     
     <script>
          //create_folders('<?= $controller->url_for("courses/createDropboxFolder", htmlReady( $seminar_id )) ?>');
-         //creating folders, after that uploading files
+         //creating folders, after that: uploading files
          $.ajax(
 			{
 			  	type:  "GET",
@@ -74,8 +76,8 @@ elseif($dropCom == "connected")
 					newLI.className         = "ui-li ui-li-static ui-body-b ui-corner-top ui-corner-bottom";
 					document.getElementById("uploadList").appendChild(newLI);
 				}
-				
 			}).done(function() { 
+					send="alreadySend";
 					<?
 						list($upload_link) = explode( "?cid=",$controller->url_for("courses/upload") );
 						foreach($files AS $file)

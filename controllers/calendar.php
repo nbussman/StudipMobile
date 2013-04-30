@@ -3,7 +3,7 @@
 require "StudipMobileController.php";
 require dirname(__FILE__) . "/../models/calendarModel.php";
 
-use Studip\Mobile\CalendarModell;
+use Studip\Mobile\calendarModel;
 
 /**
  *    Get cycle events and dates for schedule and calendar
@@ -30,7 +30,7 @@ class CalendarController extends StudipMobileController
             //give weekday to the view
         	$this->weekday = $weekday;
         	//get events for current weekday
-            $this->termine = CalendarModell::getDayDates($this->currentUser()->id, $weekday);
+            $this->termine = calendarModel::getDayDates($this->currentUser()->id, $weekday);
 
         }
         function kalender_action($year = NULL, $month = NULL)
@@ -44,9 +44,9 @@ class CalendarController extends StudipMobileController
             //make a timestamp for the date
         	$this->stamp = mktime(0,0,0,$month,1, $year);
         	//get dates of the month 
-        	$this->dates = CalendarModell::getMonthDates( $this->currentUser,$this->stamp );
+        	$this->dates = calendarModel::getMonthDates( $this->currentUser,$this->stamp );
             //get the dots for each day
-            $this->dots = CalendarModell::getMonthDayCounts( $this->dates );
+            $this->dots = calendarModel::getMonthDayCounts( $this->dates );
 
         }
 
