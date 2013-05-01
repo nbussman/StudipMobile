@@ -49,6 +49,7 @@ class Course {
 				$sem_start_times[] = $value['beginn'];
 		}
 
+		$sem_start_times = array_reverse($sem_start_times);
 		$sem_number_sql = "INTERVAL(start_time," . join(",",$sem_start_times) .")";
 		$sem_number_end_sql = "IF(duration_time=-1,-1,INTERVAL(start_time+duration_time," . join(",",$sem_start_times) ."))";
 
