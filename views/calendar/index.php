@@ -14,7 +14,6 @@ $weekday= date("N");
 */
 ?>
 
-
 <div data-role="page" id="timetable">
 	<? include dirname(__FILE__).'./../layouts/side_menu.php'; ?>
 
@@ -58,8 +57,14 @@ $weekday= date("N");
 					{
 						foreach($array["col_0"] as $termin )
 						{
-							//var_dump($termin);
-							$link = $controller->url_for("courses/show", htmlReady(substr($termin['id'],0,32)));
+							if (strlen($termin['id']) >=32)
+							{
+								$link = $controller->url_for("courses/show", htmlReady(substr($termin['id'],0,32)));	
+							}
+							else
+							{
+								$link = "";
+							}
 							?>
 							<div class="calendar_time" onclick="location.href='<?=$link ?>'">
 									 
