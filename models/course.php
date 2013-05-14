@@ -111,7 +111,17 @@ class Course {
 	{
 		return new Course($id);
 	}
-	
+
+	function isReadable($id, $user_id)
+	{
+		$courses = Course::findAllByUser( $user_id );
+		foreach ( $courses AS $course)
+		{
+			if ($course["Seminar_id"] == $id)	return true;
+			
+		}
+		return false;
+	}
 
 
 /* /////////////////// */

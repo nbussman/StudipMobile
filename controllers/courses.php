@@ -47,9 +47,10 @@ class CoursesController extends StudipMobileController
     {
         // is the user in the course?
         $course      = Course::find($id);
-        if (!$course->isAuthorized($this->currentUser()->id)) {
+
+        if (!Course::isReadable($id, $this->currentUser()->id)) {
             throw new Trails_Exception(403);
-        }//else -> user is in the course ...
+        }
         // give seminarId to the view
         $this->seminar_id   = $id;
         // get files as array and give it to the view
@@ -67,9 +68,10 @@ class CoursesController extends StudipMobileController
         if (!$this->course) {
             throw new Trails_Exception(404);
         }
-        if (!$this->course->isAuthorized($this->currentUser()->id)) {
+        if (!Course::isReadable($id, $this->currentUser()->id)) {
             throw new Trails_Exception(403);
         }
+        
     }
 
     function show_map_action($id)
@@ -78,6 +80,9 @@ class CoursesController extends StudipMobileController
         $this->course      = Course::find($id);
         // get destinations of the course
         $this->resources   = Course::getResources($this->course);
+        if (!Course::isReadable($id, $this->currentUser()->id)) {
+            throw new Trails_Exception(403);
+        }
     }
 
     function dropfiles_action( $id = NULL )
@@ -85,6 +90,9 @@ class CoursesController extends StudipMobileController
         session_start();
         //$call_back_link  = "http://localhost/~nbussman/studip2/public/plugins.php/studipmobile/courses/dropfiles/".$id;
         
+        if (!Course::isReadable($id, $this->currentUser()->id)) {
+            throw new Trails_Exception(403);
+        }
         //generate the callbacklink
         $call_back_link =  "http://".$_SERVER['HTTP_HOST'].$this->url_for("courses/dropfiles", htmlReady($id) );
         // give seminar id to the view
@@ -124,6 +132,9 @@ class CoursesController extends StudipMobileController
     function show_members_action( $semId )
     {
         $this->members = Course::getMembers( $semId );
+        if (!Course::isReadable($semId, $this->currentUser()->id)) {
+            throw new Trails_Exception(403);
+        }
     }
 
     /*
