@@ -23,7 +23,7 @@ foreach ($courses as $course) {
     $groups[$course['sem_number']][] = $course;
 }
 arsort($groups);
-$groups = array_reverse($groups);
+$groups = array_reverse($groups,true);
 ?>
 
 <ul id="courses" data-role="listview" data-filter="true" data-filter-placeholder="Suchen" data-divider-theme="d">
