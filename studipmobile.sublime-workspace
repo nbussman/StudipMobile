@@ -252,6 +252,11 @@
 	},
 	"file_history":
 	[
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/calendarModel.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/calendar/index.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/courses.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/course.php",
+		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/courses/_list.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/StudipMobile.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/head_normal.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/head_custom.php",
@@ -259,14 +264,10 @@
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/courses/dropfiles.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/public/javascripts/custom.js",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/courses/dropfiles.php.dist",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/course.php",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/courses.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/resource.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/mail.php",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/courses/_list.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/mails/list_outbox.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/mails.php",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/models/calendarModel.php",
 		"/Users/nbussman/Library/Application Support/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/controllers/calendar.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/public/javascripts/cumstom.js.dist",
@@ -283,7 +284,6 @@
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/mails/show_msg.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/single_msg.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/calendar/kalender.php",
-		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/calendar/index.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/calendar.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/layout_settings.php",
 		"/Users/nbussman/Sites/studip2/public/plugins_packages/elan-ev/StudipMobile/views/layouts/show_map.php",
@@ -399,6 +399,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"start_time",
+			"sem_number_sql",
 			"consumerKey",
 			"res",
 			"Resource",
